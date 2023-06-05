@@ -3,6 +3,11 @@
 ### ACHTUNG - WURDE CUSTOMIZED! ###
 
 # ======= #
+# Wichtel #
+# ======= #
+Assets/Resources/GitVersion/GitVersionHolder.asset
+
+# ======= #
 # Windows #
 # ======= #
 # Windows thumbnail cache files
@@ -167,7 +172,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.aab
-*.unitypackage
+# *.unitypackage
 *.app
 
 # Crashlytics generated file
