@@ -7,11 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(FirstPersonController))]
 public abstract class FirstPersonModule : MonoBehaviour
 {
+    [field: BoxGroup("Enable or disable this module")]
     [field: SerializeField]
-    [field: HideInInspector]
     public bool IsEnabled { get; private set; }
     
-    [Button]
     public void SetEnabled(bool isEnabled)
     {
         IsEnabled = isEnabled;
