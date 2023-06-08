@@ -15,7 +15,7 @@ public class LookAround : FirstPersonModule
             return;
         }
 
-        //move player here
+        //move player/camera here
         verticalRotation -= amount.y;
         verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
 

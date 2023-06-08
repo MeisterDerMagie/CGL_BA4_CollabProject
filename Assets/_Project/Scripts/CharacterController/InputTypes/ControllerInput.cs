@@ -6,6 +6,11 @@ using UnityEngine;
 
 public class ControllerInput : InputType
 {
+    //Movement Variables
+    float moveX, moveZ;
+    Vector3 movementDirection;
+
+    //Rotation Variables
     float controllerRotationX, controllerRotationY;
     float controllerDeadzone;
 
@@ -15,6 +20,16 @@ public class ControllerInput : InputType
 
     public override void Tick()
     {
+        Debug.Log("Controller Input Tick.");
+
+        //Walk
+        moveX = Input.GetAxis("Horizontal");
+        moveZ = Input.GetAxis("Vertical");
+        movementDirection = new Vector3(moveX, 0, moveZ);
+        FirstPersonController.GetModule<Walk>()?.ExecuteWalk(movementDirection);
+
+
+        //Look Around
         controllerRotationX = Input.GetAxis("Mouse X");
         controllerRotationY = Input.GetAxis("Mouse Y");
 
@@ -23,9 +38,8 @@ public class ControllerInput : InputType
             FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(new Vector2(controllerRotationX, controllerRotationY));
         }
 
-        Debug.Log("Controller Input Tick.");
-
-        if(Input.GetKeyDown(KeyCode.Space))
+        //Teleport
+        if (Input.GetKeyDown(KeyCode.Space))
             FirstPersonController.GetModule<Teleport>()?.ExecuteTeleport(Vector3.zero);
     }
 }
