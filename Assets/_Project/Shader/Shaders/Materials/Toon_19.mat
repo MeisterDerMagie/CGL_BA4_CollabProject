@@ -23,7 +23,7 @@ Material:
   m_Name: Toon_19
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords:
   - _HALFTONESHAPE_DOT
   - _RECEIVE_SHADOWS_OFF
