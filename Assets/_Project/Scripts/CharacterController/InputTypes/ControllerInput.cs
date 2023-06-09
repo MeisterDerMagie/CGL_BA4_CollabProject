@@ -11,8 +11,7 @@ public class ControllerInput : InputType
     Vector3 movementDirection;
 
     //Rotation Variables
-    float controllerRotationX, controllerRotationY;
-    float controllerDeadzone;
+    float mouseX, mouseY;
 
     public ControllerInput(FirstPersonController firstPersonController) : base(firstPersonController)
     {
@@ -28,13 +27,9 @@ public class ControllerInput : InputType
 
 
         //Look Around
-        controllerRotationX = Input.GetAxis("Mouse X");
-        controllerRotationY = Input.GetAxis("Mouse Y");
-
-        if (Mathf.Abs(controllerRotationX) > controllerDeadzone || Mathf.Abs(controllerRotationY) > controllerDeadzone)
-        {
-            FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(new Vector2(controllerRotationX, controllerRotationY));
-        }
+        mouseX = Input.GetAxis("Mouse X");
+        mouseY = Input.GetAxis("Mouse Y");
+        FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(new Vector2(mouseX, mouseY));
 
         //Teleport
         if (Input.GetKeyDown(KeyCode.Space))
