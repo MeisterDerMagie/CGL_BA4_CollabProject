@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class TEST_ScaleObject : MonoBehaviour
+public class InteractableObjectExample : MonoBehaviour
 {
     public void ScaleUp()
     {

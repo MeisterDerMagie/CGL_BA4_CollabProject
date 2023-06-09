@@ -12,6 +12,6 @@ public class NoInput : InputType
 
     public override void Tick()
     {
-        Debug.Log("No Input tick.");
+        //we do nothing here because well ... no input means that no input is being processed :D
     }
 }

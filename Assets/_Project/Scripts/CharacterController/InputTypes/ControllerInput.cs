@@ -20,8 +20,6 @@ public class ControllerInput : InputType
 
     public override void Tick()
     {
-        Debug.Log("Controller Input Tick.");
-
         //Walk
         moveX = Input.GetAxis("Horizontal");
         moveZ = Input.GetAxis("Vertical");
@@ -43,7 +41,8 @@ public class ControllerInput : InputType
             FirstPersonController.GetModule<Teleport>()?.ExecuteTeleport(Vector3.zero);
         
         
-        //Interact
+        //Hover and Interact
+        FirstPersonController.GetModule<Hover>()?.ExecuteHover(Input.mousePosition);
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(Input.mousePosition);
     }
 }
