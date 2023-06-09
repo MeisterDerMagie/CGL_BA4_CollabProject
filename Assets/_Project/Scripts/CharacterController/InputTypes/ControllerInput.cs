@@ -24,7 +24,7 @@ public class ControllerInput : InputType
 
 
         //Look Around
-        //FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(Input.mousePosition);
+        FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(Input.mousePosition);
 
         //Teleport
         if (Input.GetKeyDown(KeyCode.Space))

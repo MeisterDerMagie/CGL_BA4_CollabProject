@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 1803901135336897095}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 35.65, z: 0}
 --- !u!114 &3587747672442375481
 MonoBehaviour:
@@ -97,9 +97,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsEnabled>k__BackingField: 1
+  cam: {fileID: 8674288109051456372}
   minVerticalRotation: -90
   maxVerticalRotation: 90
-  cam: {fileID: 8674288109051456372}
+  rotationSpeed: 2
+  screenBoundaryPercentage: 20
+  rotationSpeedIncreaseFactor: 2.5
 --- !u!114 &2683423426064496998
 MonoBehaviour:
   m_ObjectHideFlags: 0
