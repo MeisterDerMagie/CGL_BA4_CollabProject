@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class LookAround : FirstPersonModule
 {
-    float verticalRotation;
-    public float minVerticalRotation, maxVerticalRotation;
     public GameObject cam;
 
-    public void ExecuteLookAround(Vector2 amount)
+    float verticalRotation, edgeSize;
+    public float minVerticalRotation, maxVerticalRotation;
+
+    /*public void ExecuteLookAround(Vector3 mousePos)
     {
         if (!IsEnabled)
         {
             Debug.Log("Look around is not enabled.");
             return;
         }
+
+        if (mousePos.x >)
 
         //move player/camera here
         verticalRotation -= amount.y;
@@ -24,5 +27,5 @@ public class LookAround : FirstPersonModule
 
         Debug.Log($"move player on x axis for: {amount.x}");
         Debug.Log($"move player on y axis for: {amount.y}");
-    }
+    }*/
 }
