@@ -404,11 +404,16 @@ PrefabInstance:
         type: 3}
       propertyPath: modules.Array.data[3]
       value: 
-      objectReference: {fileID: 8698043891505612532}
+      objectReference: {fileID: 8698043891505612540}
     - target: {fileID: 3709328848438607980, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: m_Name
       value: FirstPersonController
+      objectReference: {fileID: 0}
+    - target: {fileID: 5510268331239411699, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: <IsEnabled>k__BackingField
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6347304080784636597, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
@@ -475,7 +480,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9370d7f94cd744b9b433bdb1c63849, type: 3}
---- !u!114 &8698043891505612532 stripped
+--- !u!114 &8698043891505612540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5510268331239411699, guid: 4f9370d7f94cd744b9b433bdb1c63849,
     type: 3}
