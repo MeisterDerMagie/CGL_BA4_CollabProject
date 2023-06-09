@@ -7,7 +7,7 @@ public class Teleport : FirstPersonModule
     {
         if (!IsEnabled)
         {
-            Debug.Log("Teleportation is not enabled.");
+            //Debug.Log("Teleportation is not enabled.");
             return;
         }
         

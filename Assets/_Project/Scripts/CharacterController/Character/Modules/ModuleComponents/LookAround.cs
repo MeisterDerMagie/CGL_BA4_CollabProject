@@ -17,21 +17,28 @@ public class LookAround : FirstPersonModule
     {
         if (!IsEnabled)
         {
-            Debug.Log("Look around is not enabled.");
+            //Debug.Log("Look around is not enabled.");
             return;
         }
 
         // Calculation for X Rotation
-        float mouseXPercentage = mousePos.x / Screen.width;
+        float mouseXPercentage = Mathf.Clamp(mousePos.x / Screen.width, 0f, 1f);
         float mouseXSide = Mathf.Sign(mouseXPercentage - 0.5f);
         float mouseXCenterDistance = (mouseXPercentage - 0.5f) * mouseXSide;
-        mouseXCenterDistance = mouseXCenterDistance - (0.5f - screenBoundaryPercentage / 100);
-
+        mouseXCenterDistance = mouseXCenterDistance - (0.5f - screenBoundaryPercentage / 100f);
+        
         // Calculation for Y Rotation
-        float mouseYPercentage = mousePos.y / Screen.height;
+        float mouseYPercentage = Mathf.Clamp(mousePos.y / Screen.height, 0f, 1f);
         float mouseYSide = Mathf.Sign(mouseYPercentage - 0.5f);
         float mouseYCenterDistance = (mouseYPercentage - 0.5f) * mouseYSide;
-        mouseYCenterDistance = mouseYCenterDistance - (0.5f - screenBoundaryPercentage / 100);
+        mouseYCenterDistance = mouseYCenterDistance - (0.5f - screenBoundaryPercentage / 100f);
+        
+        // Don't move camera when the mouse is outside the screen
+        if (mousePos.x < 0f || mousePos.x > Screen.width || mousePos.y < 0f || mousePos.y > Screen.height)
+        {
+            mouseXCenterDistance = 0f;
+            mouseYCenterDistance = 0f;
+        }
 
         // Rotation on X-Axis
         if (mouseXCenterDistance > 0)

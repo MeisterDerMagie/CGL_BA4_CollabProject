@@ -21,7 +21,7 @@ public class Walk : FirstPersonModule
     {
         if (!IsEnabled)
         {
-            Debug.Log("Look around is not enabled.");
+            //Debug.Log("Look around is not enabled.");
             return;
         }
 
@@ -29,7 +29,7 @@ public class Walk : FirstPersonModule
         if (movementVector.magnitude > 1)
             movementVector = movementVector.normalized;
 
-        movementVector = movementVector * Time.deltaTime * movementSpeed;
+        movementVector *= (Time.deltaTime * movementSpeed);
         cc.Move(movementVector);
     }
 }
