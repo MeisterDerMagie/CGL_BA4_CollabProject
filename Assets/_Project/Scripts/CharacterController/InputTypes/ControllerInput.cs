@@ -41,5 +41,9 @@ public class ControllerInput : InputType
         //Teleport
         if (Input.GetKeyDown(KeyCode.Space))
             FirstPersonController.GetModule<Teleport>()?.ExecuteTeleport(Vector3.zero);
+        
+        
+        //Interact
+        FirstPersonController.GetModule<Interact>()?.ExecuteInteract(Input.mousePosition);
     }
 }

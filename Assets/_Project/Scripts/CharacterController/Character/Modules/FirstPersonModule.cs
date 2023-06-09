@@ -9,7 +9,7 @@ public abstract class FirstPersonModule : MonoBehaviour
 {
     [field: BoxGroup("Enable or disable this module")]
     [field: SerializeField]
-    public bool IsEnabled { get; private set; }
+    public bool IsEnabled { get; private set; } = true;
     
     public void SetEnabled(bool isEnabled)
     {
