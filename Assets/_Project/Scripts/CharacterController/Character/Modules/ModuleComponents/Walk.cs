@@ -8,8 +8,10 @@ public class Walk : FirstPersonModule
     CharacterController cc;
 
     public float movementSpeed;
-
-    Vector3 movementVector;
+    public float gravity = -12;
+    
+    private Vector3 movementVector;
+    private float velocityY;
 
     private void Start()
     {
@@ -24,12 +26,19 @@ public class Walk : FirstPersonModule
             //Debug.Log("Look around is not enabled.");
             return;
         }
+        
+        velocityY += Time.deltaTime * gravity;
 
-        movementVector = transform.forward * movementDirection.z + transform.right * movementDirection.x;
+        movementVector = transform.forward * movementDirection.z + transform.right * movementDirection.x + Vector3.up * velocityY;
         if (movementVector.magnitude > 1)
             movementVector = movementVector.normalized;
 
         movementVector *= (Time.deltaTime * movementSpeed);
         cc.Move(movementVector);
+        
+        if (cc.isGrounded)
+        {
+            velocityY = 0;
+        }
     }
 }

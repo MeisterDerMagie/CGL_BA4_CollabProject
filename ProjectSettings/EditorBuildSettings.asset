@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Julian.unity
     guid: 4a2c65573460f53469c3627e762dee70
+  - enabled: 1
+    path: Assets/_Project/Scenes/TestScene_Martin.unity
+    guid: 9d9e32b9e487617468759ad6042a35b6
+  - enabled: 1
+    path: Assets/_Project/Scenes/TestScene_Martin 1.unity
+    guid: 73d55450b746e044eadccbf7936bd9a2
+  - enabled: 1
+    path: Assets/_Project/Scenes/TestScene_Martin 2.unity
+    guid: a10f11b4f0c265845bf98acaa6a182b5
   m_configObjects: {}
