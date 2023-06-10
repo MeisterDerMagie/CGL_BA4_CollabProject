@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Walk : FirstPersonModule
 {
+    public override List<Type> IncompatibleModules =>
+        new ()
+        {
+            typeof(MoveOnRails)
+        };
+    
     [SerializeField] private CharacterController characterController;
 
     public float movementSpeed;

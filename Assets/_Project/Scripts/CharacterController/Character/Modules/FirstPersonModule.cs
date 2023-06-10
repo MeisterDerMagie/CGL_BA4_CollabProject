@@ -1,18 +1,24 @@
 ﻿//(c) copyright by Martin M. Klöckener
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 [RequireComponent(typeof(FirstPersonController))]
+[DisallowMultipleComponent]
 public abstract class FirstPersonModule : MonoBehaviour
 {
-    [field: BoxGroup("Enable or disable this module")]
-    [field: SerializeField]
-    public bool IsEnabled { get; private set; } = true;
-    
+    [BoxGroup("Enable or disable this module")]
+    [SerializeField]
+    private bool _isEnabled = true;
+    public bool IsEnabled => _isEnabled;
+
+    public virtual List<Type> IncompatibleModules => new List<Type>();
+
     public void SetEnabled(bool isEnabled)
     {
-        IsEnabled = isEnabled;
+        _isEnabled = isEnabled;
     }
 }

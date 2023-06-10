@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Tobii.Gaming;
 
+[RequireComponent(typeof(FirstPersonController))]
 public class FirstPersonInputManager : MonoBehaviour
 {
     public enum InputTypes
@@ -15,7 +15,7 @@ public class FirstPersonInputManager : MonoBehaviour
         Tobii
     }
 
-    [SerializeField]
+    [SerializeField][HideInInspector]
     private FirstPersonController firstPersonController;
     
     private InputType _currentInput;
@@ -51,4 +51,11 @@ public class FirstPersonInputManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(inputType), inputType, null);
         }
     }
+    
+    #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        firstPersonController = GetComponent<FirstPersonController>();
+    }
+    #endif
 }

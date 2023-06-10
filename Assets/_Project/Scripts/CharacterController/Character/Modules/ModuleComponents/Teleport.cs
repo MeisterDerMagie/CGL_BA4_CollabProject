@@ -1,10 +1,17 @@
 ﻿//(c) copyright by Martin M. Klöckener
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class Teleport : FirstPersonModule
 {
+    public override List<Type> IncompatibleModules =>
+        new()
+        {
+            typeof(MoveOnRails)
+        };
+    
     [SerializeField] [HideInInspector]
     private CharacterController _characterController;
 
@@ -24,11 +31,4 @@ public class Teleport : FirstPersonModule
         transform.position = targetDestination;
         _characterController.enabled = true;
     }
-
-    #if UNITY_EDITOR
-    private void OnValidate()
-    {
-        _characterController = GetComponent<CharacterController>();
-    }
-    #endif
 }
