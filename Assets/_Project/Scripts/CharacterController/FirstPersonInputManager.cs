@@ -15,7 +15,7 @@ public class FirstPersonInputManager : MonoBehaviour
         Tobii
     }
 
-    [FormerlySerializedAs("_characterController")] [SerializeField]
+    [SerializeField]
     private FirstPersonController firstPersonController;
     
     private InputType _currentInput;
@@ -25,7 +25,7 @@ public class FirstPersonInputManager : MonoBehaviour
         if (TobiiAPI.IsConnected)
             SetInputType(InputTypes.Tobii);
         else
-            SetInputType(InputTypes.NoInput);
+            SetInputType(InputTypes.Controller);
     }
 
     private void Update()
