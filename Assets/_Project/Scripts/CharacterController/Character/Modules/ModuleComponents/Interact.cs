@@ -53,7 +53,8 @@ public class Interact : FirstPersonModule
         else
         {
             interactable.totalFocusTime += Time.deltaTime;
-            float interactionProgress = 1f / InteractionDurationSeconds * _previouslyHoveredObject.totalFocusTime;
+            float interactionDuration = interactable.OverrideInteractionDuration ? interactable.CustomInteractionDuration : InteractionDurationSeconds;
+            float interactionProgress = 1f / interactionDuration * interactable.totalFocusTime; //this works for interactionDuration == 0 because 1f / 0f return Infinity instead of an error
             interactable.interactionProgress = Mathf.Clamp(interactionProgress, 0f, 1f);
         }
                 

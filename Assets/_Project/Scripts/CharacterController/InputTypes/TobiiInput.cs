@@ -17,7 +17,7 @@ public class TobiiInput : InputType
     {
         //Look Around
         gazePoint = TobiiAPI.GetGazePoint().Screen;
-        FirstPersonController.GetModule<LookAround>().ExecuteLookAround(gazePoint);
+        FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(gazePoint);
 
         Debug.Log("TobiiInput tick.");
     }

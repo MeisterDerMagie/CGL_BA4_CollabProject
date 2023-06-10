@@ -1,11 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Walk : FirstPersonModule
 {
-    Rigidbody rb;
-    CharacterController cc;
+    [SerializeField] private CharacterController characterController;
 
     public float movementSpeed;
     public float gravity = -12;
@@ -13,20 +13,11 @@ public class Walk : FirstPersonModule
     private Vector3 movementVector;
     private float velocityY;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        cc = GetComponent<CharacterController>();
-    }
-
     public void ExecuteWalk(Vector3 movementDirection)
     {
         if (!IsEnabled)
-        {
-            //Debug.Log("Look around is not enabled.");
             return;
-        }
-        
+
         velocityY += Time.deltaTime * gravity;
 
         movementVector = transform.forward * movementDirection.z + transform.right * movementDirection.x + Vector3.up * velocityY;
@@ -34,11 +25,18 @@ public class Walk : FirstPersonModule
             movementVector = movementVector.normalized;
 
         movementVector *= (Time.deltaTime * movementSpeed);
-        cc.Move(movementVector);
+        characterController.Move(movementVector);
         
-        if (cc.isGrounded)
+        if (characterController.isGrounded)
         {
             velocityY = 0;
         }
     }
+    
+    #if UNITY_EDITOR
+    private void OnValidate()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+    #endif
 }

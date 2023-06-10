@@ -9,8 +9,21 @@ public class Interactable : Focusable
     [PropertyOrder(10)]
     [Min(0)][BoxGroup("How many times can the player interact with the object? 0 means infinite")][DisableInPlayMode]
     [SerializeField] private int _maxInteractionCount = 1; //0 means infinite
-    
+
     [PropertyOrder(11)]
+    [BoxGroup("Override the default interaction duration")] [DisableInPlayMode]
+    [SerializeField] private bool _overrideInteractionDuration;
+
+    [PropertyOrder(12)]
+    [BoxGroup("Override the default interaction duration")] [DisableInPlayMode]
+    [ShowIf(nameof(_overrideInteractionDuration))]
+    [Min(0f)]
+    [SerializeField] private float _customInteractionDuration = 3f;
+
+    public bool OverrideInteractionDuration => _overrideInteractionDuration;
+    public float CustomInteractionDuration => _customInteractionDuration;
+    
+    [PropertyOrder(15)]
     [Range(0f, 1f)][ReadOnly]
     public float interactionProgress;
     
