@@ -13,7 +13,7 @@ public class LookAround : FirstPersonModule
     [Range(0, 5)]
     public float rotationSpeedIncreaseFactor;
 
-    public void ExecuteLookAround(Vector2 mousePos)
+    public void ExecuteLookAround(Vector3 mousePos)
     {
         if (!IsEnabled)
         {
