@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Tobii.Gaming;
 
 public class FirstPersonInputManager : MonoBehaviour
 {
@@ -19,7 +20,13 @@ public class FirstPersonInputManager : MonoBehaviour
     
     private InputType _currentInput;
 
-    private void Start() => SetInputType(InputTypes.NoInput);
+    private void Start()
+    {
+        if (TobiiAPI.IsConnected)
+            SetInputType(InputTypes.Tobii);
+        else
+            SetInputType(InputTypes.NoInput);
+    }
 
     private void Update()
     {
