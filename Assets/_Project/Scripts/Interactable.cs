@@ -4,7 +4,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Interactable : Hoverable
+public class Interactable : Focusable
 {
     [PropertyOrder(10)]
     [Min(0)][BoxGroup("How many times can the player interact with the object? 0 means infinite")][DisableInPlayMode]
@@ -23,9 +23,9 @@ public class Interactable : Hoverable
     [SerializeField]
     private UnityEvent<int> onInteract; //passes along the total amount of interactions
 
-    public override void EndHover()
+    public override void EndFocus()
     {
-        base.EndHover();
+        base.EndFocus();
         
         interactionProgress = 0f;
         _hadInteractionSinceBeginHover = false;

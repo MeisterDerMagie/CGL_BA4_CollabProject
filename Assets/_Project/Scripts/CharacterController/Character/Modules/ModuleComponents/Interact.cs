@@ -31,7 +31,7 @@ public class Interact : FirstPersonModule
         {
             if (_previouslyHoveredObject != null)
             {
-                _previouslyHoveredObject.EndHover();
+                _previouslyHoveredObject.EndFocus();
                 _previouslyHoveredObject = null;
             }
         }
@@ -44,7 +44,7 @@ public class Interact : FirstPersonModule
         //if the object is newly being hovered
         if (interactable != _previouslyHoveredObject)
         {
-            interactable.BeginHover();
+            interactable.BeginFocus();
             _previouslyHoveredObject = interactable;
         }
                 
@@ -52,8 +52,8 @@ public class Interact : FirstPersonModule
         //Interact Progress
         else
         {
-            interactable.totalHoverTime += Time.deltaTime;
-            float interactionProgress = 1f / InteractionDurationSeconds * _previouslyHoveredObject.totalHoverTime;
+            interactable.totalFocusTime += Time.deltaTime;
+            float interactionProgress = 1f / InteractionDurationSeconds * _previouslyHoveredObject.totalFocusTime;
             interactable.interactionProgress = Mathf.Clamp(interactionProgress, 0f, 1f);
         }
                 

@@ -28,11 +28,11 @@ public class ControllerInput : InputType
 
         //Teleport
         if (Input.GetKeyDown(KeyCode.Space))
-            FirstPersonController.GetModule<Teleport>()?.ExecuteTeleport(Vector3.zero);
+            FirstPersonController.GetModule<Teleport>()?.ExecuteTeleport();
         
         
-        //Hover and Interact
-        FirstPersonController.GetModule<Hover>()?.ExecuteHover(Input.mousePosition);
+        //Focus and Interact
+        FirstPersonController.GetModule<Focus>()?.ExecuteFocus(Input.mousePosition);
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(Input.mousePosition);
     }
 }

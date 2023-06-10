@@ -120,12 +120,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 1
-  totalHoverTime: 0
-  onBeginHover:
+  totalFocusTime: 0
+  onBeginFocus:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8622014197093770236}
-        m_TargetAssemblyTypeName: TEST_ScaleObject, Assembly-CSharp
+        m_TargetAssemblyTypeName: InteractableObjectExample, Assembly-CSharp
         m_MethodName: ScaleUp
         m_Mode: 1
         m_Arguments:
@@ -136,11 +136,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onEndHover:
+  onEndFocus:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8622014197093770236}
-        m_TargetAssemblyTypeName: TEST_ScaleObject, Assembly-CSharp
+        m_TargetAssemblyTypeName: InteractableObjectExample, Assembly-CSharp
         m_MethodName: ScaleDown
         m_Mode: 1
         m_Arguments:

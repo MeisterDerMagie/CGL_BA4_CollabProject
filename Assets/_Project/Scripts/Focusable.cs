@@ -4,26 +4,27 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
-public class Hoverable : MonoBehaviour
+public class Focusable : MonoBehaviour
 {
     [SerializeField][DisableInPlayMode][PropertyOrder(0)]
-    [BoxGroup("Is this object interactable at the start of the level?")]
+    [BoxGroup("Is this object focusable at the start of the level?")]
     protected bool _isEnabled = true;
     public bool IsEnabled => _isEnabled;
     
     [HideInInspector]
-    public float totalHoverTime;
+    public float totalFocusTime;
     
-    protected bool _isBeingHovered = false;
+    protected bool _isBeingFocused = false;
     
     [PropertyOrder(20)]
     [SerializeField]
-    protected UnityEvent onBeginHover;
-
+    protected UnityEvent onBeginFocus;
+    
     [PropertyOrder(30)]
     [SerializeField]
-    protected UnityEvent onEndHover;
+    protected UnityEvent onEndFocus;
     
     [PropertyOrder(40)]
     [SerializeField]
@@ -41,29 +42,29 @@ public class Hoverable : MonoBehaviour
             onBecameEnabled.Invoke();
     }
     
-    public virtual void BeginHover()
+    public virtual void BeginFocus()
     {
         if (!_isEnabled)
             return;
         
-        if (_isBeingHovered)
+        if (_isBeingFocused)
             return;
 
-        //Debug.Log($"Begin hovering over game object: {gameObject.name}");
-        _isBeingHovered = true;
-        onBeginHover.Invoke();
+        //Debug.Log($"Begin focussing game object: {gameObject.name}");
+        _isBeingFocused = true;
+        onBeginFocus.Invoke();
     }
 
-    public virtual void EndHover()
+    public virtual void EndFocus()
     {
-        if (!_isBeingHovered)
+        if (!_isBeingFocused)
             return;
         
-        //Debug.Log($"Stopped hovering over game object: {gameObject.name}");
+        //Debug.Log($"Stopped focussing game object: {gameObject.name}");
         
-        totalHoverTime = 0f;
-        _isBeingHovered = false;
-        onEndHover.Invoke();
+        totalFocusTime = 0f;
+        _isBeingFocused = false;
+        onEndFocus.Invoke();
     }
     
     public virtual void SetEnabled(bool isEnabled)
