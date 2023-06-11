@@ -21,10 +21,10 @@ public class TEST_EnableModules : MonoBehaviour
     public void DisableWalk() => fpc.DisableModule<Walk>();
 
     [Button]
-    public void EnableMoveOnRails() => fpc.EnableModule<MoveOnRails>();
+    public void EnableMoveOnRails() => fpc.EnableModule<MoveOnRailsScripted>();
 
     [Button]
-    public void DisableMoveOnRails() => fpc.DisableModule<MoveOnRails>();
+    public void DisableMoveOnRails() => fpc.DisableModule<MoveOnRailsScripted>();
 
     [Button]
     public void EnableInteract() => fpc.EnableModule<Interact>();

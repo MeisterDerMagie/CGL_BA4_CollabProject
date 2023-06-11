@@ -8,7 +8,8 @@ public class Walk : FirstPersonModule
     public override List<Type> IncompatibleModules =>
         new ()
         {
-            typeof(MoveOnRails)
+            typeof(MoveOnRailsScripted),
+            typeof(MoveOnRailsPlayerControlled)
         };
     
     [SerializeField] private CharacterController characterController;

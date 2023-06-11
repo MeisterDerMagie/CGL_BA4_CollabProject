@@ -9,7 +9,8 @@ public class Teleport : FirstPersonModule
     public override List<Type> IncompatibleModules =>
         new()
         {
-            typeof(MoveOnRails)
+            typeof(MoveOnRailsScripted),
+            typeof(MoveOnRailsPlayerControlled)
         };
     
     [SerializeField] [HideInInspector]
