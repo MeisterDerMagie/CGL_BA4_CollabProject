@@ -1,6 +1,7 @@
 ﻿//(c) copyright by Martin M. Klöckener
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class LookAround : FirstPersonModule
 {
     public GameObject cam;

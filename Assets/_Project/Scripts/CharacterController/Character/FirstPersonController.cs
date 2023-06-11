@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
@@ -24,7 +23,6 @@ public class FirstPersonController : MonoBehaviour
         return null;
     }
 
-    
     public void EnableModule<T>() where T : FirstPersonModule
     {
         int enabledModulesCount = 0;
@@ -67,6 +65,7 @@ public class FirstPersonController : MonoBehaviour
         Debug.LogWarning($"Could not disable firstPersonModule of type {typeof(T)}. Is this component missing on the first person controller?");
     }
 
+    /*
     /// <returns>returns a report of the outcome</returns>
     public string DisableIncompatibleModules<T>() where T : FirstPersonModule
     {
@@ -85,6 +84,50 @@ public class FirstPersonController : MonoBehaviour
 
                 module.SetEnabled(false);
                 disabledModules.Add(module.GetType().Name);
+            }
+        }
+
+        //from here on is just the report on which modules have been disabled
+        string logString = string.Empty;
+        
+        if (disabledModules.Count > 0)
+        {
+            logString = $"Disabled {disabledModules.Count.ToString()} incompatible modules:\n";
+            foreach (string moduleName in disabledModules)
+            {
+                logString += $"{moduleName}\n";
+            }
+        }
+
+        return logString;
+    }*/
+    
+    /// <returns>returns a report of the outcome</returns>
+    public string DisableIncompatibleModules<T>(T enabledModule = null) where T : FirstPersonModule
+    {
+        List<string> disabledModules = new();
+        
+        foreach (FirstPersonModule module in modules)
+        {
+            //disable incompatible modules
+            bool isSameModuleType = enabledModule == null ? module is T : module.GetType() == enabledModule.GetType();
+            if (!isSameModuleType)
+            {
+                if (!module.IsEnabled)
+                    continue;
+
+                Type moduleType = enabledModule == null ? typeof(T) : enabledModule.GetType();
+                bool isCompatible = !module.IncompatibleModules.Contains(moduleType);
+                
+                if (isCompatible)
+                    continue;
+
+                module.SetEnabled(false);
+                disabledModules.Add(module.GetType().Name);
+                
+                #if UNITY_EDITOR
+                if(!Application.isPlaying) UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(module);
+                #endif
             }
         }
 

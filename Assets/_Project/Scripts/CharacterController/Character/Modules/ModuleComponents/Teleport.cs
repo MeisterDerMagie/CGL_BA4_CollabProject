@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof(CharacterController))]
 public class Teleport : FirstPersonModule
 {
     public override List<Type> IncompatibleModules =>
         new()
         {
-            typeof(MoveOnRailsScripted),
-            typeof(MoveOnRailsPlayerControlled)
+            typeof(MoveOnRailsAnimated),
+            typeof(MoveOnRailsPlayerControlled),
+            typeof(MoveOnRailsScripted)
         };
     
     [SerializeField] [HideInInspector]

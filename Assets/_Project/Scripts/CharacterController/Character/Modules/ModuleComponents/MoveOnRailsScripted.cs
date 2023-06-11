@@ -1,40 +1,40 @@
+﻿//(c) copyright by Martin M. Klöckener
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Splines;
 
-public class MoveOnRailsScripted : FirstPersonModule
+[DisallowMultipleComponent]
+[ExecuteInEditMode]
+public class MoveOnRailsScripted : MoveOnRails
 {
-    [SerializeField]
-    private SplineContainer rails;
-    
-    
     public override List<Type> IncompatibleModules =>
         new ()
         {
             typeof(Walk),
             typeof(Teleport),
+            typeof(MoveOnRailsAnimated),
             typeof(MoveOnRailsPlayerControlled)
         };
-
-
-    public void StartMovement()
+    
+    [Range(0f, 1f)]
+    public float progress;
+    
+    private void Awake() => onEnabledChanged += PauseRailsOnEnable;
+    private void OnDestroy() => onEnabledChanged -= PauseRailsOnEnable;
+    
+    private void Update()
     {
-        if (!IsEnabled)
-            return;
-
-        if (rails == null)
-        {
-            Debug.LogError("Rails can't be null!", this);
-            return;
-        }
+        if (!IsEnabled) return;
+        if (Rails == null) return;
         
+        Rails.NormalizedTime = progress;
         
+        GlueCharacterToRails();
     }
-
-    public void StopMovement()
+    
+    private void PauseRailsOnEnable(bool isEnabled)
     {
-        
+        if (isEnabled) Rails.Pause();
     }
 }

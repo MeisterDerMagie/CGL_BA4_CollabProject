@@ -3,13 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class Walk : FirstPersonModule
 {
     public override List<Type> IncompatibleModules =>
         new ()
         {
-            typeof(MoveOnRailsScripted),
-            typeof(MoveOnRailsPlayerControlled)
+            typeof(MoveOnRailsAnimated),
+            typeof(MoveOnRailsPlayerControlled),
+            typeof(MoveOnRailsScripted)
         };
     
     [SerializeField] private CharacterController characterController;

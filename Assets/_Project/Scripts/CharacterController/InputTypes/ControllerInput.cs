@@ -34,5 +34,8 @@ public class ControllerInput : InputType
         //Focus and Interact
         FirstPersonController.GetModule<Focus>()?.ExecuteFocus(Input.mousePosition);
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(Input.mousePosition);
+        
+        //Move on Rails (Player Controlled)
+        FirstPersonController.GetModule<MoveOnRailsPlayerControlled>()?.ExecuteMovement(Input.GetAxis("Vertical"));
     }
 }

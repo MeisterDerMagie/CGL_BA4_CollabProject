@@ -11,8 +11,9 @@ public class FirstPersonInputManager : MonoBehaviour
     public enum InputTypes
     {
         NoInput,
-        Controller,
-        Tobii
+        Player, //automatically chooses Tobii if connected, otherwise falls back to the Controller
+        Controller, //use only if you want to use the controller even tough a Tobii is connected
+        Tobii //use only if you want to use Tobii even tough no Tobii is connected
     }
 
     [SerializeField][HideInInspector]
@@ -22,10 +23,8 @@ public class FirstPersonInputManager : MonoBehaviour
 
     private void Start()
     {
-        if (TobiiAPI.IsConnected)
-            SetInputType(InputTypes.Tobii);
-        else
-            SetInputType(InputTypes.Controller);
+        //SetInputType(InputTypes.Player);
+        SetInputType(InputTypes.NoInput);
     }
 
     private void Update()
@@ -41,6 +40,12 @@ public class FirstPersonInputManager : MonoBehaviour
             case InputTypes.NoInput:
                 _currentInput = new NoInput(firstPersonController);
                 break;
+            case InputTypes.Player:
+                if (TobiiAPI.IsConnected)
+                    _currentInput = new TobiiInput(firstPersonController);
+                else
+                    _currentInput = new ControllerInput(firstPersonController);
+                break;
             case InputTypes.Controller:
                 _currentInput = new ControllerInput(firstPersonController);
                 break;
@@ -51,6 +56,13 @@ public class FirstPersonInputManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(inputType), inputType, null);
         }
     }
+
+    //these exist because it's not possible to choose SetInputType(...) from a Unity Event in the inspector. Enums are not a supported parameter type.
+    public void SetInputType_NoInput() => SetInputType(InputTypes.NoInput);
+    public void SetInputType_Player() => SetInputType(InputTypes.Player);
+    public void SetInputType_Controller() => SetInputType(InputTypes.Controller);
+    public void SetInputType_Tobii() => SetInputType(InputTypes.Tobii);
+    //
     
     #if UNITY_EDITOR
     private void OnValidate()

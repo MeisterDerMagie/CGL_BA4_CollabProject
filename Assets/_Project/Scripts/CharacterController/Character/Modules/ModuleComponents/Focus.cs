@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class Focus : FirstPersonModule
 {
     private Focusable _previouslyFocusedObject;

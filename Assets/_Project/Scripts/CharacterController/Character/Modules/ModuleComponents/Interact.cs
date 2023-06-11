@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class Interact : FirstPersonModule
 {
     [field: SerializeField] [field: BoxGroup("How many seconds you need to look at an object until you interact with it")]
