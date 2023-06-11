@@ -23,8 +23,7 @@ public class FirstPersonInputManager : MonoBehaviour
 
     private void Start()
     {
-        //SetInputType(InputTypes.Player);
-        SetInputType(InputTypes.NoInput);
+        SetInputType(InputTypes.Player);
     }
 
     private void Update()

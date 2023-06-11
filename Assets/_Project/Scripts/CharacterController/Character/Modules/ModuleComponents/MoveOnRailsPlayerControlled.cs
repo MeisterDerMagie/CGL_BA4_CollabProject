@@ -38,7 +38,14 @@ public class MoveOnRailsPlayerControlled : MoveOnRails
     {
         if (!IsEnabled) return;
 
+        Timing.RunCoroutine(StartDelayed());
+    }
+
+    private IEnumerator<float> StartDelayed()
+    {
+        yield return Timing.WaitForOneFrame;
         PauseRails();
+        Rails.NormalizedTime = startOffset;
     }
 
     private void Update()
@@ -47,15 +54,8 @@ public class MoveOnRailsPlayerControlled : MoveOnRails
         if (Rails == null) return;
         if (Application.isPlaying || !IsEnabled) return;
 
-        if (Rails.StartOffset != startOffset)
-        {
-            Rails.StartOffset = startOffset;
-            Rails.NormalizedTime = startOffset;
-            #if UNITY_EDITOR
-            if(!Application.isPlaying) PrefabUtility.RecordPrefabInstancePropertyModifications(Rails.Target.GetComponent<SplineAnimate>());
-            #endif
-        }
-
+        Rails.NormalizedTime = startOffset;
+        
         GlueCharacterToRails();
     }
 
@@ -84,7 +84,9 @@ public class MoveOnRailsPlayerControlled : MoveOnRails
 
     private void PauseRailsOnEnable(bool isEnabled)
     {
-        if (isEnabled) PauseRails();
+        if (!isEnabled) return;
+        
+        PauseRails();
     }
 
     private void PauseRails()

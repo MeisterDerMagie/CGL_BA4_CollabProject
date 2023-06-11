@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -20,8 +21,20 @@ public class MoveOnRailsScripted : MoveOnRails
     [Range(0f, 1f)]
     public float progress;
     
-    private void Awake() => onEnabledChanged += PauseRailsOnEnable;
-    private void OnDestroy() => onEnabledChanged -= PauseRailsOnEnable;
+    private void Awake() => onEnabledChanged += StopRailsOnEnable;
+    private void OnDestroy() => onEnabledChanged -= StopRailsOnEnable;
+    
+    private void Start()
+    {
+        if (IsEnabled)
+            Timing.RunCoroutine(_StartDelayed());
+    }
+
+    private IEnumerator<float> _StartDelayed()
+    {
+        yield return Timing.WaitForOneFrame;
+        Rails.Stop();
+    }
     
     private void Update()
     {
@@ -33,8 +46,8 @@ public class MoveOnRailsScripted : MoveOnRails
         GlueCharacterToRails();
     }
     
-    private void PauseRailsOnEnable(bool isEnabled)
+    private void StopRailsOnEnable(bool isEnabled)
     {
-        if (isEnabled) Rails.Pause();
+        if (isEnabled) Rails.Stop();
     }
 }

@@ -27,22 +27,21 @@ public class Rails : MonoBehaviour
             animate.NormalizedTime = value;
             #if UNITY_EDITOR
             if(!Application.isPlaying) PrefabUtility.RecordPrefabInstancePropertyModifications(animate);
-            EditorUtility.SetDirty(animate);
             #endif
         }
     }
 
     public float Length => spline.CalculateLength();
-    public float StartOffset
+    public bool PlayOnAwake
     {
-        get => animate.StartOffset;
-        set => animate.StartOffset = value;
+        get => animate.PlayOnAwake;
+        set => animate.PlayOnAwake = value;
     }
 
     public void Play() => animate.Play();
     public void Pause() => animate.Pause();
-    public void Restart() => animate.Restart(true);
     public void Stop() => animate.Restart(false);
+    public void Restart() => animate.Restart(true);
 
     #if UNITY_EDITOR
     private void OnValidate()

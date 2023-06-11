@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Splines;
 
 [DisallowMultipleComponent]
 public class MoveOnRailsAnimated : MoveOnRails
@@ -17,12 +20,22 @@ public class MoveOnRailsAnimated : MoveOnRails
 
     [SerializeField]
     private bool playOnAwake;
-    
+
+    private void Awake() => onEnabledChanged += PauseOnDisable;
+    private void OnDestroy() => onEnabledChanged -= PauseOnDisable;
+
     //even though it says play on Awake, putting it into Awake didn't work... 
     private void Start()
     {
-        if(playOnAwake && IsEnabledAndRailsAreNotNull())
-            Play();
+        if (IsEnabledAndRailsAreNotNull())
+            Timing.RunCoroutine(_StartDelayed());
+    }
+
+    private IEnumerator<float> _StartDelayed()
+    {
+        yield return Timing.WaitForOneFrame;
+        
+        if(playOnAwake) Play();
     }
 
     private void Update()
@@ -32,19 +45,25 @@ public class MoveOnRailsAnimated : MoveOnRails
         GlueCharacterToRails();
     }
 
+    [Button][HideInEditorMode]
     public void Play()
     {
         if (!IsEnabledAndRailsAreNotNull()) return;
         Rails.Play();
     }
 
+    [Button][HideInEditorMode]
     public void Pause() => Rails.Pause();
+    
+    [Button][HideInEditorMode]
+    public void Stop() => Rails.Stop();
+    
+    [Button][HideInEditorMode]
     public void Restart()
     {
         if (!IsEnabledAndRailsAreNotNull()) return;
         Rails.Restart();
     }
-    public void Stop() => Rails.Stop();
 
     private bool IsEnabledAndRailsAreNotNull()
     {
@@ -54,12 +73,20 @@ public class MoveOnRailsAnimated : MoveOnRails
         //Debug.LogError("Rails can't be null!", this);
         return false;
     }
-
+    
+    private void PauseOnDisable(bool isEnabled)
+    {
+        if(!isEnabled) Pause();
+    }
+    
+    #if UNITY_EDITOR
     private void OnValidate()
     {
         if (Rails == null) return;
+        if (Application.isPlaying) return;
 
-        Rails.NormalizedTime = Rails.StartOffset;
-        GlueCharacterToRails();
+        Rails.PlayOnAwake = playOnAwake;
+        if(!Application.isPlaying) UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(Rails.Target.GetComponent<SplineAnimate>());
     }
+    #endif
 }
