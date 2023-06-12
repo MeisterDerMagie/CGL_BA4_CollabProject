@@ -19,7 +19,8 @@ public class MoveOnRailsPlayerControlled : MoveOnRails
             typeof(Walk),
             typeof(Teleport),
             typeof(MoveOnRailsAnimated),
-            typeof(MoveOnRailsScripted)
+            typeof(MoveOnRailsScripted),
+            typeof(PushAndPull)
         };
 
     [SerializeField][SuffixLabel("Meter per second")]

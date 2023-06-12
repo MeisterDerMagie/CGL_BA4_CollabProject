@@ -27,7 +27,7 @@ public abstract class FirstPersonModule : MonoBehaviour
     [InfoBox("This module is enabled.", InfoMessageType.Info, nameof(_isEnabled), GUIAlwaysEnabled = true)]
     [InfoBox("This module is disabled.", InfoMessageType.Info, nameof(IsEnabledInverted), GUIAlwaysEnabled = true)]
     [SerializeField][ReadOnly][DisplayAsString][GUIColor(nameof(GetEnabledColor))]
-    private bool _isEnabled = true;
+    private bool _isEnabled = false;
     public bool IsEnabled => _isEnabled;
     private bool IsEnabledInverted => !_isEnabled;
     private Color GetEnabledColor => _isEnabled ? Color.green : new Color(1f, 0.87f, 0.72f, 1f);

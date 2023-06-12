@@ -15,7 +15,8 @@ public class MoveOnRailsAnimated : MoveOnRails
             typeof(Walk),
             typeof(Teleport),
             typeof(MoveOnRailsPlayerControlled),
-            typeof(MoveOnRailsScripted)
+            typeof(MoveOnRailsScripted),
+            typeof(PushAndPull)
         };
 
     [SerializeField]
@@ -53,11 +54,17 @@ public class MoveOnRailsAnimated : MoveOnRails
     }
 
     [Button][HideInEditorMode]
-    public void Pause() => Rails.Pause();
-    
+    public void Pause()
+    {
+        if(Rails != null) Rails.Pause();
+    }
+
     [Button][HideInEditorMode]
-    public void Stop() => Rails.Stop();
-    
+    public void Stop()
+    {
+        if(Rails != null) Rails.Stop();
+    }
+
     [Button][HideInEditorMode]
     public void Restart()
     {

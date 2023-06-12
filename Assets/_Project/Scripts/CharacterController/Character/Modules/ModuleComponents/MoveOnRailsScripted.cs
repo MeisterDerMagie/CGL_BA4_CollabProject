@@ -15,7 +15,8 @@ public class MoveOnRailsScripted : MoveOnRails
             typeof(Walk),
             typeof(Teleport),
             typeof(MoveOnRailsAnimated),
-            typeof(MoveOnRailsPlayerControlled)
+            typeof(MoveOnRailsPlayerControlled),
+            typeof(PushAndPull)
         };
     
     [Range(0f, 1f)]
@@ -48,6 +49,6 @@ public class MoveOnRailsScripted : MoveOnRails
     
     private void StopRailsOnEnable(bool isEnabled)
     {
-        if (isEnabled) Rails.Stop();
+        if (isEnabled && Rails != null) Rails.Stop();
     }
 }

@@ -27,7 +27,7 @@ public class Interactable : Focusable
     [Range(0f, 1f)][ReadOnly]
     public float interactionProgress;
     
-    private bool _hadInteractionSinceBeginHover = false;
+    private bool _hadInteractionSinceBeginFocus = false;
     private bool _hasReachedMaxActivations = false;
 
     private int _totalInteractions = 0;
@@ -41,7 +41,7 @@ public class Interactable : Focusable
         base.EndFocus();
         
         interactionProgress = 0f;
-        _hadInteractionSinceBeginHover = false;
+        _hadInteractionSinceBeginFocus = false;
     }
 
     public override void SetEnabled(bool isEnabled)
@@ -65,7 +65,7 @@ public class Interactable : Focusable
         if (_hasReachedMaxActivations)
             return;
         
-        if (_hadInteractionSinceBeginHover)
+        if (_hadInteractionSinceBeginFocus)
             return;
         
         //Debug.Log($"Interact with game object: {gameObject.name}");
@@ -76,7 +76,7 @@ public class Interactable : Focusable
             _hasReachedMaxActivations = true;
             SetEnabled(false);
         }
-        _hadInteractionSinceBeginHover = true;
+        _hadInteractionSinceBeginFocus = true;
         onInteract.Invoke(_totalInteractions);
     }
 }

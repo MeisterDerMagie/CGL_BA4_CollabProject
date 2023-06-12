@@ -10,7 +10,7 @@ public class Interact : FirstPersonModule
     [field: SerializeField] [field: BoxGroup("How many seconds you need to look at an object until you interact with it")]
     public float InteractionDurationSeconds { get; private set; } = 3f;
     
-    private Interactable _previouslyHoveredObject;
+    private Interactable _previouslyFocusedObject;
     private Camera _mainCamera;
 
     private void Awake() => _mainCamera = Camera.main;
@@ -27,13 +27,13 @@ public class Interact : FirstPersonModule
         bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
         Interactable interactable = hitAnObject ? hit.collider.GetComponent<Interactable>() : null;
 
-        //End Hover
-        if (interactable == null || interactable != _previouslyHoveredObject)
+        //End Focus
+        if (interactable == null || interactable != _previouslyFocusedObject)
         {
-            if (_previouslyHoveredObject != null)
+            if (_previouslyFocusedObject != null)
             {
-                _previouslyHoveredObject.EndFocus();
-                _previouslyHoveredObject = null;
+                _previouslyFocusedObject.EndFocus();
+                _previouslyFocusedObject = null;
             }
         }
 
@@ -41,21 +41,21 @@ public class Interact : FirstPersonModule
         if (interactable == null) return;
         if (!interactable.IsEnabled) return;
         
-        //Hover or BeginHover
-        //if the object is newly being hovered
-        if (interactable != _previouslyHoveredObject)
+        //Focus or BeginFocus
+        //if the object is newly being focused
+        if (interactable != _previouslyFocusedObject)
         {
             interactable.BeginFocus();
-            _previouslyHoveredObject = interactable;
+            _previouslyFocusedObject = interactable;
         }
                 
-        //if hovering the same object like last frame
+        //if focusing the same object like last frame
         //Interact Progress
         else
         {
             interactable.totalFocusTime += Time.deltaTime;
             float interactionDuration = interactable.OverrideInteractionDuration ? interactable.CustomInteractionDuration : InteractionDurationSeconds;
-            float interactionProgress = 1f / interactionDuration * interactable.totalFocusTime; //this works for interactionDuration == 0 because 1f / 0f return Infinity instead of an error
+            float interactionProgress = 1f / interactionDuration * interactable.totalFocusTime; //this works for interactionDuration == 0 because 1f / 0f returns Infinity instead of an error
             interactable.interactionProgress = Mathf.Clamp(interactionProgress, 0f, 1f);
         }
                 
