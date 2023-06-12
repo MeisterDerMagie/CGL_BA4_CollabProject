@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5099909504763699148}
   - component: {fileID: 6465409214279398924}
   - component: {fileID: 2161883910306145289}
+  - component: {fileID: 6187086437626158543}
   - component: {fileID: 6832969972838724910}
   m_Layer: 0
   m_Name: FirstPersonController
@@ -77,6 +78,7 @@ MonoBehaviour:
   - {fileID: 5099909504763699148}
   - {fileID: 6465409214279398924}
   - {fileID: 2161883910306145289}
+  - {fileID: 6187086437626158543}
 --- !u!114 &5510268331239411699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 1
   cam: {fileID: 8674288109051456372}
+  rotationXBoundary: 0
+  rotationYBoundary: 0
   minVerticalRotation: -90
   maxVerticalRotation: 90
   rotationSpeed: 2
@@ -184,6 +188,7 @@ MonoBehaviour:
   Rails: {fileID: 0}
   speed: 5
   loop: 1
+  startOffset: 0
 --- !u!114 &2161883910306145289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +204,21 @@ MonoBehaviour:
   _isEnabled: 1
   Rails: {fileID: 0}
   progress: 0
+--- !u!114 &6187086437626158543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709328848438607980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393da6e4b53026d49aed695fe7099f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isEnabled: 1
+  backValue: 0
+  popValue: 0
 --- !u!143 &6832969972838724910
 CharacterController:
   m_ObjectHideFlags: 0
