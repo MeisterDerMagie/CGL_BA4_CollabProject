@@ -126,7 +126,7 @@ MonoBehaviour:
   rotationYBoundary: 0
   minVerticalRotation: -90
   maxVerticalRotation: 90
-  rotationSpeed: 1
+  rotationSpeed: 2
   screenBoundaryPercentage: 20
   rotationSpeedIncreaseFactor: 1
 --- !u!114 &8235854723103994763

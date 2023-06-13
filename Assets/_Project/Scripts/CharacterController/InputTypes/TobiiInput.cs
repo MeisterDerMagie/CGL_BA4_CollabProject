@@ -34,7 +34,7 @@ public class TobiiInput : InputType
         }
 
         //Look Around
-        FirstPersonController.GetModule<LookAround>()?.ExecuteLookAroundTobii(headRotation);
+        FirstPersonController.GetModule<LookAround>()?.ExecuteLookAround(headRotation);
 
         //Interact
         FirstPersonController.GetModule<Focus>()?.ExecuteFocus(gazePoint);

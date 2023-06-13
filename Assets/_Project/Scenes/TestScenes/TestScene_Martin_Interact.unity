@@ -583,11 +583,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2683423426064496998, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: _isEnabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3148199522184918765, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: modules.Array.size
@@ -602,11 +597,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstPersonController
-      objectReference: {fileID: 0}
-    - target: {fileID: 5510268331239411699, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: _isEnabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6347304080784636597, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
@@ -662,16 +652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: _isEnabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8915436791635352566, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: _isEnabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
