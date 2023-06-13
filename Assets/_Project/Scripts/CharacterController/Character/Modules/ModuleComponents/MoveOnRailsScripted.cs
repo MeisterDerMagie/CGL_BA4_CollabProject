@@ -16,7 +16,7 @@ public class MoveOnRailsScripted : MoveOnRails
             typeof(Teleport),
             typeof(MoveOnRailsAnimated),
             typeof(MoveOnRailsPlayerControlled),
-            typeof(PushAndPull)
+            typeof(AttractAndRepel)
         };
     
     [Range(0f, 1f)]

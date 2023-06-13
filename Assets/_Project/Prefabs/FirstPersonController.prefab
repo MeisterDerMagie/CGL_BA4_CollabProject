@@ -234,6 +234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
+  _characterController: {fileID: 6832969972838724910}
+  maxForceDesignerFriendly: 15
+  accelerationDesignerFriendly: 2
+  decelerationDuration: 0.5
 --- !u!143 &6832969972838724910
 CharacterController:
   m_ObjectHideFlags: 0

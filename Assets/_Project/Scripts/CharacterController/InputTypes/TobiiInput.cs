@@ -42,6 +42,9 @@ public class TobiiInput : InputType
 
         //Pop Bubbles
         FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(headPos.z);
+        
+        //Push and pull
+        FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
 
         Debug.Log("TobiiInput tick.");
     }

@@ -34,7 +34,7 @@ public class Interactable : Focusable
 
     [PropertyOrder(60)]
     [SerializeField]
-    private UnityEvent<int> onInteract; //passes along the total amount of interactions
+    public UnityEvent<int> onInteract; //passes along the total amount of interactions
 
     public override void EndFocus()
     {

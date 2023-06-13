@@ -37,5 +37,11 @@ public class ControllerInput : InputType
         
         //Move on Rails (Player Controlled)
         FirstPersonController.GetModule<MoveOnRailsPlayerControlled>()?.ExecuteMovement(Input.GetAxis("Vertical"));
+        
+        //Pop bubbles
+        
+        
+        //Push and pull
+        FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(Input.mousePosition);
     }
 }

@@ -16,7 +16,7 @@ public class MoveOnRailsAnimated : MoveOnRails
             typeof(Teleport),
             typeof(MoveOnRailsPlayerControlled),
             typeof(MoveOnRailsScripted),
-            typeof(PushAndPull)
+            typeof(AttractAndRepel)
         };
 
     [SerializeField]

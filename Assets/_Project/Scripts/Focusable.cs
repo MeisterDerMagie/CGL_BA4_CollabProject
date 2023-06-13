@@ -20,19 +20,19 @@ public class Focusable : MonoBehaviour
     
     [PropertyOrder(20)]
     [SerializeField]
-    protected UnityEvent onBeginFocus;
+    public UnityEvent onBeginFocus;
     
     [PropertyOrder(30)]
     [SerializeField]
-    protected UnityEvent onEndFocus;
+    public UnityEvent onEndFocus;
     
     [PropertyOrder(40)]
     [SerializeField]
-    protected UnityEvent onBecameEnabled;
+    public UnityEvent onBecameEnabled;
     
     [PropertyOrder(50)]
     [SerializeField]
-    protected UnityEvent onBecameDisabled;
+    public UnityEvent onBecameDisabled;
     
     private void Awake()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
 
+[DisallowMultipleComponent]
 public class PopBubbles : FirstPersonModule
 {
     public float backValue, popValue;

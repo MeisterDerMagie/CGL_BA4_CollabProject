@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[DefaultExecutionOrder (-50)]
 public abstract class InputType
 {
     protected FirstPersonController FirstPersonController;
