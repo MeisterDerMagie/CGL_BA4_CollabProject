@@ -28,4 +28,9 @@ public class BubbleBehavior : MonoBehaviour
             transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
         }
     }
+
+    public void Pop()
+    {
+        Destroy(gameObject);
+    }
 }

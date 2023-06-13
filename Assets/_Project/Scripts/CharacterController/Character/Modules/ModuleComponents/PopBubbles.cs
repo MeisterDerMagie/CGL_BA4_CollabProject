@@ -7,7 +7,6 @@ public class PopBubbles : FirstPersonModule
 {
     public float backValue, popValue;
 
-    public bool BubbleFocusedLongEnough { get; set; }
     bool popable;
 
     public void ExecutePopBubbles(float value)
@@ -19,15 +18,14 @@ public class PopBubbles : FirstPersonModule
             popable = true;
 
         // if Z-headposition is smaller then the distance at which the player can pop bubbles and he is able to pop them
-        if (value <= popValue && popable == true && BubbleFocusedLongEnough == true)
+        if (value <= popValue && popable == true)
         {
             GameObject bubble = TobiiAPI.GetFocusedObject(); // Get the object the player is looking at
 
             if (bubble != null) // if we have different objects that are gaze aware, check for the tag
             {
-                Destroy(bubble);
+                bubble.GetComponent<BubbleBehavior>().Pop();
                 popable = false;
-                BubbleFocusedLongEnough = false;
             }
         }
     }
