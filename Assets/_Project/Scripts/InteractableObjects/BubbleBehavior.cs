@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleMovement : MonoBehaviour
+public class BubbleBehavior : MonoBehaviour
 {
     float movementSpeed;
     float maxY, spawnY;
@@ -27,5 +27,10 @@ public class BubbleMovement : MonoBehaviour
         {
             transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
         }
+    }
+
+    public void Pop()
+    {
+        Destroy(gameObject);
     }
 }
