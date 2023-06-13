@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleMovement : MonoBehaviour
+public class BubbleBehavior : MonoBehaviour
 {
     float movementSpeed;
     float maxY, spawnY;
