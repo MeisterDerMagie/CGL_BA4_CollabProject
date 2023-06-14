@@ -1155,6 +1155,53 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1637835806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &347426924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347426926}
+  - component: {fileID: 347426925}
+  m_Layer: 0
+  m_Name: Iris
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347426925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347426924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5c48ba68f6699489099c269a753a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTillAppearance: 4
+  iris: {fileID: 611328385}
+--- !u!4 &347426926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347426924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 611328385}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368444800
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,12 +2309,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 347426926}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
@@ -2277,12 +2324,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 6.2591
+      value: 6.2591004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.2591
+      value: 6.2591004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
@@ -2312,12 +2359,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
@@ -2333,6 +2380,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: ab6588985f4e5eb47a04ac0fcad78e83,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7635826562936255635, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
@@ -2352,10 +2404,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1837429306}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab6588985f4e5eb47a04ac0fcad78e83,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 697898029}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab6588985f4e5eb47a04ac0fcad78e83,
         type: 3}
       insertIndex: -1
@@ -2404,7 +2452,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 697898029}
+      - m_Target: {fileID: 347426925}
         m_TargetAssemblyTypeName: IrisBehavior, Assembly-CSharp
         m_MethodName: GetBright
         m_Mode: 1
@@ -2416,19 +2464,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &697898029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697898027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea5c48ba68f6699489099c269a753a01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeTillAppearance: 4
 --- !u!135 &697898030
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3123,6 +3158,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstPersonController
       objectReference: {fileID: 0}
+    - target: {fileID: 5510268331239411699, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: _isEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6347304080784636597, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: m_RootOrder
@@ -3177,6 +3217,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: _isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8915436791635352566, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: _isEnabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5997,12 +6047,12 @@ GameObject:
   - component: {fileID: 1556527593}
   - component: {fileID: 1556527592}
   m_Layer: 0
-  m_Name: plyer size
+  m_Name: player size
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1556527592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7608,36 +7658,13 @@ GameObject:
   - component: {fileID: 1837429306}
   - component: {fileID: 1837429305}
   - component: {fileID: 1837429304}
-  - component: {fileID: 1837429303}
   m_Layer: 0
-  m_Name: mkae iris darker
+  m_Name: make iris darker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &1837429303
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837429302}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1837429304
 MeshRenderer:
   m_ObjectHideFlags: 0
