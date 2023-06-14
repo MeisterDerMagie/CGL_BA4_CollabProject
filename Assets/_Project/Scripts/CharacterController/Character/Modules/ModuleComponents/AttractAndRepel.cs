@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Wichtel;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(CharacterController))]
+//https://forum.unity.com/threads/how-to-multiply-vector3-towards-zero-considering-time-deltatime.1448338/
 public class AttractAndRepel : FirstPersonModule
 {
     public override List<Type> IncompatibleModules =>
@@ -29,8 +31,8 @@ public class AttractAndRepel : FirstPersonModule
     private Camera _mainCamera;
     
     [SerializeField][LabelText("Max Force")]
-    private float maxForceDesignerFriendly = 15f;
-    private float MaxForce => maxForceDesignerFriendly / 100f;
+    private float maxSpeedDesignerFriendly = 15f;
+    private float MaxSpeed => maxSpeedDesignerFriendly / 100f;
 
     [SerializeField][LabelText("Acceleration")]
     private float accelerationDesignerFriendly = 2f;
@@ -40,7 +42,7 @@ public class AttractAndRepel : FirstPersonModule
     private float decelerationDuration = 0.5f;
     
     
-    private Vector3 _currentForce;
+    private Vector3 _currentVelocity;
     private Vector3 _direction;
     private bool _isAttractingOrRepelling;
     private float _decelerationProgress;
@@ -81,26 +83,26 @@ public class AttractAndRepel : FirstPersonModule
         if (_isAttractingOrRepelling)
         {
             //move
-            _currentForce += _direction * (acceleration * Time.deltaTime);
-            _currentForce = Vector3.ClampMagnitude(_currentForce, MaxForce);
+            _currentVelocity += _direction * (acceleration * Time.deltaTime);
+            _currentVelocity = Vector3.ClampMagnitude(_currentVelocity, MaxSpeed);
             
             //variables for stopping
-            _decelerationProgress = MathW.Remap(_currentForce.magnitude, 0f, MaxForce, decelerationDuration, 0f);
-            _forceWhenStopping = _currentForce;
+            _decelerationProgress = MathW.Remap(_currentVelocity.magnitude, 0f, MaxSpeed, decelerationDuration, 0f);
+            _forceWhenStopping = _currentVelocity;
         }
 
-        else if(_currentForce.magnitude > 0f)
+        else if(_currentVelocity.magnitude > 0f)
         {
             _decelerationProgress = Mathf.Min(_decelerationProgress + Time.deltaTime, decelerationDuration);
             _decelerationProgressNormalized = MathW.Remap(_decelerationProgress, 0f, decelerationDuration, 0f, 1f);
             
-            _currentForce = Vector3.Lerp(_forceWhenStopping, Vector3.zero, _decelerationProgressNormalized);
+            _currentVelocity = Vector3.Lerp(_forceWhenStopping, Vector3.zero, _decelerationProgressNormalized);
         }
         
-        Debug.DrawLine(transform.position, (transform.position + _currentForce * 100f), Color.yellow);
+        Debug.DrawLine(transform.position, (transform.position + _currentVelocity * 100f), Color.yellow);
         
         //move character
-        _characterController.Move(_currentForce);
+        _characterController.Move(_currentVelocity);
         
         //reset isAttractingOrRepelling
         _isAttractingOrRepelling = false;
