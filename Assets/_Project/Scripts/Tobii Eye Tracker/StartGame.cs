@@ -92,7 +92,7 @@ public class StartGame : MonoBehaviour
         yield return Timing.WaitUntilDone(tween.WaitForCompletion(true));
         
         //wait another short time
-        yield return Timing.WaitForSeconds(1f);
+        yield return Timing.WaitForSeconds(0.25f);
 
         //load next scene
         nextScene.Load();
