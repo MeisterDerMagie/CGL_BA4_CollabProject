@@ -19,10 +19,8 @@ public class Focus : FirstPersonModule
             //Debug.Log("Focus is not enabled.");
             return;
         }
-        
-        Ray ray = _mainCamera.ScreenPointToRay(gazePoint);
-        bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
-        Focusable focusable = hitAnObject ? hit.collider.GetComponent<Focusable>() : null;
+
+        Focusable focusable = RaycastUtility.ScreenPointRaycast<Focusable>(_mainCamera, gazePoint);
 
         //End Hover
         if (focusable == null || focusable != _previouslyFocusedObject)
