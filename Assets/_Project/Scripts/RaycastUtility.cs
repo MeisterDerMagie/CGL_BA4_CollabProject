@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HelpingClass
+public class RaycastUtility
 {
     public static T Raycast<T>(Camera cam, Vector3 gazePoint, MonoBehaviour script) where T : MonoBehaviour
     {
