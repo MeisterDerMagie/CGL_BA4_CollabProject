@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
+[RequireComponent(typeof(Collider))]
+[HideMonoScript]
 public class Focusable : MonoBehaviour
 {
     [SerializeField][DisableInPlayMode][PropertyOrder(0)]
