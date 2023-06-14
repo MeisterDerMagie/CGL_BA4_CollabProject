@@ -15,6 +15,8 @@ public class LookAround : FirstPersonModule
     float rotationXBoundary, rotationYBoundary;
 
     public float minVerticalRotation, maxVerticalRotation, rotationSpeed;
+    float RotationSpeed => rotationSpeed * 350;
+
     [Range(0, 50)]
     public float screenBoundaryPercentage;
     [Range(0, 5)]
@@ -46,14 +48,14 @@ public class LookAround : FirstPersonModule
         // Rotation on X-Axis
         if (mouseXCenterDistance > 0)
         {
-            float currentXRotationSpeed = mouseXCenterDistance * Mathf.Pow(rotationSpeed, rotationSpeedIncreaseFactor) * mouseXSide * Time.deltaTime * 350;
+            float currentXRotationSpeed = mouseXCenterDistance * Mathf.Pow(RotationSpeed, rotationSpeedIncreaseFactor) * mouseXSide * Time.deltaTime;
             transform.Rotate(Vector3.up, currentXRotationSpeed);
         }
 
         // Rotation on Y-Axis
         if (mouseYCenterDistance > 0)
         {
-            float currentYRotationSpeed = mouseYCenterDistance * Mathf.Pow(rotationSpeed, rotationSpeedIncreaseFactor) * mouseYSide * Time.deltaTime * 350;
+            float currentYRotationSpeed = mouseYCenterDistance * Mathf.Pow(RotationSpeed, rotationSpeedIncreaseFactor) * mouseYSide * Time.deltaTime;
             verticalRotation -= currentYRotationSpeed;
             verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
             cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
