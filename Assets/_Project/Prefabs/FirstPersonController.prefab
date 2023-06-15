@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 2161883910306145289}
   - component: {fileID: 6187086437626158543}
   - component: {fileID: 1641979485005923844}
+  - component: {fileID: 3911115458185209180}
   - component: {fileID: 6832969972838724910}
   m_Layer: 0
   m_Name: FirstPersonController
@@ -58,6 +59,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 3148199522184918765}
+  backValue: 0
+  popValue: 0
 --- !u!114 &3148199522184918765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +84,7 @@ MonoBehaviour:
   - {fileID: 2161883910306145289}
   - {fileID: 6187086437626158543}
   - {fileID: 1641979485005923844}
+  - {fileID: 3911115458185209180}
 --- !u!114 &5510268331239411699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +223,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
-  backValue: 0
-  popValue: 0
 --- !u!114 &1641979485005923844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,9 +237,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   _characterController: {fileID: 6832969972838724910}
-  maxForceDesignerFriendly: 15
+  maxSpeedDesignerFriendly: 15
   accelerationDesignerFriendly: 2
   decelerationDuration: 0.5
+--- !u!114 &3911115458185209180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709328848438607980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71f425910e60c04d8c091f660c36582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isEnabled: 0
+  leftPainting: {fileID: 0}
+  rightPainting: {fileID: 0}
+  movementSpeed: 0
 --- !u!143 &6832969972838724910
 CharacterController:
   m_ObjectHideFlags: 0

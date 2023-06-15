@@ -14,6 +14,7 @@ public class TobiiInput : InputType
     Quaternion headRotation;
 
     float backValue, popValue;
+    float lastXPos;
 
     bool popable;
 
@@ -61,6 +62,18 @@ public class TobiiInput : InputType
         
         //Push and pull
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
+
+        //Move Painting
+        if (headPos.x > lastXPos)
+        {
+            FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(1);
+            lastXPos = headPos.x;
+        }
+        else if (headPos.x < lastXPos)
+        {
+            FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(-1);
+            lastXPos = headPos.x;
+        }
 
         Debug.Log("TobiiInput tick.");
     }

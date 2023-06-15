@@ -43,5 +43,8 @@ public class ControllerInput : InputType
         
         //Push and pull
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(Input.mousePosition);
+
+        //Move Painting
+        FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(Input.GetAxis("Mouse X"));
     }
 }

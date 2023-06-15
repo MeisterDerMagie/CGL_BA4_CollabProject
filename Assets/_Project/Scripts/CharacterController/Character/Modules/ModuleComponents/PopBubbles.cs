@@ -8,6 +8,8 @@ public class PopBubbles : FirstPersonModule
 {
     public void ExecutePopBubbles(GameObject bubble)
     {
+        if (!IsEnabled) return;
+
         bubble.GetComponent<BubbleBehavior>().Pop();
     }
 }

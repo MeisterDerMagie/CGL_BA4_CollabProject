@@ -21,7 +21,7 @@ public class FirstPersonInputManager : MonoBehaviour
     
     private InputType _currentInput;
 
-    [SerializeField]
+    [SerializeField] [field: BoxGroup("Values to pop Bubbles")]
     float backValue, popValue;
 
     private void Start()
