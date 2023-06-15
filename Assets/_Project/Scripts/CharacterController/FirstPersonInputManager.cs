@@ -21,6 +21,9 @@ public class FirstPersonInputManager : MonoBehaviour
     
     private InputType _currentInput;
 
+    [SerializeField]
+    float backValue, popValue;
+
     private void Start()
     {
         SetInputType(InputTypes.Player);
@@ -41,7 +44,7 @@ public class FirstPersonInputManager : MonoBehaviour
                 break;
             case InputTypes.Player:
                 if (TobiiAPI.IsConnected)
-                    _currentInput = new TobiiInput(firstPersonController);
+                    _currentInput = new TobiiInput(firstPersonController, backValue, popValue);
                 else
                     _currentInput = new ControllerInput(firstPersonController);
                 break;
@@ -49,7 +52,7 @@ public class FirstPersonInputManager : MonoBehaviour
                 _currentInput = new ControllerInput(firstPersonController);
                 break;
             case InputTypes.Tobii:
-                _currentInput = new TobiiInput(firstPersonController);
+                _currentInput = new TobiiInput(firstPersonController, backValue, popValue);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(inputType), inputType, null);

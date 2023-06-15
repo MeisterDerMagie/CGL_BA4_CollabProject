@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BubbleBehavior : MonoBehaviour
 {
-    float movementSpeed;
+    float movementSpeed, fallingSpeed;
     float maxY, spawnY;
+
+    bool falling;
 
     BubbleValues values;
 
@@ -16,21 +18,33 @@ public class BubbleBehavior : MonoBehaviour
         movementSpeed = Random.Range(values.minSpeed, values.maxSpeed);
         maxY = values.maxYValue;
         spawnY = values.spawnY;
+        fallingSpeed = values.fallingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition += transform.up * movementSpeed * Time.deltaTime;
-
-        if (transform.localPosition.y >= maxY)
+        if (falling == false)
         {
-            transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
+            transform.localPosition += transform.up * movementSpeed * Time.deltaTime;
+
+            if (transform.localPosition.y >= maxY)
+            {
+                transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
+            }
+        }
+        else
+        {
+            transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
+            Destroy(gameObject, 1.2f);
         }
     }
 
     public void Pop()
     {
-        Destroy(gameObject);
+        if (!values.fallOnInteract)
+            Destroy(gameObject);
+        else
+            falling = true;
     }
 }

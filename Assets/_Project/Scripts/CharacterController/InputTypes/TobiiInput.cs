@@ -13,8 +13,14 @@ public class TobiiInput : InputType
 
     Quaternion headRotation;
 
-    public TobiiInput(FirstPersonController firstPersonController) : base(firstPersonController)
+    float backValue, popValue;
+
+    bool popable;
+
+    public TobiiInput(FirstPersonController firstPersonController, float _backValue, float _popValue) : base(firstPersonController)
     {
+        backValue = _backValue;
+        popValue = _popValue;
     }
 
     public override void Tick()
@@ -41,7 +47,17 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(gazePoint);
 
         //Pop Bubbles
-        FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(headPos.z);
+        if (headPos.z >= backValue) popable = true;
+
+        GameObject bubble = TobiiAPI.GetFocusedObject();
+        if (bubble != null)
+        {
+            if (headPos.z <= popValue && popable == true)
+            {
+                FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
+                popable = false;
+            }
+        }
         
         //Push and pull
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
