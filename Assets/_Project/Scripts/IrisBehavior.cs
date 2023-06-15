@@ -1,34 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 
 public class IrisBehavior : MonoBehaviour
 {
     public float timeTillAppearance;
 
-    float timeSinceStart;
+    [SerializeField]
+    private Transform iris;
 
-    MeshRenderer meshRenderer;
-
-    SphereCollider sphereCollider;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        meshRenderer.enabled = false;
-        sphereCollider.enabled = false;
+        Timing.RunCoroutine(_EnableIris());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator<float> _EnableIris()
     {
-        timeSinceStart += Time.deltaTime;
-        if (timeSinceStart >= timeTillAppearance)
-        {
-            meshRenderer.enabled = true;
-            sphereCollider.enabled = true;
-            //Play audio sound
-        }
+        yield return Timing.WaitForSeconds(timeTillAppearance);
+        
+        Appear();
+    }
+
+    private void Appear()
+    {
+        iris.gameObject.SetActive(true);
+        //Play audio sound
     }
 
     public void GetBright()

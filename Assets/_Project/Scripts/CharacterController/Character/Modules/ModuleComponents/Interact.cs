@@ -22,10 +22,8 @@ public class Interact : FirstPersonModule
             //Debug.Log("Interact is not enabled.");
             return;
         }
-        
-        Ray ray = _mainCamera.ScreenPointToRay(gazePoint);
-        bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
-        Interactable interactable = hitAnObject ? hit.collider.GetComponent<Interactable>() : null;
+
+        Interactable interactable = RaycastUtility.ScreenPointRaycast<Interactable>(_mainCamera, gazePoint);
 
         //End Focus
         if (interactable == null || interactable != _previouslyFocusedObject)

@@ -58,10 +58,8 @@ public class AttractAndRepel : FirstPersonModule
         {
             return;
         }
-        
-        Ray ray = _mainCamera.ScreenPointToRay(gazePoint);
-        bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
-        AttractOrRepelPlayer attractOrRepelPlayer = hitAnObject ? hit.collider.GetComponent<AttractOrRepelPlayer>() : null;
+
+        AttractOrRepelPlayer attractOrRepelPlayer = RaycastUtility.ScreenPointRaycast<AttractOrRepelPlayer>(_mainCamera, gazePoint);
 
         if (attractOrRepelPlayer == null) return;
 
