@@ -53,8 +53,7 @@ public class AttractAndRepel : FirstPersonModule
     private float _decelerationProgressNormalized;
     private Vector3 _forceWhenStopping;
 
-    [SerializeField]
-    private bool glueToSplines;
+    public bool glueToSplines;
     private float GlueIntensity => 50f;
 
     private SplineContainer _splineContainer;
