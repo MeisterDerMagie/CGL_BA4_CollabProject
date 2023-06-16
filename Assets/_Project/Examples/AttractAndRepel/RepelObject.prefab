@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4078506810561268327}
   - component: {fileID: 8929819647885884273}
   m_Layer: 0
-  m_Name: PushObject
+  m_Name: RepelObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e58bc35b62cc1464f99935ee7bb963f5, type: 2}
+  - {fileID: 2100000, guid: f590d15d013eceb4d9accc93d8aedc2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,4 +119,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  force: 0.5
