@@ -5,18 +5,10 @@ using UnityEngine;
 public class MovePainting : FirstPersonModule
 {
     [SerializeField]
-    GameObject leftPainting, rightPainting;
+    Painting leftPainting, rightPainting;
 
     [SerializeField]
     float movementSpeed;
-
-    Vector3 startPosRightPainting, startPosLeftPainting;
-
-    private void Awake()
-    {
-        startPosLeftPainting = leftPainting.transform.position;
-        startPosRightPainting = rightPainting.transform.position;
-    }
 
     public void ExecuteMovePainting(float xMovement)
     {
@@ -24,14 +16,18 @@ public class MovePainting : FirstPersonModule
 
         if (xMovement > 0.5f)
         {
-            leftPainting.transform.position += Vector3.right * movementSpeed * Time.deltaTime;
-            rightPainting.transform.position = startPosRightPainting;
+            leftPainting.Move(new Vector3(movementSpeed, 0, 0));
+            rightPainting.ResetPosition();
         }
         else if (xMovement < -0.5f)
         {
-            rightPainting.transform.position += Vector3.left * movementSpeed * Time.deltaTime;
-            Vector3 startPos = leftPainting.transform.position;
-            leftPainting.transform.position = Vector3.Lerp(startPos, startPosLeftPainting, 4f);
+            rightPainting.Move(new Vector3(-movementSpeed, 0, 0));
+            leftPainting.ResetPosition();
+        }
+        else
+        {
+            leftPainting.StopMoving();
+            rightPainting.StopMoving();
         }
     }
 }

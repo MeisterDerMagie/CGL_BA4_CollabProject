@@ -9,7 +9,48 @@ public class Painting : MonoBehaviour
 
     float timeInMiddle;
 
-    /*private void OnTriggerStay(Collider other)
+    bool resettingPos;
+
+    Vector3 startPos;
+
+    Rigidbody rb;
+
+    private void Awake() => rb = GetComponent<Rigidbody>();
+
+    private void Start() => startPos = transform.position;
+
+    public void Move(Vector3 velocity)
+    {
+        rb.velocity = velocity;
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
+    public void ResetPosition()
+    {
+        rb.velocity = Vector3.zero;
+
+        if (resettingPos == true) return;
+
+        StartCoroutine(ResetPos());
+        resettingPos = false;
+    }
+
+    IEnumerator ResetPos()
+    {
+        resettingPos = true;
+        float startTime = Time.time;
+        while (Time.time - startTime <= 0.6f)
+        {
+            transform.position = Vector3.Lerp(transform.position, startPos, Time.time - startTime);
+            yield return 1;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         Debug.Log("Stay");
         if (other.tag != "Middle") return;
@@ -19,7 +60,7 @@ public class Painting : MonoBehaviour
         {
             Debug.Log("Scene Transition");
         }
-    }*/
+    }
 
     private void OnTriggerExit(Collider other)
     {
@@ -27,10 +68,5 @@ public class Painting : MonoBehaviour
         if (other.tag != "Middle") return;
 
         timeInMiddle = 0f;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Enter");
     }
 }

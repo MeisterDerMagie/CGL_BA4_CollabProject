@@ -990,7 +990,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.2405539, y: 2.461454, z: 1.3192178}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &203193289
 Transform:
@@ -1000,8 +1000,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203193287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 3.83, z: -1.45}
-  m_LocalScale: {x: 1.9920979, y: 1.5568, z: 5.28292}
+  m_LocalPosition: {x: 0.31, y: 3.83, z: -1.45}
+  m_LocalScale: {x: 0.3044628, y: 2.4542954, z: 1.8402444}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1787,6 +1787,7 @@ GameObject:
   - component: {fileID: 366519577}
   - component: {fileID: 366519580}
   - component: {fileID: 366519581}
+  - component: {fileID: 366519582}
   m_Layer: 0
   m_Name: Frame Painting 1
   m_TagString: Untagged
@@ -1879,8 +1880,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.5950868, y: 1.2992841, z: 1.0823584}
-  m_Center: {x: -0.22506419, y: 0.088729575, z: -0.24847858}
+  m_Size: {x: 0.8908206, y: 1.2992841, z: 0.8797833}
+  m_Center: {x: 0.0000000015103319, y: 0, z: -0.10128729}
 --- !u!114 &366519581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,6 +1895,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsInMiddle: 2
+--- !u!54 &366519582
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366519576}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &416006571
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,6 +2493,7 @@ GameObject:
   - component: {fileID: 546845276}
   - component: {fileID: 546845279}
   - component: {fileID: 546845280}
+  - component: {fileID: 546845281}
   m_Layer: 0
   m_Name: Frame Painting 2
   m_TagString: Untagged
@@ -2557,8 +2586,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.73617, y: 0.82802093, z: 0.62678206}
-  m_Center: {x: -0.036740303, y: 0.06641528, z: -0.003023042}
+  m_Size: {x: 0.8908206, y: 1.2992841, z: 0.8797833}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &546845280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2572,6 +2601,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsInMiddle: 2
+--- !u!54 &546845281
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546845275}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &566074195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3208,7 +3264,7 @@ PrefabInstance:
         type: 3}
       propertyPath: leftPainting
       value: 
-      objectReference: {fileID: 546845275}
+      objectReference: {fileID: 546845280}
     - target: {fileID: 3911115458185209180, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: movementSpeed
@@ -3218,7 +3274,7 @@ PrefabInstance:
         type: 3}
       propertyPath: rightPainting
       value: 
-      objectReference: {fileID: 366519576}
+      objectReference: {fileID: 366519581}
     - target: {fileID: 6347304080784636597, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: m_RootOrder
