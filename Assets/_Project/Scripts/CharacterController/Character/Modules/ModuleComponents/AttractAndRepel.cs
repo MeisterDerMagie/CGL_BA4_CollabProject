@@ -53,7 +53,8 @@ public class AttractAndRepel : FirstPersonModule
     private float _decelerationProgressNormalized;
     private Vector3 _forceWhenStopping;
 
-    public bool glueToSplines;
+    [HideInInspector]
+    public bool glueToSplines = true;
     private float GlueIntensity => 50f;
 
     private SplineContainer _splineContainer;
