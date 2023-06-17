@@ -240,6 +240,7 @@ MonoBehaviour:
   maxSpeedDesignerFriendly: 15
   accelerationDesignerFriendly: 2
   decelerationDuration: 0.5
+  glueToSplines: 1
 --- !u!114 &3911115458185209180
 MonoBehaviour:
   m_ObjectHideFlags: 0

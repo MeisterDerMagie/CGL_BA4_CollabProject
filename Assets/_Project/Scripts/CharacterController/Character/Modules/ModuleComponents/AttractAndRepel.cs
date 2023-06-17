@@ -58,7 +58,8 @@ public class AttractAndRepel : FirstPersonModule
     private float GlueIntensity => 50f;
 
     private SplineContainer _splineContainer;
-    
+    private float _distanceToAttractRepelObject;
+
     private void Awake() => _mainCamera = Camera.main;
 
 
@@ -69,7 +70,7 @@ public class AttractAndRepel : FirstPersonModule
             return;
         }
 
-        AttractOrRepelPlayer attractOrRepelPlayer = RaycastUtility.ScreenPointRaycast<AttractOrRepelPlayer>(_mainCamera, gazePoint);
+        AttractOrRepelPlayer attractOrRepelPlayer = RaycastUtility.ScreenPointRaycast<AttractOrRepelPlayer>(_mainCamera, gazePoint, RaycastUtility.GetComponentIn.Parent);
 
         if (attractOrRepelPlayer == null) return;
 
@@ -84,7 +85,9 @@ public class AttractAndRepel : FirstPersonModule
 
         if (glueToSplines)
         {
-            _splineContainer = attractOrRepelPlayer.GetComponent<AttractRepelPath>()?.SplineContainer;
+            _splineContainer = attractOrRepelPlayer.GetComponentInChildren<AttractRepelPath>(true)?.SplineContainer;
+            var objectCollider = attractOrRepelPlayer.GetComponentInChildren<Collider>();
+            _distanceToAttractRepelObject = Vector3.Distance(_characterController.transform.position, objectCollider.transform.position);
         }
         
         //set isAttractingOrRepelling
@@ -123,9 +126,8 @@ public class AttractAndRepel : FirstPersonModule
                 Debug.DrawLine(_characterController.transform.position, (Vector3)nearestPointOnSpline, Color.cyan);
 
                 //stop movement when the player reached the end of the spline
-                /* Players could get stuck here
-                if (Vector3.Distance(_characterController.transform.position, (Vector3)nearestPointOnSpline) < 0.05f)
-                    velocityTowardsPointOnSpline = Vector3.zero;*/
+                if (Vector3.Distance(_characterController.transform.position, (Vector3)nearestPointOnSpline) < 0.05f && _distanceToAttractRepelObject > 2f)
+                    velocityTowardsPointOnSpline = Vector3.zero;
                 
                 velocity = velocityTowardsPointOnSpline;
             }
@@ -146,39 +148,6 @@ public class AttractAndRepel : FirstPersonModule
             velocity = _currentVelocity;
         }
 
-        /*
-        Vector3 velocity = _currentVelocity;
-        
-        //glue to splines
-        if (glueToSplines && _currentVelocity.magnitude > 0f)
-        {
-            if (_splineContainer != null)
-            {
-                //get a point on the spline that's a bit ahead of the player and move the player towards this point
-                Vector3 velocityTargetPoint = _characterController.transform.position + (_currentVelocity * GlueIntensity);
-                Vector3 worldPositionOfSplineObject = _splineContainer.transform.position;
-                float distance = SplineUtility.GetNearestPoint(_splineContainer.Spline, (float3)((velocityTargetPoint - worldPositionOfSplineObject)), out float3 nearestPointOnSpline, out float normalizedInterpolationRatio);
-
-                nearestPointOnSpline += (float3)worldPositionOfSplineObject;
-
-                Vector3 directionTowardsPointOnSpline = Vector3.Normalize((Vector3)nearestPointOnSpline - _characterController.transform.position);
-                Vector3 velocityTowardsPointOnSpline = directionTowardsPointOnSpline * _currentVelocity.magnitude;
-                
-                
-                Debug.DrawLine(_characterController.transform.position, (Vector3)velocityTargetPoint, Color.blue);
-                Debug.DrawLine(velocityTargetPoint, (Vector3)nearestPointOnSpline, Color.blue);
-                Debug.DrawLine(_characterController.transform.position, (Vector3)nearestPointOnSpline, Color.cyan);
-
-                //stop movement when the player reached the end of the spline
-                //Players could get stuck here
-                //if (Vector3.Distance(_characterController.transform.position, (Vector3)nearestPointOnSpline) < 0.05f)
-                //    velocityTowardsPointOnSpline = Vector3.zero;
-                
-                velocity = velocityTowardsPointOnSpline;
-                _forceWhenStopping = velocity;
-            }
-        }*/
-        
         //draw velocity debug line
         Debug.DrawLine(_characterController.transform.position, (_characterController.transform.position + _currentVelocity * 100f), Color.yellow);
         
