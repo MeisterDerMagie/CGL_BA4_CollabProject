@@ -24,16 +24,21 @@ public class TEST_TobiiInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("User Presence: " + TobiiAPI.GetUserPresence().IsUserPresent());
+
         switch (input)
         {
             case (InputTypes.Eye):
-                Debug.Log("Eye Position: " + TobiiAPI.GetGazePoint().Screen);
+                if (TobiiAPI.GetGazePoint().IsRecent())
+                    Debug.Log("Eye Position: " + TobiiAPI.GetGazePoint().Screen);
                 break;
             case (InputTypes.HeadMovement):
-                Debug.Log("Head Position: " + TobiiAPI.GetHeadPose().Position);
+                if (TobiiAPI.GetHeadPose().IsRecent())
+                    Debug.Log("Head Position: " + TobiiAPI.GetHeadPose().Position);
                 break;
             case (InputTypes.HeadRotation):
-                Debug.Log("Head Rotation: " + TobiiAPI.GetHeadPose().Rotation);
+                if (TobiiAPI.GetHeadPose().IsRecent())
+                    Debug.Log("Head Rotation: " + TobiiAPI.GetHeadPose().Rotation);
                 break;
         }
     }
