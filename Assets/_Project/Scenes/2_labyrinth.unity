@@ -11688,7 +11688,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8597649862500356, guid: 559a3bde6f90ab4409b5b27d727ea58e, type: 3}
       propertyPath: m_Name
-      value: Ghost (1)
+      value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 3092269098747022451, guid: 559a3bde6f90ab4409b5b27d727ea58e,
         type: 3}
