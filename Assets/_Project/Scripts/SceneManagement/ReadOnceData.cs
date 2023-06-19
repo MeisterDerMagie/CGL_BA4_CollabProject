@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [System.Serializable]
-public class InterSceneData<T>
+public class ReadOnceData<T>
 {
     [SerializeField][ReadOnly]
     private T _defaultValue;
@@ -22,7 +22,7 @@ public class InterSceneData<T>
         }
     }
     
-    public InterSceneData(T defaultValue)
+    public ReadOnceData(T defaultValue)
     {
         _defaultValue = defaultValue;
     }
