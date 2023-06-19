@@ -255,8 +255,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
+      propertyPath: _isEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
       propertyPath: rotationSpeed
-      value: 400
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: rotationXBoundary
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: rotationYBoundary
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: rotationSpeedIncreaseFactor
+      value: 2.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -103,6 +103,7 @@ public class TEST_TobiiInput : MonoBehaviour
 
                     Debug.Log("Highest Rotation Values: " + highestRotation);
                     Debug.Log("Lowest Rotation Values: " + lowestRotation);
+                    //Debug.Log("Euler Angles: " + headRotation.eulerAngles);
                 }
                 break;
         }
