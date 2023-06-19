@@ -11,6 +11,7 @@ using UnityEngine.Serialization;
 using Wichtel.Extensions;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(CharacterController))]
 public class LockViewOnTarget : FirstPersonModule
 {
     public override List<Type> IncompatibleModules =>
@@ -28,6 +29,7 @@ public class LockViewOnTarget : FirstPersonModule
     [SerializeField]
     private float _inertia = 4f;
 
+    private CharacterController _characterController;
     private Camera _mainCamera;
     private Quaternion _initialRotation;
     private float _initialFieldOfView;
@@ -39,6 +41,7 @@ public class LockViewOnTarget : FirstPersonModule
         onEnabledChanged += OnIsEnabledChanged;
         
         _mainCamera = Camera.main;
+        _characterController = GetComponent<CharacterController>();
         
         ResetValues();
         
@@ -77,9 +80,16 @@ public class LockViewOnTarget : FirstPersonModule
         //lock on target
         Vector3 direction = _target.position - _mainCamera.transform.position;
         Quaternion toRotation = Quaternion.LookRotation(direction, transform.up);
-        _mainCamera.transform.rotation = Quaternion.Lerp(_initialRotation, toRotation, _transitionProgress);
         
-        //keep z rotation at 0
+        Quaternion newRotation = Quaternion.Lerp(_initialRotation, toRotation, _transitionProgress);
+        
+        //rotate camera on x axis
+        _mainCamera.transform.rotation = Quaternion.Euler(_mainCamera.transform.rotation.eulerAngles.With(x: newRotation.eulerAngles.x));
+        
+        //rotate character controller on y axis
+        _characterController.transform.rotation = Quaternion.Euler(_characterController.transform.rotation.eulerAngles.With(y: newRotation.eulerAngles.y));
+        
+        //keep z rotation of camera at 0
         _mainCamera.transform.rotation = Quaternion.Euler(_mainCamera.transform.rotation.eulerAngles.With(z: 0f));
         
         // zoom
