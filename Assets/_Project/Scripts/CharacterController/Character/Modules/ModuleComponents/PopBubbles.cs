@@ -10,6 +10,7 @@ public class PopBubbles : FirstPersonModule
     {
         if (!IsEnabled) return;
 
+        Debug.Log("Pop");
         bubble.GetComponent<BubbleBehavior>().Pop();
     }
 }

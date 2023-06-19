@@ -48,13 +48,18 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(gazePoint);
 
         //Pop Bubbles
-        if (headPos.z >= backValue) popable = true;
-
-        GameObject bubble = TobiiAPI.GetFocusedObject();
-        if (bubble != null)
+        if (Mathf.Abs(headPos.z) * 100 >= backValue)
         {
-            if (headPos.z <= popValue && popable == true)
+            Debug.Log("Back Value has been reached");
+            popable = true;
+        }
+        GameObject bubble = TobiiAPI.GetFocusedObject();
+        if (null != bubble)
+        {
+            Debug.Log(bubble.name);
+            if (Mathf.Abs(headPos.z) * 100 <= popValue && popable == true)
             {
+                Debug.Log("Pop Value has been reached");
                 FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
                 popable = false;
             }
@@ -64,16 +69,20 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
 
         //Move Painting
-        if (headPos.x > lastXPos)
+        float headX = Mathf.Round(headPos.x * 100) / 100;
+        Debug.Log(headX);
+        if (headX > lastXPos)
         {
             FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(1);
-            lastXPos = headPos.x;
+            lastXPos = headX;
         }
-        else if (headPos.x < lastXPos)
+        else if (headX < lastXPos)
         {
             FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(-1);
-            lastXPos = headPos.x;
+            lastXPos = headX;
         }
+        else
+            FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(0);
 
         Debug.Log("TobiiInput tick.");
     }
