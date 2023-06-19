@@ -39,6 +39,6 @@ public abstract class FirstPersonModule : MonoBehaviour
     public void SetEnabled(bool isEnabled)
     {
         _isEnabled = isEnabled;
-        onEnabledChanged?.Invoke(_isEnabled);
+        if(Application.isPlaying) onEnabledChanged?.Invoke(_isEnabled);
     }
 }

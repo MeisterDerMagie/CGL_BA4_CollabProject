@@ -1,9 +1,17 @@
 ﻿//(c) copyright by Martin M. Klöckener
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
 public class LookAround : FirstPersonModule
 {
+    public override List<Type> IncompatibleModules =>
+        new ()
+        {
+            typeof(LockViewOnTarget),
+        };
+    
     public GameObject cam;
 
     float verticalRotation, horizontalRotation;
