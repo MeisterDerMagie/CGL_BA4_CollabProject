@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toon_17
+  m_Name: Toon_17 (Walls) 1
   m_Shader: {fileID: 4800000, guid: e88aeddd2ef1f934d805981244872e27, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -92,11 +92,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _HatchingNoiseMap:
         m_Texture: {fileID: 2800000, guid: 29d5f9cfb7bc7524a8ab38a4ad0d17e3, type: 3}
-<<<<<<< Updated upstream
-        m_Scale: {x: 2.2, y: 2.2}
-=======
-        m_Scale: {x: 5, y: 5}
->>>>>>> Stashed changes
+        m_Scale: {x: 3.3, y: 3.3}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
@@ -183,16 +179,12 @@ Material:
     - _HatchDiffuseOffset: 0.415
     - _HatchDrawStrength: 9.59
     - _HatchSmoothness: 0.01
-    - _HatchingDensity: 1.4
+    - _HatchingDensity: 1.69
     - _HatchingDiffuseOffset: 0.31
-<<<<<<< Updated upstream
-    - _HatchingDrawStrength: 12.9
-=======
-    - _HatchingDrawStrength: 10.9
->>>>>>> Stashed changes
+    - _HatchingDrawStrength: 12.5
     - _HatchingEnabled: 1
     - _HatchingRotation: 0
-    - _HatchingSmoothness: 0.382
+    - _HatchingSmoothness: 0.56
     - _LightContribution: 1
     - _LightFalloffSize: 1
     - _Metallic: 0
@@ -235,7 +227,7 @@ Material:
     - _ZWrite: 1
     - _brushScale: 30
     m_Colors:
-    - _BaseColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    - _BaseColor: {r: 0.8584906, g: 0.8544411, b: 0.8544411, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FaceFrontDirection: {r: 0, g: 0, b: 1, a: 0}
