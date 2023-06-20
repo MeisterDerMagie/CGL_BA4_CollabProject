@@ -26,6 +26,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _HALFTONESHAPE_STRIPE
+  - _OUTLINE
   - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords:
   - _OVERRIDESHADOWCOLOR_ON
@@ -91,7 +92,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _HatchingNoiseMap:
         m_Texture: {fileID: 2800000, guid: 29d5f9cfb7bc7524a8ab38a4ad0d17e3, type: 3}
-        m_Scale: {x: 0.5, y: 0.5}
+        m_Scale: {x: 2.2, y: 2.2}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
@@ -180,7 +181,7 @@ Material:
     - _HatchSmoothness: 0.01
     - _HatchingDensity: 0.62
     - _HatchingDiffuseOffset: 0.31
-    - _HatchingDrawStrength: 13.08
+    - _HatchingDrawStrength: 12.9
     - _HatchingEnabled: 1
     - _HatchingRotation: 0
     - _HatchingSmoothness: 0.382
@@ -190,7 +191,7 @@ Material:
     - _NoiseScale: 3
     - _NoiseStrength: 0.31
     - _OcclusionStrength: 1
-    - _OutlineEnabled: 0
+    - _OutlineEnabled: 1
     - _OutlineMode: 0
     - _OutlineWidth: 6.4
     - _OverrideShadowColor: 1
