@@ -181,7 +181,7 @@ Material:
     - _HatchSmoothness: 0.01
     - _HatchingDensity: 1.4
     - _HatchingDiffuseOffset: 0.44
-    - _HatchingDrawStrength: 12.8
+    - _HatchingDrawStrength: 14
     - _HatchingEnabled: 1
     - _HatchingRotation: 36
     - _HatchingSmoothness: 0.382

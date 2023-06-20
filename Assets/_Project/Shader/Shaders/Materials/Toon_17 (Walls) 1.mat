@@ -184,7 +184,7 @@ Material:
     - _HatchingDrawStrength: 12.5
     - _HatchingEnabled: 1
     - _HatchingRotation: 0
-    - _HatchingSmoothness: 0.56
+    - _HatchingSmoothness: 0.36
     - _LightContribution: 1
     - _LightFalloffSize: 1
     - _Metallic: 0
