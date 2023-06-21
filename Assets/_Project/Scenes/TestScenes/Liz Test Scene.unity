@@ -201,24 +201,24 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 150
+      - m_Value: 127.8
         m_Name: Player Radius
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value: 1
         m_Name: floating boxes amount
         m_Overridden: 0
-      - m_Value: 15
+      - m_Value: 12.8
         m_Name: Extreme hight
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value: 0.35
         m_Name: movement speed
         m_Overridden: 0
       - m_Value: 11.64
         m_Name: Spacing tweeking
         m_Overridden: 0
-      - m_Value: 75
+      - m_Value: 73
         m_Name: Radius Player Color
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value: 1
         m_Name: Saturation Player Color (normal 1)
         m_Overridden: 0
@@ -226,7 +226,7 @@ VisualEffect:
       m_Array: []
     m_Vector3f:
       m_Array:
-      - m_Value: {x: 22.9, y: 0.46, z: 13.5}
+      - m_Value: {x: 12.6, y: 0.46, z: 31.8}
         m_Name: Player Postition
         m_Overridden: 1
     m_Vector4f:
@@ -237,7 +237,7 @@ VisualEffect:
       - m_Value: {x: 0.102127075, y: 0.107720435, z: 0.14150941, w: 0}
         m_Name: Color B
         m_Overridden: 0
-      - m_Value: {x: 0.04430632, y: 0.042274825, z: 0.09433961, w: 1}
+      - m_Value: {x: 1, y: 1, z: 1, w: 1}
         m_Name: Player Color
         m_Overridden: 1
     m_Uint:
@@ -330,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 77264801}
   m_LocalRotation: {x: -0, y: 0.026420034, z: -0, w: 0.99965096}
-  m_LocalPosition: {x: 22.9, y: 0.46, z: 13.5}
+  m_LocalPosition: {x: 12.6, y: 0.46, z: 31.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
