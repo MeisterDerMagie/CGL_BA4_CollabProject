@@ -4,6 +4,9 @@ using DG.Tweening;
 using MEC;
 using UnityEngine;
 using Wichtel.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LoadingScreen : LoadingScreenBase
 {
@@ -15,6 +18,10 @@ public class LoadingScreen : LoadingScreenBase
     
     public override IEnumerator<float> _ShowLoadingScreen()
     {
+        #if UNITY_EDITOR
+        if (SkipAnimation) yield break;
+        #endif
+        
         audioListener.enabled = false;
 
         loadingScreenCanvasGroup.alpha = 0f;
@@ -26,6 +33,14 @@ public class LoadingScreen : LoadingScreenBase
 
     protected override IEnumerator<float> _HideAndDestroyLoadingScreen()
     {
+        #if UNITY_EDITOR
+        if (SkipAnimation)
+        {
+            Destroy(gameObject);
+            yield break;
+        }
+        #endif
+        
         audioListener.enabled = false;
         
         var tween = loadingScreenCanvasGroup.DOFade(0f, 2.5f);
@@ -33,4 +48,28 @@ public class LoadingScreen : LoadingScreenBase
         
         Destroy(gameObject);
     }
+    
+    //--- Menu Toggle ---
+    #region MenuToggle
+    #if UNITY_EDITOR
+    private const string MenuName = "Eye/Skip Loading Screen Animation";
+    private const string SettingName = "SkipLoadingScreenAnimation";
+
+    private static bool SkipAnimation
+    {
+        get => EditorPrefs.GetBool(SettingName, false);
+        set => EditorPrefs.SetBool(SettingName, value);
+    }
+          
+    [MenuItem(MenuName, false, 1)]
+    private static void ToggleAction() => SkipAnimation = !SkipAnimation;
+
+    [MenuItem(MenuName, true, 1)]
+    private static bool ToggleActionValidate()
+    {
+        Menu.SetChecked(MenuName, SkipAnimation);
+        return true;
+    }
+    #endif
+    #endregion
 }

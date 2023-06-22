@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
     [SerializeField]
     private SceneLoader nextScene;
 
-    [SerializeField] private Transform isConnectedView, isNotConnectedView;
+    [SerializeField] private Transform isConnectedView, isNotConnectedView, skipAnimationHint;
     [SerializeField] private CanvasGroup initializingView, messages;
     
     private void Start()
@@ -32,7 +32,13 @@ public class StartGame : MonoBehaviour
             Timing.RunCoroutine(_QuickInitialize());
         else
         #endif
-        Timing.RunCoroutine(_InitializeAnimation());
+            Timing.RunCoroutine(_InitializeAnimation());
+        
+        skipAnimationHint.gameObject.SetActive(false);
+        #if UNITY_EDITOR
+        //show hint to skip animation in the editor
+        skipAnimationHint.gameObject.SetActive(true);
+        #endif
     }
 
     private IEnumerator<float> _QuickInitialize()
