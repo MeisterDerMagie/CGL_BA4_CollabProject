@@ -56,8 +56,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxYValue: 1.2
   spawnY: -1.2
-  minSpeed: 0.05
-  maxSpeed: 0.7
+  minSpeed: 0
+  maxSpeed: 0
+  fallOnInteract: 0
+  fallingSpeed: 2
 --- !u!1001 &146871518216348948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,17 +358,17 @@ PrefabInstance:
     - target: {fileID: 2039151379486881859, guid: 788163711d4c0894e81af0b14783dacb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 0.8172
       objectReference: {fileID: 0}
     - target: {fileID: 2039151379486881859, guid: 788163711d4c0894e81af0b14783dacb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 0.8172
       objectReference: {fileID: 0}
     - target: {fileID: 2039151379486881859, guid: 788163711d4c0894e81af0b14783dacb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 0.8172
       objectReference: {fileID: 0}
     - target: {fileID: 2039151379486881859, guid: 788163711d4c0894e81af0b14783dacb,
         type: 3}
