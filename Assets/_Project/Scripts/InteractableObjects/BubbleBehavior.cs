@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Tobii.Gaming;
 
 public class BubbleBehavior : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class BubbleBehavior : MonoBehaviour
 
     BubbleValues values;
 
+    GazeAware gazeAware;
+
+    public Color selected;
+    Color normal;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +25,9 @@ public class BubbleBehavior : MonoBehaviour
         maxY = values.maxYValue;
         spawnY = values.spawnY;
         fallingSpeed = values.fallingSpeed;
+
+        gazeAware = GetComponent<GazeAware>();
+        normal = GetComponent<MeshRenderer>().material.color;
     }
 
     // Update is called once per frame
@@ -38,6 +47,11 @@ public class BubbleBehavior : MonoBehaviour
             transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
             Destroy(gameObject, 1.2f);
         }
+
+        if (gazeAware.HasGazeFocus == true)
+            GetComponent<MeshRenderer>().material.color = selected;
+        else
+            GetComponent<MeshRenderer>().material.color = normal;
     }
 
     public void Pop()

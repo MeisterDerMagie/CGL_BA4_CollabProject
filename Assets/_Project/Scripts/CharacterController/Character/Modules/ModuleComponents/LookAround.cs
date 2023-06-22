@@ -69,6 +69,7 @@ public class LookAround : FirstPersonModule
 
     public void ExecuteLookAroundTobii(Quaternion headRotation)
     {
+        if (!IsEnabled) return;
         //Camera and player rotate with the same amount as the player's head
         //Maybe smoother?
         /*transform.rotation = Quaternion.Euler(0, headRotation.eulerAngles.y, 0);

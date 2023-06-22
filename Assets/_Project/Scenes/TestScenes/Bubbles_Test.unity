@@ -241,12 +241,17 @@ PrefabInstance:
     - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: popValue
-      value: 60
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: backValue
-      value: 80
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: moveToPop
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3709328848438607980, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
@@ -436,6 +441,55 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1712605309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1712605311}
+  - component: {fileID: 1712605310}
+  m_Layer: 0
+  m_Name: TobiiInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1712605310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712605309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc080c53b923c1843b8d4d0604409bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings:
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 55
+    HowLongToKeepCandidatesInSeconds: 1
+--- !u!4 &1712605311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712605309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8917118, y: 2.5802615, z: -17.5756}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &9211245881932919767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,6 +498,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1066748792573560128, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.47049472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748792573560128, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.47049472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748792573560128, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.47049472
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748792573560128, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1066748792573560128, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.626
+      objectReference: {fileID: 0}
     - target: {fileID: 1299924158092954390, guid: 331808ef0a421c142837707a75616ad9,
         type: 3}
       propertyPath: m_RootOrder
@@ -506,56 +585,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
         type: 3}
-      propertyPath: fallingSpeed
-      value: 2
+      propertyPath: maxSpeed
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
         type: 3}
-      propertyPath: fallOnInteract
-      value: 0
+      propertyPath: minSpeed
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9030165509014685815, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5091370974002902295, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 5564547525042982049, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7000606070222789627, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1949040940455107359, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 4651921871777122868, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1570459128948437758, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 1210536628875220485, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7455909712325555503, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 19181288059571730, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 331808ef0a421c142837707a75616ad9, type: 3}

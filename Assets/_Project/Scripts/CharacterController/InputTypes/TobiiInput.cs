@@ -18,10 +18,11 @@ public class TobiiInput : InputType
 
     bool popable;
 
-    public TobiiInput(FirstPersonController firstPersonController, float _backValue, float _popValue) : base(firstPersonController)
+    public TobiiInput(FirstPersonController firstPersonController, float _backValue, float moveToPop) : base(firstPersonController)
     {
         backValue = _backValue;
-        popValue = _popValue;
+        popValue = _backValue + (moveToPop / 100);
+        Debug.Log(backValue + "/" + popValue);
     }
 
     public override void Tick()
@@ -48,7 +49,7 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(gazePoint);
 
         //Pop Bubbles
-        if (Mathf.Abs(headPos.z) * 100 >= backValue)
+        if (Mathf.Abs(headPos.z) >= backValue)
         {
             Debug.Log("Back Value has been reached");
             popable = true;
@@ -57,7 +58,7 @@ public class TobiiInput : InputType
         if (null != bubble)
         {
             Debug.Log(bubble.name);
-            if (Mathf.Abs(headPos.z) * 100 <= popValue && popable == true)
+            if (Mathf.Abs(headPos.z) <= popValue && popable == true)
             {
                 Debug.Log("Pop Value has been reached");
                 FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
@@ -70,7 +71,7 @@ public class TobiiInput : InputType
 
         //Move Painting
         float headX = Mathf.Round(headPos.x * 100) / 100;
-        Debug.Log(headX);
+        //Debug.Log(headX);
         if (headX > lastXPos)
         {
             FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(1);
