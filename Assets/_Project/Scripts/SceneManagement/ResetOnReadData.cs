@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [System.Serializable]
-public class ReadOnceData<T>
+public class ResetOnReadData<T>
 {
     [SerializeField][ReadOnly]
     private T _defaultValue;
@@ -22,7 +22,7 @@ public class ReadOnceData<T>
         }
     }
     
-    public ReadOnceData(T defaultValue)
+    public ResetOnReadData(T defaultValue)
     {
         _defaultValue = defaultValue;
     }

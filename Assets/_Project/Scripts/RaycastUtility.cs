@@ -12,7 +12,7 @@ public static class RaycastUtility
     }
     
     /// <returns>returns null if the hit object doesn't contain the requested component</returns>
-    public static T ScreenPointRaycast<T>(Camera cam, Vector3 screenPoint, GetComponentIn scope = GetComponentIn.Self) where T : MonoBehaviour
+    public static T ScreenPointRaycast<T>(Camera cam, Vector3 screenPoint, GetComponentIn scope = GetComponentIn.Self, bool includeInactive = true) where T : Component
     {
         Ray ray = cam.ScreenPointToRay(screenPoint);
         bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
@@ -23,10 +23,10 @@ public static class RaycastUtility
             hitObject = hitAnObject ? hit.collider.GetComponent<T>() : null;
         
         else if(scope == GetComponentIn.Parent)
-            hitObject = hitAnObject ? hit.collider.GetComponentInParent<T>(true) : null;
+            hitObject = hitAnObject ? hit.collider.GetComponentInParent<T>(includeInactive) : null;
         
         else if(scope == GetComponentIn.Children)
-            hitObject = hitAnObject ? hit.collider.GetComponentInChildren<T>(true) : null;
+            hitObject = hitAnObject ? hit.collider.GetComponentInChildren<T>(includeInactive) : null;
             
         return hitObject;
     }

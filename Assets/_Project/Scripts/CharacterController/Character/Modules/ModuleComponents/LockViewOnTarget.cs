@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
+using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -70,6 +71,24 @@ public class LockViewOnTarget : FirstPersonModule
     {
         ResetValues(fieldOfView);
         StartTransition();
+    }
+
+    public IEnumerator<float> _ChangeTargetAndFieldOfView(Transform target, float fieldOfView)
+    {
+        ChangeTargetAndFieldOfView(target, fieldOfView);
+        yield return Timing.WaitUntilTrue(() => _transitionProgress >= 1f);
+    }
+
+    public IEnumerator<float> _ChangeTarget(Transform target)
+    {
+        ChangeTarget(target);
+        yield return Timing.WaitUntilTrue(() => _transitionProgress >= 1f);
+    }
+
+    public IEnumerator<float> _ChangeFieldOfView(float fieldOfView)
+    {
+        ChangeFieldOfView(fieldOfView);
+        yield return Timing.WaitUntilTrue(() => _transitionProgress >= 1f);
     }
 
     private void Update()

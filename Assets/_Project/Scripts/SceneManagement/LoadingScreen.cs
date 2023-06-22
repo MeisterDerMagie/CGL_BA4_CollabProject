@@ -16,7 +16,8 @@ public class LoadingScreen : LoadingScreenBase
     public override IEnumerator<float> _ShowLoadingScreen()
     {
         audioListener.enabled = false;
-        
+
+        loadingScreenCanvasGroup.alpha = 0f;
         var tween = loadingScreenCanvasGroup.DOFade(1f, 1.5f);
         yield return Timing.WaitUntilDone(tween.WaitForCompletion(true));
         
