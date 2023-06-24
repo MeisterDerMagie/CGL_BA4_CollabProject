@@ -22,14 +22,20 @@ public class FirstPersonInputManager : MonoBehaviour
     private InputType _currentInput;
 
     [SerializeField] [field: BoxGroup("How far to move forward to pop a bubble (in cm)")]
+    float rotateToPop;
+    [SerializeField] [field: BoxGroup("Start x euler angle")]
+    float startValue;
+
+    [SerializeField] [field: BoxGroup("Z position where bubble pop")]
     float moveToPop;
+    [SerializeField] [field: BoxGroup("Start z head position")]
     float backValue;
 
     private void Start()
     {
         SetInputType(InputTypes.Player);
-        if (TobiiAPI.GetHeadPose().IsValid)
-            backValue = TobiiAPI.GetHeadPose().Position.z + 0.025f;
+        //if (TobiiAPI.GetHeadPose().IsValid)
+            //backValue = TobiiAPI.GetHeadPose().Position.z + 0.025f;
     }
 
     private void Update()
@@ -47,7 +53,7 @@ public class FirstPersonInputManager : MonoBehaviour
                 break;
             case InputTypes.Player:
                 if (TobiiAPI.IsConnected)
-                    _currentInput = new TobiiInput(firstPersonController, backValue, moveToPop);
+                    _currentInput = new TobiiInput(firstPersonController, backValue, moveToPop, rotateToPop, startValue);
                 else
                     _currentInput = new ControllerInput(firstPersonController);
                 break;
@@ -55,7 +61,7 @@ public class FirstPersonInputManager : MonoBehaviour
                 _currentInput = new ControllerInput(firstPersonController);
                 break;
             case InputTypes.Tobii:
-                _currentInput = new TobiiInput(firstPersonController, backValue, moveToPop);
+                _currentInput = new TobiiInput(firstPersonController, backValue, moveToPop, rotateToPop, startValue);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(inputType), inputType, null);

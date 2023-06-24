@@ -16,13 +16,25 @@ public class TobiiInput : InputType
     float backValue, popValue;
     float lastXPos;
 
+    float rotateToPop, startValue;
+
     bool popable;
 
-    public TobiiInput(FirstPersonController firstPersonController, float _backValue, float moveToPop) : base(firstPersonController)
+    public enum PopControl
+    {
+        HeadMoveZ,
+        Nodding
+    }
+
+    [SerializeField]
+    PopControl popControl;
+
+    public TobiiInput(FirstPersonController firstPersonController, float _backValue, float moveToPop, float _rotateToPop, float _startValue) : base(firstPersonController)
     {
         backValue = _backValue;
-        popValue = _backValue + (moveToPop / 100);
-        Debug.Log(backValue + "/" + popValue);
+        popValue = moveToPop;
+        rotateToPop = _rotateToPop;
+        startValue = _startValue;
     }
 
     public override void Tick()
@@ -49,21 +61,46 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(gazePoint);
 
         //Pop Bubbles
-        if (Mathf.Abs(headPos.z) >= backValue)
+        switch (popControl)
         {
-            Debug.Log("Back Value has been reached");
-            popable = true;
-        }
-        GameObject bubble = TobiiAPI.GetFocusedObject();
-        if (null != bubble)
-        {
-            Debug.Log(bubble.name);
-            if (Mathf.Abs(headPos.z) <= popValue && popable == true)
-            {
-                Debug.Log("Pop Value has been reached");
-                FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
-                popable = false;
-            }
+            case (PopControl.HeadMoveZ):
+                if (Mathf.Abs(headPos.z) >= backValue)
+                {
+                    Debug.Log("Back Value has been reached");
+                    popable = true;
+                }
+                GameObject bubble = TobiiAPI.GetFocusedObject();
+                if (null != bubble)
+                {
+                    Debug.Log(bubble.name);
+                    if (Mathf.Abs(headPos.z) <= popValue && popable == true)
+                    {
+                        Debug.Log("Pop Value has been reached");
+                        FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
+                        popable = false;
+                    }
+                }
+                break;
+
+            case (PopControl.Nodding):
+                if (headRotation.eulerAngles.x < backValue)
+                {
+                    Debug.Log("Back Value has been reached");
+                    popable = true;
+                }
+                GameObject Bubble = TobiiAPI.GetFocusedObject();
+                if (Bubble != null)
+                {
+                    Debug.Log(Bubble.name);
+                    if (headRotation.eulerAngles.x > popValue && popable == true)
+                    {
+                        Debug.Log("Pop Value has been reached");
+                        FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(Bubble);
+                        popable = false;
+                        Bubble = null;
+                    }
+                }
+                break;
         }
         
         //Push and pull

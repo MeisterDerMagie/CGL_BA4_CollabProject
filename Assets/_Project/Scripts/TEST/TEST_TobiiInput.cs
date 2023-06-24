@@ -101,9 +101,9 @@ public class TEST_TobiiInput : MonoBehaviour
                     else if (headRotation.z < lowestRotation.z)
                         lowestRotation.z = headRotation.z;
 
-                    Debug.Log("Highest Rotation Values: " + highestRotation);
-                    Debug.Log("Lowest Rotation Values: " + lowestRotation);
-                    //Debug.Log("Euler Angles: " + headRotation.eulerAngles);
+                    //Debug.Log("Highest Rotation Values: " + highestRotation);
+                   //Debug.Log("Lowest Rotation Values: " + lowestRotation);
+                    Debug.Log("Euler Angles: " + headRotation.eulerAngles);
                 }
                 break;
         }
