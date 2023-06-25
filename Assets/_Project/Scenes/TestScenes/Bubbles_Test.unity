@@ -246,11 +246,21 @@ PrefabInstance:
     - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: backValue
-      value: 10
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: moveToPop
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: startValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587747672442375481, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: rotateToPop
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3709328848438607980, guid: 4f9370d7f94cd744b9b433bdb1c63849,

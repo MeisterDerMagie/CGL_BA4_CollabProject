@@ -21,15 +21,15 @@ public class FirstPersonInputManager : MonoBehaviour
     
     private InputType _currentInput;
 
-    [SerializeField] [field: BoxGroup("How far to move forward to pop a bubble (in cm)")]
-    float rotateToPop;
     [SerializeField] [field: BoxGroup("Start x euler angle")]
     float startValue;
+    [SerializeField] [field: BoxGroup("How much to nod to pop a bubble")]
+    float rotateToPop;
 
-    [SerializeField] [field: BoxGroup("Z position where bubble pop")]
-    float moveToPop;
     [SerializeField] [field: BoxGroup("Start z head position")]
     float backValue;
+    [SerializeField] [field: BoxGroup("How much does the player need move forward to pop the bubble (in cm)")]
+    float moveToPop;
 
     private void Start()
     {

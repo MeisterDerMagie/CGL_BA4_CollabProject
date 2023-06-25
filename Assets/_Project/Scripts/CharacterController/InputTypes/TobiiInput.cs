@@ -20,19 +20,10 @@ public class TobiiInput : InputType
 
     bool popable;
 
-    public enum PopControl
-    {
-        HeadMoveZ,
-        Nodding
-    }
-
-    [SerializeField]
-    PopControl popControl;
-
     public TobiiInput(FirstPersonController firstPersonController, float _backValue, float moveToPop, float _rotateToPop, float _startValue) : base(firstPersonController)
     {
         backValue = _backValue;
-        popValue = moveToPop;
+        popValue = backValue + (moveToPop / 100);
         rotateToPop = _rotateToPop;
         startValue = _startValue;
     }
@@ -61,48 +52,44 @@ public class TobiiInput : InputType
         FirstPersonController.GetModule<Interact>()?.ExecuteInteract(gazePoint);
 
         //Pop Bubbles
-        switch (popControl)
+        //Popping with moving head forward
+        /*if (Mathf.Abs(headPos.z) >= backValue)
         {
-            case (PopControl.HeadMoveZ):
-                if (Mathf.Abs(headPos.z) >= backValue)
-                {
-                    Debug.Log("Back Value has been reached");
-                    popable = true;
-                }
-                GameObject bubble = TobiiAPI.GetFocusedObject();
-                if (null != bubble)
-                {
-                    Debug.Log(bubble.name);
-                    if (Mathf.Abs(headPos.z) <= popValue && popable == true)
-                    {
-                        Debug.Log("Pop Value has been reached");
-                        FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
-                        popable = false;
-                    }
-                }
-                break;
-
-            case (PopControl.Nodding):
-                if (headRotation.eulerAngles.x < backValue)
-                {
-                    Debug.Log("Back Value has been reached");
-                    popable = true;
-                }
-                GameObject Bubble = TobiiAPI.GetFocusedObject();
-                if (Bubble != null)
-                {
-                    Debug.Log(Bubble.name);
-                    if (headRotation.eulerAngles.x > popValue && popable == true)
-                    {
-                        Debug.Log("Pop Value has been reached");
-                        FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(Bubble);
-                        popable = false;
-                        Bubble = null;
-                    }
-                }
-                break;
+            Debug.Log("Back Value has been reached");
+            popable = true;
         }
-        
+        GameObject bubble = TobiiAPI.GetFocusedObject();
+        if (null != bubble)
+        {
+            Debug.Log(bubble.name);
+            if (Mathf.Abs(headPos.z) <= popValue && popable == true)
+            {
+                Debug.Log("Pop Value has been reached");
+                FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
+                popable = false;
+            }
+        }*/
+
+        //Popping with nodding
+        if (headRotation.eulerAngles.x <= startValue)
+        {
+            Debug.Log("Back Value has been reached");
+            popable = true;
+        }
+        GameObject Bubble = TobiiAPI.GetFocusedObject();
+
+        if (Bubble != null)
+        {
+            Debug.Log(Bubble.name);
+            if (headRotation.eulerAngles.x >= rotateToPop && popable == true) // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
+            {
+                Debug.Log("Pop Value has been reached");
+                popable = false;
+                FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(Bubble);
+                Bubble = null;
+            }
+        }
+
         //Push and pull
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
 
