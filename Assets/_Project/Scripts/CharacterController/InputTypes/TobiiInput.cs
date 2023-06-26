@@ -18,6 +18,8 @@ public class TobiiInput : InputType
 
     float rotateToPop, startValue;
 
+    float headAngleX;
+
     bool popable;
 
     public TobiiInput(FirstPersonController firstPersonController, float _backValue, float moveToPop, float _rotateToPop, float _startValue) : base(firstPersonController)
@@ -71,7 +73,9 @@ public class TobiiInput : InputType
         }*/
 
         //Popping with nodding
-        if (headRotation.eulerAngles.x <= startValue)
+        headAngleX = headRotation.eulerAngles.x;
+
+        if (headAngleX <= startValue)
         {
             Debug.Log("Back Value has been reached");
             popable = true;
@@ -81,7 +85,7 @@ public class TobiiInput : InputType
         if (Bubble != null)
         {
             Debug.Log(Bubble.name);
-            if (headRotation.eulerAngles.x >= rotateToPop && popable == true) // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
+            if (headAngleX >= rotateToPop && headAngleX <= 150 && popable == true) // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
             {
                 Debug.Log("Pop Value has been reached");
                 popable = false;
