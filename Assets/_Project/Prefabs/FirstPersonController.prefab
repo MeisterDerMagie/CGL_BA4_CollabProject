@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 6187086437626158543}
   - component: {fileID: 1641979485005923844}
   - component: {fileID: 3911115458185209180}
+  - component: {fileID: 2225644424989846701}
   - component: {fileID: 6832969972838724910}
   m_Layer: 0
   m_Name: FirstPersonController
@@ -60,8 +61,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 3148199522184918765}
+  startValue: 0
+  rotateToPop: 0
   backValue: 0
-  popValue: 0
+  moveToPop: 0
 --- !u!114 &3148199522184918765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +90,7 @@ MonoBehaviour:
   - {fileID: 6187086437626158543}
   - {fileID: 1641979485005923844}
   - {fileID: 3911115458185209180}
+  - {fileID: 2225644424989846701}
 --- !u!114 &5510268331239411699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,9 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
-  _characterController: {fileID: 6832969972838724910}
   _target: {fileID: 0}
-  _speed: 1
+  _fieldOfView: 60
+  _inertia: 4
 --- !u!114 &7794136748757844565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
+  rotationType: 0
   cam: {fileID: 8674288109051456372}
   rotationXBoundary: 0
   rotationYBoundary: 0
@@ -275,6 +280,19 @@ MonoBehaviour:
   leftPainting: {fileID: 0}
   rightPainting: {fileID: 0}
   movementSpeed: 0
+--- !u!114 &2225644424989846701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709328848438607980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c71a3052389a214a985be966afd2a53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isEnabled: 0
 --- !u!143 &6832969972838724910
 CharacterController:
   m_ObjectHideFlags: 0

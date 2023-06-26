@@ -113,6 +113,9 @@ public class TobiiInput : InputType
         else
             FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(0);
 
+        //Shaking Scene
+        FirstPersonController.GetModule<Shaking>()?.ExecuteShaking(headRotation);
+
         Debug.Log("TobiiInput tick.");
     }
 }
