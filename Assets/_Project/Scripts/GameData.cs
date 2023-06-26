@@ -19,9 +19,4 @@ public class GameData : SingletonBehaviourDontDestroyOnLoad<GameData>
     [SerializeField]
     public List<HubSymbol> activatedSymbols = new();
 
-    [BoxGroup("Scenario 1")]
-    [SerializeField]
-    public ResetOnReadData<bool> Scenario1_LoadBubbles = new(false);
-    
-    
 }

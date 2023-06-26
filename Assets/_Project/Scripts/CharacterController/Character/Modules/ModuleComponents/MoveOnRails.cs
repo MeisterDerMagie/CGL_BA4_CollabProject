@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Splines;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,6 +11,9 @@ public abstract class MoveOnRails : FirstPersonModule
 {
     [SerializeField]
     public Rails Rails;
+
+    [SerializeField]
+    public bool AlignRotationToSpline = true;
     
     protected void GlueCharacterToRails()
     {
@@ -20,7 +24,7 @@ public abstract class MoveOnRails : FirstPersonModule
             return;
         
         transform.position = Rails.Target.position;
-        transform.rotation = Rails.Target.rotation;
+        if(AlignRotationToSpline) transform.rotation = Rails.Target.rotation;
         
         #if UNITY_EDITOR
         if(!Application.isPlaying) PrefabUtility.RecordPrefabInstancePropertyModifications(Rails.Target);

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Painting : MonoBehaviour
 {
-    [SerializeField]
-    float secondsInMiddle;
-
-    float timeInMiddle;
-
     bool resettingPos;
 
     Vector3 startPos;
@@ -48,25 +43,5 @@ public class Painting : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, startPos, Time.time - startTime);
             yield return 1;
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Stay");
-        if (other.tag != "Middle") return;
-
-        timeInMiddle += Time.deltaTime;
-        if (timeInMiddle >= secondsInMiddle)
-        {
-            Debug.Log("Scene Transition");
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log("Exit");
-        if (other.tag != "Middle") return;
-
-        timeInMiddle = 0f;
     }
 }
