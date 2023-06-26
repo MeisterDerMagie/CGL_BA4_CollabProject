@@ -35,9 +35,7 @@ public class AttractAndRepel : FirstPersonModule
     [SerializeField][LabelText("Max Force")]
     private float maxSpeedDesignerFriendly = 15f;
     private float MaxSpeed => maxSpeedDesignerFriendly / 100f;
-
-    private float _currentSpeed = 0;
-
+    
     [SerializeField][LabelText("Acceleration")]
     private float accelerationDesignerFriendly = 2f;
     private float acceleration => accelerationDesignerFriendly / 100f;

@@ -38,7 +38,9 @@ public class SceneFlow_Hub : SceneFlow
         _lookAroundModule = _firstPersonController.GetModule<LookAround>();
         _lockViewOnTargetModule = _firstPersonController.GetModule<LockViewOnTarget>();
         
-        
+        //initialize the scene to restore all previously activated stars and bridges
+        InitializeScene();
+
         //wait until the player looked at the iris
         yield return Timing.WaitUntilTrue(() => _playerInteractedWithIris);
 
@@ -52,8 +54,11 @@ public class SceneFlow_Hub : SceneFlow
         //show stars
         _stars.Show();
 
-        //wait until the player interacted with one of the stars
+        //wait until the player interacted with one of the stars, meaning they activated a symbol
         yield return Timing.WaitUntilFalse(() => _activatedSymbol == null);
+        
+        //remember the activated symbol in the global game data
+        GameData.Singleton.activatedSymbols.Add(_activatedSymbol);
 
         //activate the according bridge (show fog and symbol)
         Bridge[] bridges = FindObjectsOfType<Bridge>(); //jaja, FindObjects is baaaaaaad. But it's quick and dirty and gets the job quickly done here...
@@ -76,6 +81,26 @@ public class SceneFlow_Hub : SceneFlow
         yield return Timing.WaitUntilTrue(() => _loadNextScenario);
         _scenarios[GameData.Singleton.nextScenarioIndex].Load();
         GameData.Singleton.nextScenarioIndex++;
+    }
+
+    private void InitializeScene()
+    {
+        //load previously activated stars and bridges
+        foreach (HubSymbol symbol in GameData.Singleton.activatedSymbols)
+        {
+            //star
+            _stars.LoadStarState(symbol);
+            
+            //bridge
+            Bridge[] bridges = FindObjectsOfType<Bridge>();
+            foreach (Bridge bridge in bridges)
+            {
+                if (bridge.Symbol != symbol) continue;
+            
+                bridge.LoadState();
+                break;
+            }
+        }
     }
 
     public void SetPlayerInteractedWithIris(bool interacted) => _playerInteractedWithIris = interacted;
