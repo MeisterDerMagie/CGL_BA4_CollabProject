@@ -126,3 +126,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f58ff7a70df16b040bf2c26e56516a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnPaintingTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 306630954287601527}
+        m_TargetAssemblyTypeName: Painting, Assembly-CSharp
+        m_MethodName: EXAMPLE_ScaleUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPaintingTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 306630954287601527}
+        m_TargetAssemblyTypeName: Painting, Assembly-CSharp
+        m_MethodName: EXAMPLE_ScaleDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

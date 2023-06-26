@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Painting : MonoBehaviour
 {
-    bool resettingPos;
-
-    Vector3 startPos;
-
-    Rigidbody rb;
+    public UnityEvent OnPaintingTriggerEnter;
+    public UnityEvent OnPaintingTriggerExit;
+    
+    private bool resettingPos;
+    private Vector3 startPos;
+    private Rigidbody rb;
 
     private void Awake() => rb = GetComponent<Rigidbody>();
 
@@ -44,4 +48,15 @@ public class Painting : MonoBehaviour
             yield return 1;
         }
     }
+
+    //this gets called every frame when the painting is inside the trigger. Trigger progress is a value between 0 and 1. Use it e.g. for animating an increasing glow or so.
+    public void OnPaintingTriggerStay(float triggerProgressNormalized)
+    {
+        //do beautiful animations here :))
+    }
+    
+    //this is just for demonstration purposes. Delete it as soon as there is different visual feedback for entering or exiting the trigger zone
+    public void EXAMPLE_ScaleUp() => transform.DOScale(0.95f, 0.25f);
+    public void EXAMPLE_ScaleDown() => transform.DOScale(0.85f, 0.25f);
+
 }
