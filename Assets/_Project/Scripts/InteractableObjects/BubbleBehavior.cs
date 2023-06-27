@@ -14,9 +14,6 @@ public class BubbleBehavior : MonoBehaviour
 
     GazeAware gazeAware;
 
-    public Color selected;
-    Color normal;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +24,6 @@ public class BubbleBehavior : MonoBehaviour
         fallingSpeed = values.fallingSpeed;
 
         gazeAware = GetComponent<GazeAware>();
-        normal = GetComponent<MeshRenderer>().material.color;
     }
 
     // Update is called once per frame
@@ -35,9 +31,9 @@ public class BubbleBehavior : MonoBehaviour
     {
         if (falling == false)
         {
-            transform.localPosition += transform.up * movementSpeed * Time.deltaTime;
+            transform.localPosition -= transform.up * movementSpeed * Time.deltaTime;
 
-            if (transform.localPosition.y >= maxY)
+            if (transform.localPosition.y <= maxY)
             {
                 transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
             }
@@ -49,9 +45,9 @@ public class BubbleBehavior : MonoBehaviour
         }
 
         if (gazeAware.HasGazeFocus == true)
-            GetComponent<MeshRenderer>().material.color = selected;
+            ChangeAppearance(6.5f);
         else
-            GetComponent<MeshRenderer>().material.color = normal;
+            ChangeAppearance(0);
     }
 
     public void Pop()
@@ -60,5 +56,11 @@ public class BubbleBehavior : MonoBehaviour
             Destroy(gameObject);
         else
             falling = true;
+    }
+
+    public void ChangeAppearance(float value)
+    {
+        GetComponent<MeshRenderer>().material.SetFloat("Divide Color", value);
+        Debug.Log("Changed");
     }
 }

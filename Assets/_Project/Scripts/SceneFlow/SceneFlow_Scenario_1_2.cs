@@ -24,14 +24,12 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
     SceneLoader nextScene;
 
     //Modules
-    LookAround lookAround;
     PopBubbles popBubbles;
     Shaking shaking;
 
     protected override IEnumerator<float> _SceneFlow()
     {
         //get modules
-        lookAround = firstPersonController.GetModule<LookAround>();
         popBubbles = firstPersonController.GetModule<PopBubbles>();
         shaking = firstPersonController.GetModule<Shaking>();
 
@@ -40,7 +38,6 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
 
         //enable the shaking module and disable the popping module
         popBubbles.SetEnabled(false);
-        lookAround.SetEnabled(true);
         shaking.SetEnabled(true);
 
         //wait until the player shaked their head ...

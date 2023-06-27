@@ -61,8 +61,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 3148199522184918765}
-  startValue: 0
-  rotateToPop: 0
+  startValue: 10
+  rotateToPop: 20
   backValue: 0
   moveToPop: 0
 --- !u!114 &3148199522184918765

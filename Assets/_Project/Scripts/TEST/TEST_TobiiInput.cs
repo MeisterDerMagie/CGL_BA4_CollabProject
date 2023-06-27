@@ -43,7 +43,7 @@ public class TEST_TobiiInput : MonoBehaviour
                 {
                     gazePoint = TobiiAPI.GetGazePoint().Screen;
 
-                    if (gazePoint.x > highestGaze.x)
+                    /*if (gazePoint.x > highestGaze.x)
                         highestGaze.x = gazePoint.x;
                     else if (gazePoint.x < lowestGaze.x)
                         lowestGaze.x = gazePoint.x;
@@ -54,7 +54,9 @@ public class TEST_TobiiInput : MonoBehaviour
                         lowestGaze.y = gazePoint.y;
 
                     Debug.Log("Highest Eye Position Values: " + highestGaze);
-                    Debug.Log("Lowest Eye Position Values: " + lowestGaze);
+                    Debug.Log("Lowest Eye Position Values: " + lowestGaze);*/
+
+                    Debug.Log(gazePoint);
                 }
                 break;
             case (InputTypes.HeadMovement):
@@ -86,7 +88,7 @@ public class TEST_TobiiInput : MonoBehaviour
                 {
                     headRotation = TobiiAPI.GetHeadPose().Rotation;
 
-                    if (headRotation.x > highestRotation.x)
+                    /*if (headRotation.x > highestRotation.x)
                         highestRotation.x = headRotation.x;
                     else if (headRotation.x < lowestRotation.x)
                         lowestRotation.x = headRotation.x;
@@ -99,11 +101,11 @@ public class TEST_TobiiInput : MonoBehaviour
                     if (headRotation.z > highestRotation.z)
                         highestRotation.z = headRotation.z;
                     else if (headRotation.z < lowestRotation.z)
-                        lowestRotation.z = headRotation.z;
+                        lowestRotation.z = headRotation.z;*/
 
                     //Debug.Log("Highest Rotation Values: " + highestRotation);
                    //Debug.Log("Lowest Rotation Values: " + lowestRotation);
-                    Debug.Log("Euler Angles: " + headRotation.eulerAngles);
+                    Debug.Log("Euler Angles X: " + headRotation.eulerAngles.x);
                 }
                 break;
         }

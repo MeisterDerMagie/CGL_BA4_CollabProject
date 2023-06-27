@@ -15,7 +15,7 @@ public class LookAround : FirstPersonModule
 
     public enum RotationType
     {
-        WithHead,
+        Continuously,
         WithBoundary
     }
 
@@ -84,7 +84,7 @@ public class LookAround : FirstPersonModule
         {
             //Camera and player rotate with the same amount as the player's head
             //Maybe smoother?
-            case (RotationType.WithHead):
+            case (RotationType.Continuously):
                 transform.rotation = Quaternion.Euler(0, headRotation.eulerAngles.y, 0);
                 cam.transform.localRotation = Quaternion.Euler(headRotation.eulerAngles.x, 0, 0);
                 break;
