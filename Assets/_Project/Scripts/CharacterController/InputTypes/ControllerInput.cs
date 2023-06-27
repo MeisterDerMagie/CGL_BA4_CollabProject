@@ -46,5 +46,9 @@ public class ControllerInput : InputType
 
         //Move Painting
         FirstPersonController.GetModule<MovePainting>()?.ExecuteMovePainting(Input.GetAxis("Mouse X"));
+        
+        //Shaking Scene
+        var shakingFromAxis = new Vector3(Input.GetAxis("Vertical") * 100f, Input.GetAxis("Horizontal") * 100f);
+        FirstPersonController.GetModule<Shaking>()?.ExecuteShaking(Quaternion.Euler(shakingFromAxis));
     }
 }
