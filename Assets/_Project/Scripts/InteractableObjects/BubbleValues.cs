@@ -15,15 +15,11 @@ public class BubbleValues : MonoBehaviour
     [ShowIf(nameof(fallOnInteract))]
     public float fallingSpeed;
 
-    // Start is called before the first frame update
-    void Start()
+    public void CheckForBubbles()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (transform.childCount == 0)
+        {
+            FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
+        }
     }
 }
