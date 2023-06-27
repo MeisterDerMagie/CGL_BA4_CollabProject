@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 6832969972838724910}
   m_Layer: 0
   m_Name: FirstPersonController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   Rails: {fileID: 0}
+  AlignRotationToSpline: 1
   playOnAwake: 0
 --- !u!114 &6465409214279398924
 MonoBehaviour:
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   Rails: {fileID: 0}
+  AlignRotationToSpline: 1
   speed: 5
   loop: 1
   startOffset: 0
@@ -232,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   Rails: {fileID: 0}
+  AlignRotationToSpline: 1
   progress: 0
 --- !u!114 &6187086437626158543
 MonoBehaviour:
