@@ -9,13 +9,20 @@ public class Shaking : FirstPersonModule
     private float shakingTime;
     public float ShakingTime => shakingTime;
 
-    public void ExecuteShaking(Quaternion headRotation)
+    private Camera cam;
+
+    private void Awake() => cam = Camera.main;
+
+    public void ExecuteShaking(Quaternion rotation)
     {
         if (!IsEnabled) return;
 
-        addedValue = headRotation.x + headRotation.y + headRotation.z;
-        //Debug.Log(Mathf.Abs(latestAddedValue - addedValue) * 100);
-        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
+        transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y, 0);
+        cam.transform.localRotation = Quaternion.Euler(rotation.eulerAngles.x, 0, 0);
+
+        addedValue = rotation.x + rotation.y + rotation.z;
+        Debug.Log(Mathf.Abs(latestAddedValue - addedValue) * 10);
+        /*if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
         {
             shakingTime += Time.deltaTime;
             Debug.Log(shakingTime);
@@ -25,6 +32,6 @@ public class Shaking : FirstPersonModule
             Debug.Log("Shaking Time Reset");
             shakingTime = 0;
         }
-        latestAddedValue = addedValue;
+        latestAddedValue = addedValue;*/
     }
 }
