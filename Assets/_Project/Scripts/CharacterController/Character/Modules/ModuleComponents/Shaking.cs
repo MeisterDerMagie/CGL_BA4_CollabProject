@@ -5,8 +5,9 @@ using UnityEngine;
 [DisallowMultipleComponent]
 public class Shaking : FirstPersonModule
 {
-    float latestAddedValue, addedValue;
-    float shakingTime;
+    private float latestAddedValue, addedValue;
+    private float shakingTime;
+    public float ShakingTime => shakingTime;
 
     public void ExecuteShaking(Quaternion headRotation)
     {
@@ -18,7 +19,6 @@ public class Shaking : FirstPersonModule
         {
             shakingTime += Time.deltaTime;
             Debug.Log(shakingTime);
-            FindObjectOfType<SceneFlow_Scenario_1_2>().ShakingTime(shakingTime);
         }
         else
         {
@@ -27,6 +27,4 @@ public class Shaking : FirstPersonModule
         }
         latestAddedValue = addedValue;
     }
-
-
 }

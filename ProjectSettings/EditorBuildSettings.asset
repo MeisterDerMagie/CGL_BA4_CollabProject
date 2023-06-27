@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/2_labyrinth.unity
     guid: 2e49628f9ed55ed47b750d2388a248fc
+  - enabled: 1
+    path: Assets/_Project/Scenes/1.3Scenario.unity
+    guid: 38b992896f87b0e4984e5e196243d3a4
   m_configObjects: {}

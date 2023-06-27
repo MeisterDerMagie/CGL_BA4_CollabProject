@@ -15,6 +15,7 @@ public class BubbleValues : MonoBehaviour
     [ShowIf(nameof(fallOnInteract))]
     public float fallingSpeed;
 
+    [Button][DisableInEditorMode]
     public void CheckForBubbles()
     {
         if (transform.childCount == 0)
