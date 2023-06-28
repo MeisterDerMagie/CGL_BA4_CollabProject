@@ -927,6 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _nextScenario: {fileID: 11400000, guid: 34232d5154858454cbb156245221f923, type: 2}
   _firstPersonController: {fileID: 1824598063}
+  _bubbleManager: {fileID: 987633332854066628}
   _riseDuration: 3
 --- !u!1001 &781012501
 PrefabInstance:
@@ -1768,3 +1769,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f9e4b95dfcbd944b2a36125e3173bf, type: 3}
+--- !u!114 &987633332854066628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 987633332854066627}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f057d4a81879847a13f4ae5354e0ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
