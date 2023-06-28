@@ -7,9 +7,11 @@ public class BubbleBehavior : MonoBehaviour
 {
     float movementSpeed, fallingSpeed;
     float maxY, spawnY;
-    float angle;
+    float minAngle, maxAngle, angle;
 
     Vector3 axis;
+
+    BubbleValues.RotationAxis rotationAxis;
 
     bool falling;
 
@@ -26,19 +28,41 @@ public class BubbleBehavior : MonoBehaviour
         maxY = values.maxYValue;
         spawnY = values.spawnY;
         fallingSpeed = values.fallingSpeed;
+        minAngle = values.minAngle;
+        maxAngle = values.maxAngle;
 
         //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
 
-        angle = Random.Range(-3, 3);
-        axis = GetRandomAxis();
+        angle = Random.Range(minAngle, maxAngle);
+
+        switch (rotationAxis)
+        {
+            case (BubbleValues.RotationAxis.X):
+                axis = Vector3.up;
+                break;
+            case (BubbleValues.RotationAxis.Y):
+                axis = Vector3.right;
+                break;
+            case (BubbleValues.RotationAxis.Random):
+                axis = GetRandomAxis();
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        var newRotation = transform.rotation * Quaternion.AngleAxis(angle, axis);
-        transform.rotation = newRotation;
+        if (rotationAxis == BubbleValues.RotationAxis.Both)
+        {
+            var newRotationBoth = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up) * Quaternion.AngleAxis(angle, Vector3.right);
+            transform.rotation = newRotationBoth;
+        }
+        else
+        {
+            var newRotation = transform.rotation * Quaternion.AngleAxis(angle, axis);
+            transform.rotation = newRotation;
+        }
 
         if (falling == false)
         {
