@@ -88,7 +88,10 @@ public class BubbleBehavior : MonoBehaviour
     public void Pop()
     {
         if (!values.fallOnInteract)
+        {
             Destroy(gameObject);
+            values.CheckForBubbles();
+        }
         else
             falling = true;
     }
