@@ -7,6 +7,9 @@ public class BubbleBehavior : MonoBehaviour
 {
     float movementSpeed, fallingSpeed;
     float maxY, spawnY;
+    float angle;
+
+    Vector3 axis;
 
     bool falling;
 
@@ -17,18 +20,26 @@ public class BubbleBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Values from Parent Object
         values = gameObject.GetComponentInParent<BubbleValues>();
         movementSpeed = Random.Range(values.minSpeed, values.maxSpeed);
         maxY = values.maxYValue;
         spawnY = values.spawnY;
         fallingSpeed = values.fallingSpeed;
 
+        //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
+
+        angle = Random.Range(-3, 3);
+        axis = GetRandomAxis();
     }
 
     // Update is called once per frame
     void Update()
     {
+        var newRotation = transform.rotation * Quaternion.AngleAxis(angle, axis);
+        transform.rotation = newRotation;
+
         if (falling == false)
         {
             transform.localPosition -= transform.up * movementSpeed * Time.deltaTime;
@@ -62,5 +73,13 @@ public class BubbleBehavior : MonoBehaviour
     {
         GetComponent<MeshRenderer>().material.SetFloat("Divide Color", value);
         Debug.Log("Changed");
+    }
+
+    Vector3 GetRandomAxis()
+    {
+        int x = Random.Range(1, 2);
+        Vector3 axis;
+        axis = x == 1 ? Vector3.up : Vector3.right;
+        return axis;
     }
 }

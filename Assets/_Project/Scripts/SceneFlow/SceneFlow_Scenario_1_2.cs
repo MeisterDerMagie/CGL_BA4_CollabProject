@@ -13,6 +13,9 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
     [SerializeField][BoxGroup("References")]
     FirstPersonController firstPersonController;
 
+    [SerializeField][BoxGroup("References")]
+    GameObject table;
+
     //Variables
     bool allBubblesPopped;
     bool shaked;
@@ -35,6 +38,9 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
 
         //wait until the player popped all bubbles
         yield return Timing.WaitUntilTrue(() => allBubblesPopped);
+
+        //activate table
+        table.SetActive(true);
 
         //enable the shaking module and disable the popping module
         popBubbles.SetEnabled(false);
