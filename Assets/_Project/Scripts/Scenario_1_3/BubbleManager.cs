@@ -22,7 +22,7 @@ public class BubbleManager : MonoBehaviour
     private float minX, maxX, minY, maxY, minZ, maxZ;
 
     //Current Bubble Round
-    int bubbleRound = 1;
+    int bubbleRound = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class BubbleManager : MonoBehaviour
 
     void SpawnBubbles(int round)
     {
-        foreach(Sprite sprite in spriteContainer[round - 1].sprites)
+        foreach(Sprite sprite in spriteContainer[round ].sprites)
         {
             //Get a random prefab
             GameObject bubbleToSpawn = BubblePrefabs[Random.Range(0, BubblePrefabs.Length)];
@@ -60,8 +60,18 @@ public class BubbleManager : MonoBehaviour
 
     public void NextRound()
     {
+        //Delete all bubbles
         bubbleRound++;
         foreach (Transform child in transform) Destroy(child.gameObject);
+
+        //Check if it was the last round
+        if (bubbleRound == spriteContainer.Length)
+        {
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubbleRoundsDone(true);
+            return;
+        }
+
+        //Spawn new bubbles
         SpawnBubbles(bubbleRound);
     }
 }

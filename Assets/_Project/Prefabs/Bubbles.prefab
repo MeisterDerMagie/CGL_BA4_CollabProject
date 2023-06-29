@@ -51,11 +51,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxYValue: -2.3
-  spawnY: 6
+  spawnY: 5.8
   minSpeed: 0.05
   maxSpeed: 0.5
   fallOnInteract: 0
   fallingSpeed: 2
+  minAngle: -36
+  maxAngle: 44
+  scene_1_2: 1
+  rotationAxis: 3
 --- !u!1001 &2315242327422257534
 PrefabInstance:
   m_ObjectHideFlags: 0

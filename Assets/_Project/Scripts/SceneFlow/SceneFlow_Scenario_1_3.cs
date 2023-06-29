@@ -15,10 +15,12 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     [SerializeField][BoxGroup("References")]
     private FirstPersonController _firstPersonController;
 
-    [SerializeField]
-    [BoxGroup("References")]
+    [SerializeField][BoxGroup("References")]
     private BubbleManager _bubbleManager;
-    
+
+    [SerializeField][BoxGroup("References")]
+    private TextManager _textManager;
+
     //Settings
     [SerializeField][BoxGroup("Settings")]
     private float _riseDuration = 3f;
@@ -40,10 +42,13 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
         while (!_allBubbleRoundsDone)
         {
             yield return Timing.WaitUntilTrue(() => _allBubblesPopped);
+            Debug.Log("Yessir");
+            _textManager.nextQuestion();
             _bubbleManager.NextRound();
-            // Change Text on Pillar
             _allBubblesPopped = false;
         }
+
+        Debug.Log("All Rounds Done");
         
         //after they popped 6 bubbles, the player can pop all bubbles but with no effect upon popping them
         

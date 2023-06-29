@@ -19,6 +19,8 @@ public class BubbleValues : MonoBehaviour
     [BoxGroup("Rotation Variables")]
     public float minAngle, maxAngle;
 
+    public bool scene_1_2;
+
     public enum RotationAxis
     {
         X,
@@ -34,7 +36,7 @@ public class BubbleValues : MonoBehaviour
     [Button][DisableInEditorMode]
     public void CheckForBubbles()
     {
-        if (transform.childCount == 0)
+        if (transform.childCount - 1 == 0)
         {
             FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
         }

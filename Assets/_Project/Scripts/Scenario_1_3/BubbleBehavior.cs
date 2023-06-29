@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
+using UnityEngine.SceneManagement;
 
 public class BubbleBehavior : MonoBehaviour
 {
@@ -13,8 +14,9 @@ public class BubbleBehavior : MonoBehaviour
 
     BubbleValues.RotationAxis rotationAxis;
 
-    bool falling;
+    bool falling, scene_1_2;
 
+    [SerializeField]
     BubbleValues values;
 
     GazeAware gazeAware;
@@ -30,6 +32,7 @@ public class BubbleBehavior : MonoBehaviour
         fallingSpeed = values.fallingSpeed;
         minAngle = values.minAngle;
         maxAngle = values.maxAngle;
+        scene_1_2 = values.scene_1_2;
 
         //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
@@ -64,7 +67,7 @@ public class BubbleBehavior : MonoBehaviour
             transform.rotation = newRotation;
         }
 
-        if (falling == false)
+        if (scene_1_2 == true)
         {
             transform.localPosition -= transform.up * movementSpeed * Time.deltaTime;
 
@@ -75,8 +78,8 @@ public class BubbleBehavior : MonoBehaviour
         }
         else
         {
-            transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
-            Destroy(gameObject, 1.2f);
+            if (falling == true)
+                transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
         }
 
         if (gazeAware.HasGazeFocus == true)
@@ -87,13 +90,17 @@ public class BubbleBehavior : MonoBehaviour
 
     public void Pop()
     {
-        if (!values.fallOnInteract)
+        if (scene_1_2 == true)
         {
-            Destroy(gameObject);
             values.CheckForBubbles();
+            Destroy(gameObject);
         }
         else
+        {
             falling = true;
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped(true);
+            Destroy(gameObject, 1.2f);
+        }
     }
 
     public void ChangeAppearance(float value)
