@@ -64,8 +64,11 @@ public class BubbleManager : MonoBehaviour
         bubbleRound++;
         foreach (Transform child in transform) Destroy(child.gameObject);
 
+        //Check if it was the forelast round
+        if (bubbleRound == spriteContainer.Length - 1)
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetLastRoundReached(true);
         //Check if it was the last round
-        if (bubbleRound == spriteContainer.Length)
+        else if (bubbleRound == spriteContainer.Length)
         {
             FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubbleRoundsDone(true);
             return;
@@ -73,5 +76,11 @@ public class BubbleManager : MonoBehaviour
 
         //Spawn new bubbles
         SpawnBubbles(bubbleRound);
+    }
+
+    public void AbleToPopAll()
+    {
+        foreach (Transform child in transform)
+            child.GetComponent<BubbleBehavior>().popAll = true;
     }
 }

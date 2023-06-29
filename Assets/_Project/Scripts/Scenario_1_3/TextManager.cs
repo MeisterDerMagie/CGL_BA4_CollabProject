@@ -19,7 +19,7 @@ public class TextManager : MonoBehaviour
         textField.text = wallTexts[question];
     }
 
-    public void nextQuestion()
+    public void NextQuestion()
     {
         question++;
 

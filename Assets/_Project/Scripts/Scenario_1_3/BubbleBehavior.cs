@@ -15,6 +15,8 @@ public class BubbleBehavior : MonoBehaviour
     BubbleValues.RotationAxis rotationAxis;
 
     bool falling, scene_1_2;
+    [HideInInspector]
+    public bool popAll;
 
     [SerializeField]
     BubbleValues values;
@@ -90,7 +92,7 @@ public class BubbleBehavior : MonoBehaviour
 
     public void Pop()
     {
-        if (scene_1_2 == true)
+        if (scene_1_2 == true || popAll == true)
         {
             values.CheckForBubbles();
             Destroy(gameObject);
@@ -98,8 +100,8 @@ public class BubbleBehavior : MonoBehaviour
         else
         {
             falling = true;
-            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped(true);
             Destroy(gameObject, 1.2f);
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped(true);
         }
     }
 

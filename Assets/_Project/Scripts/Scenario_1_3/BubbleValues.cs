@@ -36,9 +36,14 @@ public class BubbleValues : MonoBehaviour
     [Button][DisableInEditorMode]
     public void CheckForBubbles()
     {
+        Debug.Log(transform.childCount);
+        //Invoke("Check", 0.3f);
         if (transform.childCount - 1 == 0)
         {
-            FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
+            if (scene_1_2)
+                FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
+            else
+                FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped(true);
         }
     }
 }

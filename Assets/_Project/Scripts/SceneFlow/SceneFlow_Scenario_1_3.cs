@@ -32,25 +32,38 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     [ReadOnly][BoxGroup("Runtime variables")][ShowInInspector]
     private bool _poppedFinalBubble = false;
 
-    private bool _allBubblesPopped, _allBubbleRoundsDone;
+    private bool _allBubblesPopped, _allBubbleRoundsDone, _lastRoundReached;
 
     protected override IEnumerator<float> _SceneFlow()
     {
         InitializeScene();
 
         //Wait till all bubbles are done
-        while (!_allBubbleRoundsDone)
+        while (!_lastRoundReached)
         {
             yield return Timing.WaitUntilTrue(() => _allBubblesPopped);
             Debug.Log("Yessir");
-            _textManager.nextQuestion();
+            _textManager.NextQuestion();
             _bubbleManager.NextRound();
             _allBubblesPopped = false;
         }
+        Debug.Log("Forelast Round Done");
 
-        Debug.Log("All Rounds Done");
-        
-        //after they popped 6 bubbles, the player can pop all bubbles but with no effect upon popping them
+        //Function to make player pop all bubbles
+        _bubbleManager.AbleToPopAll();
+        Debug.Log("Able to pop all bubbles");
+
+        //Wait till all bobbles are popped
+        yield return Timing.WaitUntilTrue(() => _allBubblesPopped);
+        Debug.Log("all Bubbles Popped");
+
+        //Start "next round" -> will trigger bool _allBubbleRoundsDone to be true
+        _bubbleManager.NextRound();
+        Debug.Log("Next Round");
+
+        //Wait till all bubbles of last round got popped
+        yield return Timing.WaitUntilTrue(() => _allBubbleRoundsDone);
+        Debug.Log("Every Round Done");
         
         //after a while (how long???) a last bubble with the text "I don't choose" appears in front of the player
         
@@ -70,6 +83,7 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     private void InitializeScene()
     {
         //do stuff here that needs to be set up at the beginning of the scene
+        //Everything happens in other scrips (Text and bubble set up)
     }
 
     [Button][DisableInEditorMode]
@@ -82,5 +96,8 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     public void SetAllBubblesPopped(bool popped) => _allBubblesPopped = popped;
 
     [Button][DisableInEditorMode]
-    public void SetAllBubbleRoundsDone(bool popped) => _allBubbleRoundsDone = popped;
+    public void SetAllBubbleRoundsDone(bool done) => _allBubbleRoundsDone = done;
+
+    [Button][DisableInEditorMode]
+    public void SetLastRoundReached(bool reached) => _lastRoundReached = reached;
 }

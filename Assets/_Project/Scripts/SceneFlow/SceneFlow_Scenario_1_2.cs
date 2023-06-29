@@ -38,6 +38,7 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
 
         //wait until the player popped all bubbles
         yield return Timing.WaitUntilTrue(() => allBubblesPopped);
+        Debug.Log("All Bubbles Popped");
 
         //activate table
         table.SetActive(true);
