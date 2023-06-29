@@ -15,6 +15,22 @@ public class BubbleValues : MonoBehaviour
     [ShowIf(nameof(fallOnInteract))]
     public float fallingSpeed;
 
+    [Range(-360, 360)]
+    [BoxGroup("Rotation Variables")]
+    public float minAngle, maxAngle;
+
+    public enum RotationAxis
+    {
+        X,
+        Y,
+        Random,
+        Both
+    }
+
+    [SerializeField]
+    [BoxGroup("Rotation Variables")]
+    RotationAxis rotationAxis;
+
     [Button][DisableInEditorMode]
     public void CheckForBubbles()
     {

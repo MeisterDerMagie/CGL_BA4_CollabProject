@@ -14,6 +14,10 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     
     [SerializeField][BoxGroup("References")]
     private FirstPersonController _firstPersonController;
+
+    [SerializeField]
+    [BoxGroup("References")]
+    private BubbleManager _bubbleManager;
     
     //Settings
     [SerializeField][BoxGroup("Settings")]
@@ -26,12 +30,20 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     [ReadOnly][BoxGroup("Runtime variables")][ShowInInspector]
     private bool _poppedFinalBubble = false;
 
+    private bool _allBubblesPopped, _allBubbleRoundsDone;
+
     protected override IEnumerator<float> _SceneFlow()
     {
         InitializeScene();
 
-        //the player will pop bubbles until they popped a total of 6
-        yield return Timing.WaitUntilTrue(() => _totalPoppedBubbles >= 6);
+        //Wait till all bubbles are done
+        while (!_allBubbleRoundsDone)
+        {
+            yield return Timing.WaitUntilTrue(() => _allBubblesPopped);
+            _bubbleManager.NextRound();
+            // Change Text on Pillar
+            _allBubblesPopped = false;
+        }
         
         //after they popped 6 bubbles, the player can pop all bubbles but with no effect upon popping them
         
@@ -60,4 +72,10 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     
     [Button][DisableInEditorMode]
     public void PoppedFinalBubble() => _poppedFinalBubble = true;
+
+    [Button][DisableInEditorMode]
+    public void SetAllBubblesPopped(bool popped) => _allBubblesPopped = popped;
+
+    [Button][DisableInEditorMode]
+    public void SetAllBubbleRoundsDone(bool popped) => _allBubbleRoundsDone = popped;
 }

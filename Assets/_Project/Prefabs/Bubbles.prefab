@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e70f90b1fd7f84e98a9fc1299f55b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxYValue: -2.5
+  maxYValue: -2.3
   spawnY: 6
   minSpeed: 0.05
   maxSpeed: 0.5
