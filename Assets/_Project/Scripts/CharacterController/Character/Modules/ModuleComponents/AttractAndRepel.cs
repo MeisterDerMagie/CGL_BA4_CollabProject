@@ -26,15 +26,21 @@ public class AttractAndRepel : FirstPersonModule
         Attract,
         Repel
     }
-    
+
+    private Mode mode;
+
     [SerializeField][HideInInspector]
     private CharacterController _characterController;
 
     private Camera _mainCamera;
     
-    [SerializeField][LabelText("Max Force")]
-    private float maxSpeedDesignerFriendly = 15f;
-    private float MaxSpeed => maxSpeedDesignerFriendly / 100f;
+    [SerializeField][LabelText("Max Attract Force")]
+    private float maxAttractSpeedDesignerFriendly = 15f;
+
+    [SerializeField][LabelText("Max Repel Force")]
+    private float maxRepelSpeedDesignerFriendly = 15f;
+
+    private float MaxSpeed;
     
     [SerializeField][LabelText("Acceleration")]
     private float accelerationDesignerFriendly = 2f;
@@ -73,7 +79,7 @@ public class AttractAndRepel : FirstPersonModule
         if (attractOrRepelPlayer == null) return;
 
         //update direction
-        Mode mode = attractOrRepelPlayer.Mode;
+        mode = attractOrRepelPlayer.Mode;
         
         _direction = Vector3.zero;
         if(mode == Mode.Repel) _direction = _characterController.transform.position - attractOrRepelPlayer.transform.position;
@@ -90,6 +96,10 @@ public class AttractAndRepel : FirstPersonModule
         
         //set isAttractingOrRepelling
         _isAttractingOrRepelling = true;
+
+        //set MaxSpeed
+        MaxSpeed = mode == Mode.Repel ? maxRepelSpeedDesignerFriendly : maxAttractSpeedDesignerFriendly;
+        MaxSpeed = MaxSpeed / 100f;
     }
     
     private void Update()
