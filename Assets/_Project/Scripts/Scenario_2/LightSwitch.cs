@@ -39,7 +39,7 @@ public class LightSwitch : MonoBehaviour
             inside = true;
             Debug.Log("Player Entered");
             foreach (Light light in lights)
-                light.intensity = 0;
+                StartCoroutine(FadeLight(light));
         }
     }
 
@@ -60,16 +60,30 @@ public class LightSwitch : MonoBehaviour
 
     IEnumerator FadeLightBack(Light light, float intensity)
     {
-        float startTime = Time.time;
         float currentTime = 0;
-        float startIntensity = light.intensity;
         while (currentTime < fadeTime)
         {
             // check if player is inside again
             if (inside == true) yield break;
 
             currentTime += Time.deltaTime;
-            light.intensity = Mathf.Lerp(startIntensity, intensity, currentTime / fadeTime);
+            light.intensity = Mathf.Lerp(0, intensity, currentTime / fadeTime);
+            yield return null;
+        }
+        Debug.Log("Done with Fade");
+    }
+
+    IEnumerator FadeLight(Light light)
+    {
+        float currentTime = 0;
+        float startIntensity = light.intensity;
+        while (currentTime < fadeTime)
+        {
+            // check if player is inside again
+            if (inside == false) yield break;
+
+            currentTime += Time.deltaTime;
+            light.intensity = Mathf.Lerp(startIntensity, 0, currentTime / fadeTime);
             yield return null;
         }
         Debug.Log("Done with Fade");
