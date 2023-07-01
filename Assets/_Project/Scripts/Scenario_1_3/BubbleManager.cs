@@ -19,7 +19,7 @@ public class BubbleManager : MonoBehaviour
     private GameObject[] BubblePrefabs;
 
     [SerializeField]
-    private float minX, maxX, minY, maxY, minZ, maxZ;
+    private Transform[] spawnPositions;
 
     //Current Bubble Round
     int bubbleRound = 0;
@@ -44,10 +44,7 @@ public class BubbleManager : MonoBehaviour
             GameObject bubbleToSpawn = BubblePrefabs[Random.Range(0, BubblePrefabs.Length)];
 
             //Get a random position
-            float xSpawnPos = Random.Range(minX, maxX);
-            float ySpawnPos = Random.Range(minY, maxY);
-            float zSpawnPos = Random.Range(minZ, maxZ);
-            Vector3 spawnPos = new Vector3(xSpawnPos, ySpawnPos, zSpawnPos);
+            Vector3 spawnPos = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
 
             //Spawn Bubble and make it child object of this object
             var bubble = GameObject.Instantiate(bubbleToSpawn, spawnPos, Quaternion.identity);
