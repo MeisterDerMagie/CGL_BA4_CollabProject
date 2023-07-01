@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6009097000738327161}
   - component: {fileID: 4776189531850569161}
   - component: {fileID: 4734795357511506421}
-  - component: {fileID: 8807495712772240536}
   - component: {fileID: 2529065770597555682}
   - component: {fileID: 220152616629971333}
+  - component: {fileID: -2209214643099562082}
   m_Layer: 0
   m_Name: bubble4
   m_TagString: Untagged
@@ -87,18 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8807495712772240536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979044910500799642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c2abe9d649e4e44a6375a4d5cf7509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2529065770597555682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +120,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.48161057
   m_Center: {x: 0.000000014901161, y: 0, z: 0}
+--- !u!114 &-2209214643099562082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979044910500799642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed369f86f8f694842942924fdc157b62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popAll: 0
 --- !u!1 &7305724419565915189
 GameObject:
   m_ObjectHideFlags: 0

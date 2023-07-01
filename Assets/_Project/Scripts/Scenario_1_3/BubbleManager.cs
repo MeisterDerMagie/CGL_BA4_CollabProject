@@ -63,11 +63,11 @@ public class BubbleManager : MonoBehaviour
 
         //Check if it was the forelast round
         if (bubbleRound == spriteContainer.Length - 1)
-            FindObjectOfType<SceneFlow_Scenario_1_3>().SetLastRoundReached(true);
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetLastRoundReached();
         //Check if it was the last round
         else if (bubbleRound == spriteContainer.Length)
         {
-            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubbleRoundsDone(true);
+            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubbleRoundsDone();
             return;
         }
 

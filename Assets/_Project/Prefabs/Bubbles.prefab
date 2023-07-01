@@ -52,8 +52,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxYValue: -2.3
   spawnY: 5.8
-  minSpeed: 0.05
-  maxSpeed: 0.5
+  minSpeed: 0
+  maxSpeed: 0
   fallOnInteract: 0
   fallingSpeed: 2
   minAngle: -36
@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 830121511686134922, guid: a030d33608a28304bb861eaa94700e7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.33830822
+      value: 2.54
       objectReference: {fileID: 0}
     - target: {fileID: 830121511686134922, guid: a030d33608a28304bb861eaa94700e7d,
         type: 3}

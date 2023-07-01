@@ -10,16 +10,12 @@ public class BubbleValues : MonoBehaviour
     public float minSpeed, maxSpeed;
 
     // Variables for falling down
-    public bool fallOnInteract;
-
-    [ShowIf(nameof(fallOnInteract))]
+    [BoxGroup("Only important for scenario 1_3")]
     public float fallingSpeed;
 
     [Range(-360, 360)]
     [BoxGroup("Rotation Variables")]
     public float minAngle, maxAngle;
-
-    public bool scene_1_2;
 
     public enum RotationAxis
     {
@@ -34,16 +30,9 @@ public class BubbleValues : MonoBehaviour
     RotationAxis rotationAxis;
 
     [Button][DisableInEditorMode]
-    public void CheckForBubbles()
+    public bool CheckForBubbles()
     {
-        Debug.Log(transform.childCount);
-        //Invoke("Check", 0.3f);
-        if (transform.childCount - 1 == 0)
-        {
-            if (scene_1_2)
-                FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
-            else
-                FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped(true);
-        }
+        if (transform.childCount - 1 == 0) return true;
+        else return false;
     }
 }

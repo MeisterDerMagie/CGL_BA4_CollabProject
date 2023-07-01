@@ -80,15 +80,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e2142148b106a4997b0a751cbbd6ea,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7548533007049232248}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e2142148b106a4997b0a751cbbd6ea,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8656267989211667306}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e2142148b106a4997b0a751cbbd6ea,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5959009454936746497}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e2142148b106a4997b0a751cbbd6ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3731842840968612630}
   m_SourcePrefab: {fileID: 100100000, guid: 14e2142148b106a4997b0a751cbbd6ea, type: 3}
 --- !u!1 &4126453590891276255 stripped
 GameObject:
@@ -96,18 +96,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3856614534814407310}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7548533007049232248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126453590891276255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c2abe9d649e4e44a6375a4d5cf7509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8656267989211667306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +129,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.38169813
   m_Center: {x: 0.000000014901161, y: 0.000000014901161, z: 0.000000014901161}
+--- !u!114 &3731842840968612630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126453590891276255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3256a7f31082ce74bb9f0617461ac814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: {fileID: 0}

@@ -21,10 +21,16 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     [SerializeField][BoxGroup("References")]
     private TextManager _textManager;
 
+    [SerializeField][BoxGroup("References")]
+    private LastBubble _lastBubble;
+
     //Settings
     [SerializeField][BoxGroup("Settings")]
     private float _riseDuration = 3f;
-    
+
+    [SerializeField][BoxGroup("Settings")]
+    private float _waitForLastBubble = 3f;
+
     //Game flow variables
     [ReadOnly][BoxGroup("Runtime variables")][ShowInInspector]
     private int _totalPoppedBubbles = 0;
@@ -64,9 +70,11 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
         //Wait till all bubbles of last round got popped
         yield return Timing.WaitUntilTrue(() => _allBubbleRoundsDone);
         Debug.Log("Every Round Done");
-        
-        //after a while (how long???) a last bubble with the text "I don't choose" appears in front of the player
-        
+
+        //after a while (how long???) a last bubble with the text "I don't choose" moves in front of the player
+        yield return Timing.WaitForSeconds(_waitForLastBubble);
+        _lastBubble.move = true;
+
         //when the player popped the last bubble, the player rises upwards ...
         yield return Timing.WaitUntilTrue(() => _poppedFinalBubble);
         var moveOnRailsAnimatedModule = _firstPersonController.GetModule<MoveOnRailsAnimated>();
@@ -93,11 +101,11 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     public void PoppedFinalBubble() => _poppedFinalBubble = true;
 
     [Button][DisableInEditorMode]
-    public void SetAllBubblesPopped(bool popped) => _allBubblesPopped = popped;
+    public void SetAllBubblesPopped() => _allBubblesPopped = true;
 
     [Button][DisableInEditorMode]
-    public void SetAllBubbleRoundsDone(bool done) => _allBubbleRoundsDone = done;
+    public void SetAllBubbleRoundsDone() => _allBubbleRoundsDone = true;
 
     [Button][DisableInEditorMode]
-    public void SetLastRoundReached(bool reached) => _lastRoundReached = reached;
+    public void SetLastRoundReached() => _lastRoundReached = true;
 }

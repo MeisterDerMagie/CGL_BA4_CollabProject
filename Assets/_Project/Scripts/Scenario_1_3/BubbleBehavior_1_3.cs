@@ -2,23 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
-using UnityEngine.SceneManagement;
 
-public class BubbleBehavior : MonoBehaviour
+public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
 {
     float movementSpeed, fallingSpeed;
-    float maxY, spawnY;
     float minAngle, maxAngle, angle;
 
     Vector3 axis;
 
     BubbleValues.RotationAxis rotationAxis;
 
-    bool falling, scene_1_2;
+    bool falling;
     [HideInInspector]
     public bool popAll;
 
-    [SerializeField]
     BubbleValues values;
 
     GazeAware gazeAware;
@@ -26,11 +23,9 @@ public class BubbleBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Values from Parent Object
+        //Getting all important values
         values = gameObject.GetComponentInParent<BubbleValues>();
         movementSpeed = Random.Range(values.minSpeed, values.maxSpeed);
-        maxY = values.maxYValue;
-        spawnY = values.spawnY;
         fallingSpeed = values.fallingSpeed;
         minAngle = values.minAngle;
         maxAngle = values.maxAngle;
@@ -38,8 +33,10 @@ public class BubbleBehavior : MonoBehaviour
         //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
 
+        //Get random angle amount for rotation (angle = speed)
         angle = Random.Range(minAngle, maxAngle);
 
+        //Axis bubble should rotate on depending on enum
         switch (rotationAxis)
         {
             case (BubbleValues.RotationAxis.X):
@@ -57,59 +54,39 @@ public class BubbleBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rotationAxis == BubbleValues.RotationAxis.Both)
+        //Falling down when popped
+        if (falling == true)
+            transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
+
+        //Rotation
+        if (rotationAxis == BubbleValues.RotationAxis.Both) //On both axes
         {
             var newRotationBoth = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up) * Quaternion.AngleAxis(angle, Vector3.right);
             transform.rotation = newRotationBoth;
         }
-        else
+        else //On one axis
         {
             var newRotation = transform.rotation * Quaternion.AngleAxis(angle, axis);
             transform.rotation = newRotation;
         }
-
-        if (scene_1_2 == true)
-        {
-            transform.localPosition -= transform.up * movementSpeed * Time.deltaTime;
-
-            if (transform.localPosition.y <= maxY)
-            {
-                transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
-            }
-        }
-        else
-        {
-            if (falling == true)
-                transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
-        }
-
-        if (gazeAware.HasGazeFocus == true)
-            ChangeAppearance(6.5f);
-        else
-            ChangeAppearance(0);
     }
 
     public void Pop()
     {
-        if (scene_1_2 == true || popAll == true)
+        falling = true;
+        Destroy(gameObject, 1.2f);
+
+        //Last Round of Bubbles -> Player can pop all of them
+        if (popAll == true)
         {
-            values.CheckForBubbles();
-            Destroy(gameObject);
+            if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
+            return;
         }
-        else
-        {
-            falling = true;
-            Destroy(gameObject, 1.2f);
-            FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
-        }
+
+        FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
     }
 
-    public void ChangeAppearance(float value)
-    {
-        GetComponent<MeshRenderer>().material.SetFloat("Divide Color", value);
-        Debug.Log("Changed");
-    }
-
+    //Get a random axis on which the bubble should rotate
     Vector3 GetRandomAxis()
     {
         int x = Random.Range(1, 2);

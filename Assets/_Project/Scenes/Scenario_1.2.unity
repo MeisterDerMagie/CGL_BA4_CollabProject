@@ -4260,25 +4260,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4225172019890399458, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.54
-      objectReference: {fileID: 0}
     - target: {fileID: 5617929274973944933, guid: 331808ef0a421c142837707a75616ad9,
         type: 3}
       propertyPath: m_Name
       value: Bubbles
-      objectReference: {fileID: 0}
-    - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
-        type: 3}
-      propertyPath: minSpeed
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

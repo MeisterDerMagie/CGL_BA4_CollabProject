@@ -80,15 +80,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6198171658907014422}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 389388069829867977}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2773973378721340340}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4470817868902738453}
   m_SourcePrefab: {fileID: 100100000, guid: f558742e5785bf64d884d69569cce712, type: 3}
 --- !u!1 &6256554816869839772 stripped
 GameObject:
@@ -96,18 +96,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6490486016972164813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6198171658907014422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256554816869839772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3c2abe9d649e4e44a6375a4d5cf7509, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &389388069829867977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,3 +129,16 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.46200484
   m_Center: {x: 0.0025195035, y: 0.007035778, z: 0.025158081}
+--- !u!114 &4470817868902738453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256554816869839772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3256a7f31082ce74bb9f0617461ac814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  values: {fileID: 0}
