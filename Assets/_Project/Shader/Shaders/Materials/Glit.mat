@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3052638829732987459
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Glit
+  m_Shader: {fileID: -6465566751694194690, guid: 723d0e0071161fd4c9079d30f741a5f6,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Noise_Texture:
+        m_Texture: {fileID: 2800000, guid: 96a59feea22aace4f8ef177115cef68e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Base_Gradient_Power: 0.2
+    - _Fresnel_Power: 1
+    - _Glitter_Offset: 0.06
+    - _Noise_Rotation_Speed: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Scale_Outline: 1
+    m_Colors:
+    - _Base_Color: {r: 0.39208794, g: 0.7507387, b: 0.9339623, a: 1}
+    - _Base_Color_2: {r: 0, g: 0, b: 0, a: 0}
+    - _Color_Outline: {r: 0, g: 0, b: 0, a: 0}
+    - _Fresnel_Color: {r: 0.13105199, g: 0.1792453, b: 0.1720163, a: 0}
+    - _Glitter_Color: {r: 0.2270826, g: 0.28872013, b: 0.5943396, a: 1}
+    - _Noise_Scale: {r: 4, g: 4, b: 0, a: 0}
+  m_BuildTextureStacks: []

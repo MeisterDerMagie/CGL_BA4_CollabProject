@@ -90,7 +90,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _HatchingNoiseMap:
         m_Texture: {fileID: 2800000, guid: 29d5f9cfb7bc7524a8ab38a4ad0d17e3, type: 3}
-        m_Scale: {x: 1.5, y: 1.5}
+        m_Scale: {x: 500, y: 500}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
@@ -182,7 +182,7 @@ Material:
     - _HatchUpperBound: 0.1
     - _HatchingDensity: 0.432
     - _HatchingDiffuseOffset: 0
-    - _HatchingDrawStrength: 11.93
+    - _HatchingDrawStrength: 11.3
     - _HatchingEnabled: 1
     - _HatchingRotation: 90
     - _HatchingSmoothness: 0.01
