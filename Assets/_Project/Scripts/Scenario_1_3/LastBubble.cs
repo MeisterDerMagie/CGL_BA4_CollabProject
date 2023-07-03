@@ -14,7 +14,7 @@ public class LastBubble : MonoBehaviour, IBubble
     // Update is called once per frame
     void Update()
     {
-        if (falling == true)
+        /*if (falling == true)
             transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
 
         if (move == true)
@@ -22,13 +22,12 @@ public class LastBubble : MonoBehaviour, IBubble
             transform.localPosition -= transform.forward * movementSpeed * Time.deltaTime;
         }
 
-        if (transform.localPosition.z >= stopZPos) move = false;
+        if (transform.localPosition.z >= stopZPos) move = false;*/
     }
 
     public void Pop()
     {
-        falling = true;
-        Destroy(gameObject, 1.2f);
+        Destroy(gameObject);
         FindObjectOfType<SceneFlow_Scenario_1_3>().PoppedFinalBubble();
     }
 }

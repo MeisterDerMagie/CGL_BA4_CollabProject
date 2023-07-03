@@ -74,7 +74,7 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
     public void Pop()
     {
         falling = true;
-        Destroy(gameObject, 1.2f);
+        Destroy(gameObject, 1.5f);
 
         //Last Round of Bubbles -> Player can pop all of them
         if (popAll == true)
@@ -82,8 +82,9 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
             if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
             return;
         }
-
-        FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
+        
+        //FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
+        StartCoroutine(SetAllBubblesPopped(1.4f));
     }
 
     //Get a random axis on which the bubble should rotate
@@ -93,5 +94,11 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
         Vector3 axis;
         axis = x == 1 ? Vector3.up : Vector3.right;
         return axis;
+    }
+
+    IEnumerator SetAllBubblesPopped(float time)
+    {
+        yield return new WaitForSeconds(time);
+        FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
     }
 }

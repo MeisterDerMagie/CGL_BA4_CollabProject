@@ -78,6 +78,6 @@ public class BubbleManager : MonoBehaviour
     public void AbleToPopAll()
     {
         foreach (Transform child in transform)
-            child.GetComponent<BubbleBehavior>().popAll = true;
+            child.GetComponent<BubbleBehavior_1_3>().popAll = true;
     }
 }

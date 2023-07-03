@@ -29,7 +29,7 @@ public class LookAround : FirstPersonModule
     [SerializeField] [field: BoxGroup("If 100, Player needs to turn his head completely to the side to rotate")]
     float rotationXBoundary, rotationYBoundary;
 
-    public float minVerticalRotation, maxVerticalRotation, rotationSpeed;
+    public float minVerticalRotation, maxVerticalRotation, rotationSpeed, headRotationSpeed;
     float RotationSpeed => rotationSpeed * 350;
 
     [Range(0, 50)]
@@ -91,21 +91,21 @@ public class LookAround : FirstPersonModule
 
             //Character rotates as long as head of the player is rotated to the certain side
             case (RotationType.WithBoundary):
-                if (Mathf.Abs(headRotation.y) > rotationYBoundary / 100)
+                if (Mathf.Abs(headRotation.y) > rotationYBoundary / 100 * 0.30f)
                 {
                     Debug.Log("Rotating Player");
                     float rotationSign = Mathf.Sign(headRotation.y);
-                    float rotationXSpeed = Mathf.Pow(Mathf.Abs(headRotation.y) * 10, rotationSpeedIncreaseFactor) * rotationSign * Time.deltaTime;
+                    float rotationXSpeed = Mathf.Pow(Mathf.Abs(headRotation.y) * 10, rotationSpeedIncreaseFactor) * rotationSign * headRotationSpeed * Time.deltaTime;
                     horizontalRotation += rotationXSpeed;
                     horizontalRotation = Mathf.Clamp(horizontalRotation, -360, 360);
                     transform.localRotation = Quaternion.Euler(0, horizontalRotation, 0);
                 }
 
-                if (Mathf.Abs(headRotation.x) > rotationXBoundary / 100)
+                if (Mathf.Abs(headRotation.x) > rotationXBoundary / 100 * 0.30f)
                 {
                     Debug.Log("Rotating Cam");
                     float rotationSign = Mathf.Sign(headRotation.x);
-                    float rotationYSpeed = Mathf.Pow(Mathf.Abs(headRotation.x) * 10, rotationSpeedIncreaseFactor) * rotationSign * Time.deltaTime;
+                    float rotationYSpeed = Mathf.Pow(Mathf.Abs(headRotation.x) * 10, rotationSpeedIncreaseFactor) * rotationSign * headRotationSpeed * Time.deltaTime;
                     verticalRotation += rotationYSpeed;
                     verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
                     cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);

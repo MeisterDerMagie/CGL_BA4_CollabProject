@@ -22,7 +22,7 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     private TextManager _textManager;
 
     [SerializeField][BoxGroup("References")]
-    private LastBubble _lastBubble;
+    private GameObject _lastBubble;
 
     //Settings
     [SerializeField][BoxGroup("Settings")]
@@ -73,7 +73,7 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
 
         //after a while (how long???) a last bubble with the text "I don't choose" moves in front of the player
         yield return Timing.WaitForSeconds(_waitForLastBubble);
-        _lastBubble.move = true;
+        _lastBubble.SetActive(true);
 
         //when the player popped the last bubble, the player rises upwards ...
         yield return Timing.WaitUntilTrue(() => _poppedFinalBubble);

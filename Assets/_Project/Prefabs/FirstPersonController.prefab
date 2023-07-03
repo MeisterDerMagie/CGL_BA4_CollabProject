@@ -147,13 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
-  rotationType: 0
+  rotationType: 1
   cam: {fileID: 8674288109051456372}
-  rotationXBoundary: 0
-  rotationYBoundary: 0
+  rotationXBoundary: 70
+  rotationYBoundary: 90
   minVerticalRotation: -90
   maxVerticalRotation: 90
   rotationSpeed: 1
+  headRotationSpeed: 6
   screenBoundaryPercentage: 20
   rotationSpeedIncreaseFactor: 1
 --- !u!114 &8235854723103994763
@@ -263,7 +264,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   _characterController: {fileID: 6832969972838724910}
-  maxSpeedDesignerFriendly: 15
+  maxAttractSpeedDesignerFriendly: 15
+  maxRepelSpeedDesignerFriendly: 15
   accelerationDesignerFriendly: 2
   decelerationDuration: 0.5
   glueToSplines: 1
