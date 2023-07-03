@@ -22,7 +22,7 @@ public class Shaking : FirstPersonModule
 
         addedValue = rotation.x + rotation.y + rotation.z;
         Debug.Log(Mathf.Abs(latestAddedValue - addedValue) * 10);
-        /*if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
+        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
         {
             shakingTime += Time.deltaTime;
             Debug.Log(shakingTime);
@@ -30,8 +30,15 @@ public class Shaking : FirstPersonModule
         else
         {
             Debug.Log("Shaking Time Reset");
-            shakingTime = 0;
+            StartCoroutine(CheckShaking());
         }
-        latestAddedValue = addedValue;*/
+        latestAddedValue = addedValue;
+    }
+
+    IEnumerator CheckShaking()
+    {
+        yield return new WaitForEndOfFrame();
+        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f) shakingTime += Time.deltaTime;
+        else shakingTime = 0;
     }
 }

@@ -21,12 +21,15 @@ public class BubbleManager : MonoBehaviour
     [SerializeField]
     private Transform[] spawnPositions;
 
+    private Transform player;
+
     //Current Bubble Round
     int bubbleRound = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player").transform;
         SpawnBubbles(bubbleRound);
     }
 
@@ -48,6 +51,7 @@ public class BubbleManager : MonoBehaviour
 
             //Spawn Bubble and make it child object of this object
             var bubble = GameObject.Instantiate(bubbleToSpawn, spawnPos, Quaternion.identity);
+            //bubble.transform.rotation = Quaternion.LookRotation(new Vector3(bubble.transform.position.x, player.position.y, bubble.transform.position.x));
             bubble.transform.parent = gameObject.transform;
 
             //Add Sprite to Bubble
