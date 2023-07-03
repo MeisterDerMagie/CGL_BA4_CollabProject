@@ -3663,6 +3663,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6479959709264656232, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
+      propertyPath: maxAngle
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479959709264656232, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
+        type: 3}
+      propertyPath: minAngle
+      value: -17
+      objectReference: {fileID: 0}
+    - target: {fileID: 6479959709264656232, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
+        type: 3}
       propertyPath: scene_1_2
       value: 0
       objectReference: {fileID: 0}
