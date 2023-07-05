@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 14e2142148b106a4997b0a751cbbd6ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14e2142148b106a4997b0a751cbbd6ea,
         type: 3}
@@ -85,6 +85,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3731842840968612630}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 14e2142148b106a4997b0a751cbbd6ea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5352221720458067896}
   m_SourcePrefab: {fileID: 100100000, guid: 14e2142148b106a4997b0a751cbbd6ea, type: 3}
 --- !u!1 &4126453590891276255 stripped
 GameObject:
@@ -130,3 +134,21 @@ MonoBehaviour:
       m_Calls: []
   _bubblePopVFXPrefab: {fileID: 4160023190404659538, guid: 129514e4a5cce4940bf3802cae556b7b,
     type: 3}
+--- !u!114 &5352221720458067896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126453590891276255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5f493998d6b4419a9b8bd80d8d835df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitudeX: 0.25
+  frequencyX: 0.2
+  amplitudeY: 0.1
+  frequencyY: 0.2
+  amplitudeZ: 0.25
+  frequencyZ: 0.2
