@@ -4265,6 +4265,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubbles
       objectReference: {fileID: 0}
+    - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8488727833178541096, guid: 331808ef0a421c142837707a75616ad9,
+        type: 3}
+      propertyPath: minSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
