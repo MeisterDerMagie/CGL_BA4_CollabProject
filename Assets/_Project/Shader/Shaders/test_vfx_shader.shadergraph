@@ -37,6 +37,9 @@
         },
         {
             "m_Id": "8ae70b2a551a41319bbb13c423afffae"
+        },
+        {
+            "m_Id": "50503566bd994cab9847763f1d6bd326"
         }
     ],
     "m_GroupDatas": [],
@@ -82,6 +85,9 @@
             },
             {
                 "m_Id": "8ae70b2a551a41319bbb13c423afffae"
+            },
+            {
+                "m_Id": "50503566bd994cab9847763f1d6bd326"
             }
         ]
     },
@@ -245,10 +251,59 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "411f66fc982a4fc4a28e80d1deab6983",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Alpha",
+    "m_StageCapability": 2,
+    "m_Value": 0.800000011920929,
+    "m_DefaultValue": 1.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "44da60264b4f4be083210c32fe78a770",
     "m_Name": "",
     "m_ChildObjectList": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "50503566bd994cab9847763f1d6bd326",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.Alpha",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "411f66fc982a4fc4a28e80d1deab6983"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.Alpha"
 }
 
 {
@@ -554,9 +609,9 @@
     "m_ShaderOutputName": "BaseColor",
     "m_StageCapability": 2,
     "m_Value": {
-        "x": 1.0,
-        "y": 0.0,
-        "z": 0.0
+        "x": 0.5284354090690613,
+        "y": 0.7969307899475098,
+        "z": 0.8962264060974121
     },
     "m_DefaultValue": {
         "x": 0.0,
