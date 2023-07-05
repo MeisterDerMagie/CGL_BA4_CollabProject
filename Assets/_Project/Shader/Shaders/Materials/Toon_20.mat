@@ -64,7 +64,7 @@ Material:
     - _RimEnabled: 1
     - _RimLightAlign: -0.02
     - _RimLightSmoothness: 0
-    - _RimPower: 0.527
+    - _RimPower: 0.619
     - _SpecClipMaskScale: 1
     - _SpecularHighlights: 1
     - _StepViaRampTexture: 0
