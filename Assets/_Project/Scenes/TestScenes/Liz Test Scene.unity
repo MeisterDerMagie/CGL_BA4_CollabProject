@@ -6458,7 +6458,10 @@ VisualEffect:
       m_Array:
       - m_Value: 1.36
         m_Name: speed
-        m_Overridden: 1
+        m_Overridden: 0
+      - m_Value: 0.59
+        m_Name: Lifetime
+        m_Overridden: 0
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -6469,12 +6472,12 @@ VisualEffect:
       m_Array: []
     m_Int:
       m_Array:
-      - m_Value: 8
+      - m_Value: 4
         m_Name: amount 1
-        m_Overridden: 1
-      - m_Value: 46
+        m_Overridden: 0
+      - m_Value: 29
         m_Name: Amount 2
-        m_Overridden: 1
+        m_Overridden: 0
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
@@ -6494,7 +6497,7 @@ Transform:
   m_GameObject: {fileID: 1726448700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.20928536, y: 4.04469, z: -1.7302837}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
