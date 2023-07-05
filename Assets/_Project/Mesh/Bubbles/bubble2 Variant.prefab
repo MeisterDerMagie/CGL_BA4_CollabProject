@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.394
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9680002
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.007
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
@@ -80,10 +80,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 389388069829867977}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 2773973378721340340}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f558742e5785bf64d884d69569cce712,
         type: 3}
@@ -96,18 +92,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6490486016972164813}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &389388069829867977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6256554816869839772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d87d489c55fc504987b709bbe1e4ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &2773973378721340340
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -141,4 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3256a7f31082ce74bb9f0617461ac814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  values: {fileID: 0}
+  _onPop:
+    m_PersistentCalls:
+      m_Calls: []
+  _bubblePopVFXPrefab: {fileID: 4160023190404659538, guid: 129514e4a5cce4940bf3802cae556b7b,
+    type: 3}

@@ -36,7 +36,7 @@ Transform:
   - {fileID: 4225172019890399458}
   - {fileID: 6342693948806020136}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8488727833178541096
 MonoBehaviour:
@@ -54,11 +54,9 @@ MonoBehaviour:
   spawnY: 5.8
   minSpeed: 0
   maxSpeed: 0
-  fallOnInteract: 0
   fallingSpeed: 2
   minAngle: -36
   maxAngle: 44
-  scene_1_2: 1
   rotationAxis: 3
 --- !u!1001 &2315242327422257534
 PrefabInstance:
@@ -643,7 +641,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1628515253389479082, guid: 5b867b2bf9fcbcf4fb708a32d70e6ea5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

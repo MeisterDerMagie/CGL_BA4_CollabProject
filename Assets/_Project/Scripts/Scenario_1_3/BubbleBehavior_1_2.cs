@@ -2,9 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
 {
+    [SerializeField]
+    private UnityEvent _onPop;
+
+    [SerializeField]
+    private GameObject _bubblePopVFXPrefab;
+    
     float movementSpeed;
     float maxY, spawnY;
     float minAngle, maxAngle, angle;
@@ -76,6 +84,9 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
 
     public void Pop()
     {
+        _onPop.Invoke();
+        Instantiate(_bubblePopVFXPrefab, transform.position, Quaternion.identity);
+        
         if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_2>().SetAllBubblesPopped(true);
         Destroy(gameObject);
     }

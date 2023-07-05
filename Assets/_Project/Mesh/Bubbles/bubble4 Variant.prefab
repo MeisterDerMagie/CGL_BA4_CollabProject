@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.274
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.011
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.099054
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
@@ -80,10 +80,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1628515253389479082}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b506a93111cfde048a3649133f16336b,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 4276365368628001484}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b506a93111cfde048a3649133f16336b,
         type: 3}
@@ -96,18 +92,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6132097987603504627}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1628515253389479082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6474205323043512482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d87d489c55fc504987b709bbe1e4ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &4276365368628001484
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -127,8 +111,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.48161057
-  m_Center: {x: 0.000000014901161, y: 0, z: 0}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6177733249883788752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,4 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3256a7f31082ce74bb9f0617461ac814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  values: {fileID: 0}
+  _onPop:
+    m_PersistentCalls:
+      m_Calls: []
+  _bubblePopVFXPrefab: {fileID: 4160023190404659538, guid: 129514e4a5cce4940bf3802cae556b7b,
+    type: 3}
