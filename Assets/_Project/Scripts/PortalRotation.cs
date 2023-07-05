@@ -10,7 +10,7 @@ public class PortalRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var newRotationBoth = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up);
-        transform.rotation = newRotationBoth;
+        var newRotation = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up);
+        transform.rotation = newRotation;
     }
 }
