@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class PortalRotation : MonoBehaviour
 {
-    [HideInInspector]
-    public float angle;
+    [ReadOnly]
+    public float rotationSpeed; //in angles per second
 
     // Update is called once per frame
     void Update()
     {
-        var newRotation = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up);
-        transform.rotation = newRotation;
+        transform.rotation *= Quaternion.AngleAxis(rotationSpeed * Time.deltaTime, Vector3.up);
     }
 }

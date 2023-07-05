@@ -24,7 +24,7 @@ public class Portal : MonoBehaviour
     {
         foreach(Transform child in transform)
         {
-            child.GetComponent<PortalRotation>().angle = Random.Range(minRotationSpeed, maxRotationSpeed);
+            child.GetComponent<PortalRotation>().rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         }
     }
 }

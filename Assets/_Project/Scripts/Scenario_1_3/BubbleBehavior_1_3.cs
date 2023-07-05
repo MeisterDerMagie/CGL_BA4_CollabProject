@@ -56,18 +56,16 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
     {
         //Falling down when popped
         if (falling == true)
-            transform.localPosition -= transform.up * fallingSpeed * Time.deltaTime;
+            transform.localPosition -= transform.up * (fallingSpeed * Time.deltaTime);
 
         //Rotation
         if (rotationAxis == BubbleValues.RotationAxis.Both) //On both axes
         {
-            var newRotationBoth = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up) * Quaternion.AngleAxis(angle, Vector3.right);
-            transform.rotation = newRotationBoth;
+            transform.rotation *= Quaternion.AngleAxis(angle * Time.deltaTime, Vector3.up) * Quaternion.AngleAxis(angle * Time.deltaTime, Vector3.right);
         }
         else //On one axis
         {
-            var newRotation = transform.rotation * Quaternion.AngleAxis(angle, axis);
-            transform.rotation = newRotation;
+            transform.rotation *= Quaternion.AngleAxis(angle * Time.deltaTime, axis);
         }
     }
 
