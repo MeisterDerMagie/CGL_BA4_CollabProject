@@ -80,18 +80,13 @@ public class TobiiInput : InputType
             Debug.Log("Back Value has been reached");
             popable = true;
         }
-        GameObject Bubble = TobiiAPI.GetFocusedObject();
 
-        if (Bubble != null)
+        var bubble = RaycastUtility.ScreenPointRaycast<IBubble>(Camera.main, gazePoint);
+        bool popValueHasBeenReached = (headAngleX >= rotateToPop && headAngleX <= 150 && popable); // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
+        if (bubble != null && popValueHasBeenReached)
         {
-            Debug.Log(Bubble.name);
-            if (headAngleX >= rotateToPop && headAngleX <= 150 && popable == true) // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
-            {
-                Debug.Log("Pop Value has been reached");
-                popable = false;
-                FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(Bubble);
-                Bubble = null;
-            }
+            popable = false;
+            FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
         }
 
         //Push and pull

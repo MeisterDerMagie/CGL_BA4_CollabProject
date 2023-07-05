@@ -6,11 +6,11 @@ using Tobii.Gaming;
 [DisallowMultipleComponent]
 public class PopBubbles : FirstPersonModule
 {
-    public void ExecutePopBubbles(GameObject bubble)
+    public void ExecutePopBubbles(IBubble bubble)
     {
         if (!IsEnabled) return;
 
         Debug.Log("Pop");
-        bubble.GetComponent<IBubble>().Pop();
+        bubble.Pop();
     }
 }
