@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 97512046678327008}
   - component: {fileID: 3702922885397521436}
   - component: {fileID: 5906963667603459047}
-  - component: {fileID: 8854665233064531787}
   - component: {fileID: 7192784294505131649}
   - component: {fileID: -8074060107338850730}
   m_Layer: 0
@@ -119,7 +118,7 @@ Transform:
   m_Children:
   - {fileID: 3810625115321436308}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3702922885397521436
 MeshFilter:
@@ -171,18 +170,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8854665233064531787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4349072220207573410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d87d489c55fc504987b709bbe1e4ec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &7192784294505131649
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -203,7 +190,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.38169813
-  m_Center: {x: 0.000000014901161, y: 0.000000014901161, z: 0.000000014901161}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-8074060107338850730
 MonoBehaviour:
   m_ObjectHideFlags: 0
