@@ -35,10 +35,11 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
+  m_CustomRenderQueue: 3050
   stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
+    RenderType: Transparent
+  disabledShaderPasses:
+  - SHADOWCASTER
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -61,9 +62,9 @@ Material:
     - _OutlineWidth: 15
     - _OverrideShadowColor: 0
     - _RimEnabled: 1
-    - _RimLightAlign: -0.67
+    - _RimLightAlign: -0.02
     - _RimLightSmoothness: 0
-    - _RimPower: 0.183
+    - _RimPower: 0.527
     - _SpecClipMaskScale: 1
     - _SpecularHighlights: 1
     - _StepViaRampTexture: 0
