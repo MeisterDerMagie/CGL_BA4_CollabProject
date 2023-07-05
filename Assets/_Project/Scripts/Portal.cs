@@ -12,6 +12,8 @@ public class Portal : MonoBehaviour
 
     [SerializeField][Range(-360f, 360f)]
     float minRotationSpeed, maxRotationSpeed;
+
+    Animation anim;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -22,9 +24,23 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
+        anim = GetComponent<Animation>();
+
         foreach(Transform child in transform)
         {
             child.GetComponent<PortalRotation>().rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         }
+    }
+
+    public void PlayAnimation()
+    {
+        Debug.Log("Anim Play");
+        anim.Play("PortalAssamble");
+    }
+
+    public void StopAnimation()
+    {
+        Debug.Log("Anim Stop");
+        anim.Stop();
     }
 }

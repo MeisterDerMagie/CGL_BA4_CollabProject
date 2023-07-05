@@ -30,7 +30,7 @@ Transform:
   m_Children:
   - {fileID: 5857300098645901642}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2668310639188225317
 GameObject:
@@ -75,7 +75,6 @@ GameObject:
   - component: {fileID: 7259333443213175121}
   - component: {fileID: 1086801653625552751}
   - component: {fileID: 2281740825921385140}
-  - component: {fileID: 3826824506583350035}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -148,19 +147,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3826824506583350035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9105347139773865352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  angle: 0
 --- !u!1001 &4723361438497147069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,6 +338,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4855528966460796355}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3211927792512358121}
     - targetCorrespondingSourceObject: {fileID: 7750397243111347764, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
         type: 3}
       insertIndex: -1
@@ -435,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &1916511747422985831 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6562889748348933850, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -454,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &2345705959440956847 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6989972652074480914, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -473,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &2752827664416844567 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1749435016463932502, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -492,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &3027035815356604041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7750397243111347764, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -511,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &3241069298385218362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7887587906704532359, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -530,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &4033997512161461930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8536400945726557719, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -549,7 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &4511284046837650783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9157943139577863650, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -568,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!4 &5045853810876739414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -593,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &5570295102446482924 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -608,7 +598,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5570295102446482924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2dad43386eae5da44a5c3db84dfc5cb6, type: 2}
   m_CullingMode: 0
@@ -701,31 +691,31 @@ MonoBehaviour:
   onBeginFocus:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9031121195403371507}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 5819886919589659105}
+        m_TargetAssemblyTypeName: Portal, Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Focus
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onEndFocus:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9031121195403371507}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: ResetTrigger
-        m_Mode: 5
+      - m_Target: {fileID: 5819886919589659105}
+        m_TargetAssemblyTypeName: Portal, Assembly-CSharp
+        m_MethodName: StopAnimation
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Focus
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onBecameEnabled:
@@ -734,6 +724,23 @@ MonoBehaviour:
   onBecameDisabled:
     m_PersistentCalls:
       m_Calls: []
+--- !u!111 &3211927792512358121
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5570295102446482924}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7097020548544592252, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
+    type: 3}
+  m_Animations:
+  - {fileID: 7097020548544592252, guid: a109353e108ecbc49a61e6f0d3ba2ce5, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6763763118123635137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2040542448765327740, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -752,7 +759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &8090332817222553864 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3587788796799408565, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -771,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &8139244731852694885 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3564783574603935192, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -790,7 +797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &8284969976890308823 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5514973854646914966, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -809,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &8321318793944269391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3672548509089925874, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -828,7 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &9024777930847425830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4373755574485294491, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -847,7 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
 --- !u!1 &9110137092984474644 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4620282718447106903, guid: a109353e108ecbc49a61e6f0d3ba2ce5,
@@ -866,4 +873,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5db2cb5d5d00a4db1ded15fa87f821, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0
+  rotationSpeed: 0
