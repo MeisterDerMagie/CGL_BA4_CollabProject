@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: m_Volum_Light
+  m_Name: m_portal
   m_Shader: {fileID: -6465566751694194690, guid: 807102f2f3d317c40b475d826f0796b9,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,12 +38,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 5.6
-    - _Edge_Blur: 0.2
+    - _Alpha: 14.83
+    - _Edge_Blur: 0.003
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color: {r: 0.8490566, g: 0.8047997, b: 0.65281236, a: 0}
+    - _Color: {r: 0.64705884, g: 0.72156864, b: 0.8000001, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2377190321588099591
 MonoBehaviour:
