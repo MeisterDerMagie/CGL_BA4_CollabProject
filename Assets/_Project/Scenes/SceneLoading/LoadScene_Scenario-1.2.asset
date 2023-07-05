@@ -19,8 +19,8 @@ MonoBehaviour:
   additionalFakeLoadingTime: 0
   scenesToUnloadBefore: []
   newScene:
-    sceneAsset: {fileID: 102900000, guid: 1b7667bf400a78c4a84b17119d91d248, type: 3}
-    scenePath: Assets/_Project/Scenes/1.2Scenario.unity
+    sceneAsset: {fileID: 102900000, guid: a636dc66a1612174baea9247a674f0fe, type: 3}
+    scenePath: Assets/_Project/Scenes/Scenario_1.2.unity
   scenesToLoadAdditively: []
   loadSaveGameData: 0
   saveLoadController: {fileID: 0}
