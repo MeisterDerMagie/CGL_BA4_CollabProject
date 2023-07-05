@@ -82,8 +82,7 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
             if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
             return;
         }
-        
-        //FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
+
         StartCoroutine(SetAllBubblesPopped(1.4f));
     }
 

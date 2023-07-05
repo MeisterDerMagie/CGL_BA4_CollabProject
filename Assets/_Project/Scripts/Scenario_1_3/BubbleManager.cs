@@ -51,7 +51,6 @@ public class BubbleManager : MonoBehaviour
 
             //Spawn Bubble and make it child object of this object
             var bubble = GameObject.Instantiate(bubbleToSpawn, spawnPos, Quaternion.identity);
-            //bubble.transform.rotation = Quaternion.LookRotation(new Vector3(bubble.transform.position.x, player.position.y, bubble.transform.position.x));
             bubble.transform.parent = gameObject.transform;
 
             //Add Sprite to Bubble
@@ -79,6 +78,7 @@ public class BubbleManager : MonoBehaviour
         SpawnBubbles(bubbleRound);
     }
 
+    //Make Player able to pop all bubbles instead of just one
     public void AbleToPopAll()
     {
         foreach (Transform child in transform)
