@@ -877,6 +877,76 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
+  - name: Confirm
+    clip: {fileID: 8300000, guid: 91c111c628a5b954ab69dbc51301343f, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+    initialVolume: 0
+    pitch: 1
+  - name: Transition_1
+    clip: {fileID: 8300000, guid: 8b7c84013f46a524f9e8c3f5f3580bbe, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+    initialVolume: 0
+    pitch: 1
+  - name: Scenario1.1_Environment
+    clip: {fileID: 8300000, guid: c225e294310462b4e9b511545b7354ff, type: 3}
+    source: {fileID: 0}
+    loop: 1
+    volume: 0.7
+    initialVolume: 0
+    pitch: 1
+  - name: Scenario1.2_Environment
+    clip: {fileID: 8300000, guid: 1f59a7327a9a8104b8a7f64587969696, type: 3}
+    source: {fileID: 0}
+    loop: 1
+    volume: 0.7
+    initialVolume: 0
+    pitch: 1
+  - name: Bubble_Popping
+    clip: {fileID: 8300000, guid: ea6f751fe83cb414ba445fb4bc285451, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 1
+    initialVolume: 0
+    pitch: 1
+  - name: Scenario2_Environment
+    clip: {fileID: 8300000, guid: 06866d2ecbbd4eb4fbbddec66c63fb05, type: 3}
+    source: {fileID: 0}
+    loop: 1
+    volume: 0.6
+    initialVolume: 0
+    pitch: 1
+  - name: Red_Ghost
+    clip: {fileID: 8300000, guid: b709b1b59104bf049a4d68a0c8202dec, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.8
+    initialVolume: 0
+    pitch: 1
+  - name: Outside_Labyrinth
+    clip: {fileID: 8300000, guid: 33481ee1d1fa6a44ba5aca0813ae3422, type: 3}
+    source: {fileID: 0}
+    loop: 1
+    volume: 0.5
+    initialVolume: 0
+    pitch: 1
+  - name: White_Ghost
+    clip: {fileID: 8300000, guid: 70db6bc100e9a6547aa75da8251a44b2, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.7
+    initialVolume: 0
+    pitch: 1
+  - name: Portal
+    clip: {fileID: 8300000, guid: 7f6a3baf9c483b244a238fc9c3c93db4, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.5
+    initialVolume: 0
+    pitch: 1
 --- !u!4 &2098099068
 Transform:
   m_ObjectHideFlags: 0
