@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System;
+using DG.Tweening;
 
 public class AudioManager : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class AudioManager : MonoBehaviour
         {
             sound.source = gameObject.AddComponent<AudioSource>();
             sound.source.clip = sound.clip;
+            sound.initialVolume = sound.volume;
 
             sound.source.loop = sound.loop;
             sound.source.volume = sound.volume;
@@ -33,11 +35,54 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
-        s.source.Play();
-
+        
         if (s == null)
         {
-            Debug.LogWarning($"Sound {name} not found!");
+            Debug.LogWarning($"Sound \"{name}\" not found!");
+            return;
         }
+        
+        s.source.Play();
+        s.source.volume = s.initialVolume;
+    }
+
+    public void PlayAndFadeIn(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound \"{name}\" not found!");
+            return;
+        }
+        
+        s.source.Play();
+        s.source.DOFade(s.initialVolume, 2f).From(0f);
+    }
+
+    public void FadeOut(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound \"{name}\" not found!");
+            return;
+        }
+        
+        s.source.DOFade(0f, 2f);
+    }
+
+    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound \"{name}\" not found!");
+            return;
+        }
+        
+        s.source.Stop();
     }
 }

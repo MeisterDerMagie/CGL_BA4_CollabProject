@@ -7,9 +7,11 @@ using UnityEngine;
 
 public abstract class SceneFlow : MonoBehaviour
 {
+    protected CoroutineHandle Coroutine;
+    
     private void Start()
     {
-        Timing.RunCoroutine(_SceneFlow());
+        Coroutine = Timing.RunCoroutine(_SceneFlow());
     }
 
     protected abstract IEnumerator<float> _SceneFlow();

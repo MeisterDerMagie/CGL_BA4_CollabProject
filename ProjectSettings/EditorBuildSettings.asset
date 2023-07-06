@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/Tech/ConnectTobii.unity
     guid: ee9c401b8100b9f4b9893c0de524c63a
   - enabled: 1
+    path: Assets/_Project/Scenes/Introduction.unity
+    guid: 7423db37e136c0841b70e2d8f74624f1
+  - enabled: 1
     path: Assets/_Project/Scenes/Hub.unity
     guid: 512790adf208a8c42b9ee324f61797c6
   - enabled: 1
