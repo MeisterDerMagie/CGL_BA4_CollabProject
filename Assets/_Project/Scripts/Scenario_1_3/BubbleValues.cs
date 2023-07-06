@@ -5,7 +5,6 @@ using Sirenix.OdinInspector;
 
 public class BubbleValues : MonoBehaviour
 {
-    public float maxYValue, spawnY;
     [Range(0, 3)]
     public float minSpeed, maxSpeed;
 

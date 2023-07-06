@@ -96,6 +96,7 @@ public class BubbleManager : MonoBehaviour
         {
             spawnPos = spawnPosition.position;
             spawnPosition.gameObject.GetComponent<SpawnPoint>().occupied = true;
+            return;
         }
     }
 }
