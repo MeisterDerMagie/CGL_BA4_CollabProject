@@ -23,6 +23,8 @@ public class BubbleManager : MonoBehaviour
 
     private Transform player;
 
+    private Vector3 spawnPos;
+
     //Current Bubble Round
     int bubbleRound = 0;
 
@@ -47,7 +49,7 @@ public class BubbleManager : MonoBehaviour
             GameObject bubbleToSpawn = BubblePrefabs[Random.Range(0, BubblePrefabs.Length)];
 
             //Get a random position
-            Vector3 spawnPos = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
+            FindSpawnPoint();
 
             //Spawn Bubble and make it child object of this object
             var bubble = GameObject.Instantiate(bubbleToSpawn, spawnPos, Quaternion.identity);
@@ -83,5 +85,17 @@ public class BubbleManager : MonoBehaviour
     {
         foreach (Transform child in transform)
             child.GetComponent<BubbleBehavior_1_3>().popAll = true;
+    }
+
+    void FindSpawnPoint()
+    {
+        Transform spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
+        if (spawnPosition.gameObject.GetComponent<SpawnPoint>().occupied == true)
+            FindSpawnPoint();
+        else
+        {
+            spawnPos = spawnPosition.position;
+            spawnPosition.gameObject.GetComponent<SpawnPoint>().occupied = true;
+        }
     }
 }
