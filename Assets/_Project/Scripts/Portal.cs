@@ -28,14 +28,15 @@ public class Portal : MonoBehaviour
 
         foreach(Transform child in transform)
         {
-            child.GetComponent<PortalRotation>().rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
+            if (child.GetComponent<PortalRotation>() != null)
+                child.GetComponent<PortalRotation>().rotationSpeed = Random.Range(minRotationSpeed, maxRotationSpeed);
         }
     }
 
     public void PlayAnimation()
     {
         Debug.Log("Anim Play");
-        anim.Play("PortalAssamble");
+        anim.Play();
     }
 
     public void StopAnimation()
