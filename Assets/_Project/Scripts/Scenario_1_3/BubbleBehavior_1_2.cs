@@ -14,7 +14,8 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
     private GameObject _bubblePopVFXPrefab;
     
     float movementSpeed;
-    float maxY, spawnY;
+    [SerializeField]
+    float spawnY;
     float minAngle, maxAngle, angle;
 
     Vector3 axis;
@@ -31,8 +32,6 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
         //Getting all important values
         values = gameObject.GetComponentInParent<BubbleValues>();
         movementSpeed = Random.Range(values.minSpeed, values.maxSpeed);
-        maxY = values.maxYValue;
-        spawnY = values.spawnY;
         minAngle = values.minAngle;
         maxAngle = values.maxAngle;
 
@@ -72,12 +71,14 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
 
         //Movement
         transform.localPosition -= transform.up * (movementSpeed * Time.deltaTime);
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Trigger");
         //Respawning
-        if (transform.localPosition.y <= maxY)
-        {
+        if (other.tag == "Respawner")
             transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
-        }
     }
 
     public void Pop()
