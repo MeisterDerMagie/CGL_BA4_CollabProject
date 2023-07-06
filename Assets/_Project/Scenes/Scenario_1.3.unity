@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0008820347, g: 0.0012987237, b: 0.002331529, a: 1}
+  m_IndirectSpecularColor: {r: 0.00088203384, g: 0.0012987221, b: 0.0023315246, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4088,7 +4088,7 @@ PrefabInstance:
     - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
       propertyPath: BubblePrefabs.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
@@ -4112,6 +4112,12 @@ PrefabInstance:
       propertyPath: BubblePrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 1979044910500799642, guid: a435cfe8cf90c784b9bfd2ad059d1dfb,
+        type: 3}
+    - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
+        type: 3}
+      propertyPath: BubblePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 4349072220207573410, guid: 5308bdf44b7d46a4fb426c1e9f76acf4,
         type: 3}
     - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
