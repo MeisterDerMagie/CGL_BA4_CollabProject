@@ -4358,7 +4358,7 @@ PrefabInstance:
     - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
       propertyPath: spriteContainer.Array.data[0].sprites.Array.size
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 8343339234616623067, guid: 61f9e4b95dfcbd944b2a36125e3173bf,
         type: 3}
