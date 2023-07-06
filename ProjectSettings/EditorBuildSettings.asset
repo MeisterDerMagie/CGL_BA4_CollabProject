@@ -26,7 +26,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Scenario_2.unity
     guid: 2e49628f9ed55ed47b750d2388a248fc
-  - enabled: 1
-    path: Assets/_Project/Scenes/TestScenes/Julian/Julian.unity
-    guid: 4a2c65573460f53469c3627e762dee70
   m_configObjects: {}
