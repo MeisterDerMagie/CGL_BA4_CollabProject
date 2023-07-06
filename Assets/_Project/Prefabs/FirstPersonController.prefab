@@ -149,8 +149,8 @@ MonoBehaviour:
   _isEnabled: 0
   rotationType: 1
   cam: {fileID: 8674288109051456372}
-  rotationXBoundary: 70
-  rotationYBoundary: 90
+  rotationXBoundary: 50
+  rotationYBoundary: 70
   minVerticalRotation: -90
   maxVerticalRotation: 90
   rotationSpeed: 1
@@ -284,7 +284,7 @@ MonoBehaviour:
   _isEnabled: 0
   leftPainting: {fileID: 0}
   rightPainting: {fileID: 0}
-  movementSpeed: 0
+  movementSpeed: 8
 --- !u!114 &2225644424989846701
 MonoBehaviour:
   m_ObjectHideFlags: 0

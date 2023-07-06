@@ -858,11 +858,6 @@ PrefabInstance:
       objectReference: {fileID: 1105798913}
     - target: {fileID: 3911115458185209180, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
-      propertyPath: movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3911115458185209180, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
       propertyPath: rightPainting
       value: 
       objectReference: {fileID: 2029291235}
