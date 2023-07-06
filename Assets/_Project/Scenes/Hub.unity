@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16929917, g: 0.24669476, b: 0.36311877, a: 1}
+  m_IndirectSpecularColor: {r: 0.16929913, g: 0.24669462, b: 0.36311856, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23257,6 +23257,11 @@ PrefabInstance:
       propertyPath: _isEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
+        type: 3}
+      propertyPath: rotationSpeedIncreaseFactor
+      value: 1.05
+      objectReference: {fileID: 0}
     - target: {fileID: 8915436791635352566, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: _isEnabled
@@ -35061,6 +35066,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5083556729096362960, guid: 4124f873f0685e448b79ba320efaa02b,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 5927190623751074952, guid: 4124f873f0685e448b79ba320efaa02b,
         type: 3}
@@ -52253,81 +52263,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2091542996}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2098099066
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2098099068}
-  - component: {fileID: 2098099067}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2098099067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098099066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635b3ad64ea9f7a4ba5aefb04740aa10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: 'Introduction '
-    clip: {fileID: 8300000, guid: 8139beb71f423e94bb17907b75899234, type: 3}
-    source: {fileID: 0}
-    loop: 0
-    volume: 1
-    pitch: 1
-  - name: Hub_WhiteNoise
-    clip: {fileID: 8300000, guid: 599756287dfcab6408f81d349900f92f, type: 3}
-    source: {fileID: 0}
-    loop: 1
-    volume: 0.5
-    pitch: 1
-  - name: Hub_Environment
-    clip: {fileID: 8300000, guid: 2a0844b0a57f7e04ea3753a5eaecd208, type: 3}
-    source: {fileID: 0}
-    loop: 1
-    volume: 0.4
-    pitch: 1
-  - name: Select_Sound1
-    clip: {fileID: 8300000, guid: 22718192cf615404b87f1b248565f76f, type: 3}
-    source: {fileID: 0}
-    loop: 0
-    volume: 1
-    pitch: 1
-  - name: Select_Sound2
-    clip: {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
-    source: {fileID: 0}
-    loop: 0
-    volume: 1
-    pitch: 1
---- !u!4 &2098099068
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098099066}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9547274, y: 1.510566, z: -11.584837}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2102823852
 GameObject:
   m_ObjectHideFlags: 0
