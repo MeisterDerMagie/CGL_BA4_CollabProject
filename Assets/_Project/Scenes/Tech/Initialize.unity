@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1074,14 +1074,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 22718192cf615404b87f1b248565f76f, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.5
     initialVolume: 0
     pitch: 1
   - name: Select_Sound2
     clip: {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.5
     initialVolume: 0
     pitch: 1
   - name: Confirm
@@ -1095,7 +1095,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8b7c84013f46a524f9e8c3f5f3580bbe, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.7
     initialVolume: 0
     pitch: 1
   - name: Scenario1.1_Environment
