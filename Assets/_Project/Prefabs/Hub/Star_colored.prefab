@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 3432301099136650314, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3432301099136650314, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
@@ -313,4 +313,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 2846114913583948060}
-  _scaleFactor: 1.1
+  _scaleFactor: 1.4
