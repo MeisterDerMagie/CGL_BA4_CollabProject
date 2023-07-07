@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 3432301099136650314, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3432301099136650314, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
@@ -71,17 +71,17 @@ PrefabInstance:
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: onEndFocus.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: onBeginFocus.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
@@ -120,6 +120,11 @@ PrefabInstance:
       objectReference: {fileID: -2682544317630679148}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 3786135340003789782}
+    - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
+        type: 3}
       propertyPath: onBeginFocus.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7031221180149945252}
@@ -152,6 +157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ActivateStar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
+        type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
@@ -201,7 +211,7 @@ PrefabInstance:
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: StarActivatable, Assembly-CSharp
+      value: PlaySound, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
@@ -226,6 +236,11 @@ PrefabInstance:
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
+        type: 3}
+      propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5739339320710046246, guid: 3567024712534b145a6ba7a9d339aefe,
@@ -260,6 +275,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7031221180149945252}
+    - targetCorrespondingSourceObject: {fileID: 6227533230235757754, guid: 3567024712534b145a6ba7a9d339aefe,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3786135340003789782}
     - targetCorrespondingSourceObject: {fileID: 6227533230235757754, guid: 3567024712534b145a6ba7a9d339aefe,
         type: 3}
       insertIndex: -1
@@ -325,6 +344,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: Select_Sound1
+--- !u!114 &3786135340003789782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6823571082918838764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcb899cfdaa40b19898d5097f7e5570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Confirm_1
 --- !u!114 &8546626416736639308
 MonoBehaviour:
   m_ObjectHideFlags: 0

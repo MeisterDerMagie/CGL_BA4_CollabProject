@@ -6,7 +6,9 @@ using Wichtel;
 
 public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
 {
-    public Sound[] sounds;
+    public Sound[] sounds = new Sound[0];
+
+    private void Awake() => InitSingleton();
 
     private void Start()
     {
