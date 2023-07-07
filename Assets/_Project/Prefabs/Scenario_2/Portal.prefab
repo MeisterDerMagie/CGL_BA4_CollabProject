@@ -643,8 +643,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  minRotationSpeed: -34
-  maxRotationSpeed: 34
 --- !u!135 &5747821486837467480
 SphereCollider:
   m_ObjectHideFlags: 0
