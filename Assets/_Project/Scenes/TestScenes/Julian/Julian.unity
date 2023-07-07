@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 2225644424989846701, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: _isEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2683423426064496998, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
@@ -219,22 +219,12 @@ PrefabInstance:
     - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: _isEnabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}
       propertyPath: rotationSpeed
       value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: rotationXBoundary
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
-        type: 3}
-      propertyPath: rotationYBoundary
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7794136748757844565, guid: 4f9370d7f94cd744b9b433bdb1c63849,
         type: 3}

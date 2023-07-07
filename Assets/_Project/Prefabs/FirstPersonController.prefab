@@ -149,14 +149,14 @@ MonoBehaviour:
   _isEnabled: 0
   rotationType: 1
   cam: {fileID: 8674288109051456372}
-  rotationXBoundary: 50
-  rotationYBoundary: 70
+  rotationXBoundary: 10
+  rotationYBoundary: 10
   minVerticalRotation: -90
   maxVerticalRotation: 90
   rotationSpeed: 1
-  headRotationSpeed: 6
+  headRotationSpeed: 11
   screenBoundaryPercentage: 20
-  rotationSpeedIncreaseFactor: 1
+  rotationSpeedIncreaseFactor: 2
 --- !u!114 &8235854723103994763
 MonoBehaviour:
   m_ObjectHideFlags: 0
