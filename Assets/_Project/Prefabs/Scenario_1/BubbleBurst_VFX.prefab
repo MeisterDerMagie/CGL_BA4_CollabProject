@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7329845158827530884}
   - component: {fileID: 32110858881359938}
   - component: {fileID: 6216506607244048729}
+  - component: {fileID: 6634912955141976798}
   m_Layer: 0
   m_Name: BubbleBurst_VFX
   m_TagString: Untagged
@@ -124,3 +125,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8539f3d9c4c14763aead7e789859808d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6634912955141976798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4160023190404659538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b45e46732640d88ca66b24b5655e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundNames:
+  - Bubble_Popping
