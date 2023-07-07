@@ -57,6 +57,9 @@ public class SceneFlow_Hub : SceneFlow
         //wait until the player interacted with one of the stars, meaning they activated a symbol
         yield return Timing.WaitUntilFalse(() => _activatedSymbol == null);
         
+        //disable all other stars
+        _stars.DisableInteractionOnAllStars();
+        
         //remember the activated symbol in the global game data
         GameData.Singleton.activatedSymbols.Add(_activatedSymbol);
 

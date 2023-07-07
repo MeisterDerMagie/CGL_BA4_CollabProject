@@ -40,4 +40,12 @@ public class HubStars : MonoBehaviour
             star.LoadState();
         }
     }
+
+    public void DisableInteractionOnAllStars()
+    {
+        foreach (StarActivatable star in _activatableStars)
+        {
+            star.GetComponent<Interactable>().SetEnabled(false);
+        }
+    }
 }
