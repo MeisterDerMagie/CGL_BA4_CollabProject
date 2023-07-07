@@ -285,7 +285,7 @@ MonoBehaviour:
   _isEnabled: 0
   leftPainting: {fileID: 0}
   rightPainting: {fileID: 0}
-  movementSpeed: 16
+  movementSpeed: 12
 --- !u!114 &2225644424989846701
 MonoBehaviour:
   m_ObjectHideFlags: 0
