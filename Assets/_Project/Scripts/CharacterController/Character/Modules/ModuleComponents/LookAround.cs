@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Tobii.Gaming;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -30,7 +31,7 @@ public class LookAround : FirstPersonModule
     float rotationXBoundary, rotationYBoundary;
 
     public float minVerticalRotation, maxVerticalRotation, rotationSpeed, headRotationSpeed;
-    float RotationSpeed => rotationSpeed * 350;
+    float RotationSpeed => TobiiAPI.IsConnected ? rotationSpeed * 350 : rotationSpeed * 15;
 
     [Range(0, 50)]
     public float screenBoundaryPercentage;

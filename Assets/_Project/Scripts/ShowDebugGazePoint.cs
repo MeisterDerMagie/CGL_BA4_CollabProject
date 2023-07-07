@@ -11,6 +11,8 @@ public class ShowDebugGazePoint : MonoBehaviour
     [SerializeField]
     private RectTransform _gazePlot;
 
+    private bool _displayPoint;
+
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -18,9 +20,43 @@ public class ShowDebugGazePoint : MonoBehaviour
 
     private void Update()
     {
-        GazePoint gazePoint = TobiiAPI.GetGazePoint();
-        _gazePlot.gameObject.SetActive(Input.GetKey(KeyCode.Space) && gazePoint.IsValid);
+        //toggle visibility when pressing space
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _displayPoint = !_displayPoint;
 
-        _gazePlot.anchoredPosition = gazePoint.Screen;
+            if (!_displayPoint)
+            {
+                _gazePlot.gameObject.SetActive(false);
+                return;
+            }
+
+            else
+            {
+                _gazePlot.gameObject.SetActive(true);
+            }
+        }
+
+        if (!_displayPoint) return;
+        
+        //update position
+        bool tobiiIsConnected = TobiiAPI.IsConnected;
+        Vector2 gazePointScreenPosition;
+        
+            //if tobii is connected
+        if (tobiiIsConnected)
+        {
+            GazePoint gazePoint = TobiiAPI.GetGazePoint();
+            gazePointScreenPosition = gazePoint.Screen;
+            if(!gazePoint.IsRecent()) _gazePlot.gameObject.SetActive(false);
+        }
+
+            //if tobii is not connected, use mouse position instead
+        else
+        {
+            gazePointScreenPosition = Input.mousePosition;
+        }
+        
+        _gazePlot.anchoredPosition = gazePointScreenPosition;
     }
 }
