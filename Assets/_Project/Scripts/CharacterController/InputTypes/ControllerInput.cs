@@ -37,9 +37,8 @@ public class ControllerInput : InputType
         FirstPersonController.GetModule<MoveOnRailsPlayerControlled>()?.ExecuteMovement(Input.GetAxis("Vertical"));
 
         //Pop bubbles
-        var bubble = RaycastUtility.ScreenPointRaycast<IBubble>(Camera.main, Input.mousePosition);
-        if (bubble != null && Input.GetKeyDown(KeyCode.E))
-            FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
+        if (Input.GetKeyDown(KeyCode.E))
+            FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(Input.mousePosition);
 
         //Push and pull
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(Input.mousePosition);

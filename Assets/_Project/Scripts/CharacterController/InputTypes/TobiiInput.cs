@@ -81,12 +81,11 @@ public class TobiiInput : InputType
             popable = true;
         }
 
-        var bubble = RaycastUtility.ScreenPointRaycast<IBubble>(Camera.main, gazePoint);
         bool popValueHasBeenReached = (headAngleX >= rotateToPop && headAngleX <= 150 && popable); // Clamp value to 300 -> wenn man zu weit hochstreckt ist der wert bei 360 und damit auch über der abfrage value
-        if (bubble != null && popValueHasBeenReached)
+        if (popValueHasBeenReached)
         {
             popable = false;
-            FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
+            FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(gazePoint);
         }
 
         //Attract and Repel

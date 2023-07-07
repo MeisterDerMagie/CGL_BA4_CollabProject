@@ -17,6 +17,7 @@ public static class RaycastUtility
     public static T ScreenPointRaycast<T>(Camera cam, Vector3 screenPoint, GetComponentIn scope = GetComponentIn.Self, bool includeInactive = true, bool compensateForInaccurateGazePoint = true)
     {
         Ray ray = cam.ScreenPointToRay(screenPoint);
+        OnDrawDebugRayPosition?.Invoke(screenPoint);
         bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
 
         T hitObject = default(T);
