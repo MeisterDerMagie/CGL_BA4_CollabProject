@@ -21,21 +21,21 @@ public static class RaycastUtility
 
         T hitObject = default(T);
 
-        //if we just shoot one ray exactly at the screenPoint
-        if (!compensateForInaccurateGazePoint)
-        {
-            if(scope == GetComponentIn.Self)
-                hitObject = hitAnObject ? hit.collider.GetComponent<T>() : default(T);
+        //shoot a ray at the given screen point
+        if(scope == GetComponentIn.Self)
+            hitObject = hitAnObject ? hit.collider.GetComponent<T>() : default(T);
         
-            else if(scope == GetComponentIn.Parent)
-                hitObject = hitAnObject ? hit.collider.GetComponentInParent<T>(includeInactive) : default(T);
+        else if(scope == GetComponentIn.Parent)
+            hitObject = hitAnObject ? hit.collider.GetComponentInParent<T>(includeInactive) : default(T);
         
-            else if(scope == GetComponentIn.Children)
-                hitObject = hitAnObject ? hit.collider.GetComponentInChildren<T>(includeInactive) : default(T);
-        }
+        else if(scope == GetComponentIn.Children)
+            hitObject = hitAnObject ? hit.collider.GetComponentInChildren<T>(includeInactive) : default(T);
+            
+        if (hitObject != null) return hitObject;
+        
 
-        //if we shoot multiple rays until we hit something to compensate for a gaze point that's slightly off
-        else
+        //if we didn't hit anything, shoot multiple rays until we hit something to compensate for a gaze point that's slightly off
+        if(compensateForInaccurateGazePoint)
         {
             hitObject = MultipleScreenPointRaycasts<T>(cam, screenPoint, scope, includeInactive);
         }
@@ -53,22 +53,6 @@ public static class RaycastUtility
         const int rayIncreasePerRing = 4;
         
         T hitObject = default(T);
-
-        //shoot center ray
-        Ray ray = cam.ScreenPointToRay(screenPoint);
-        OnDrawDebugRayPosition?.Invoke(screenPoint);
-        bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
-        
-        if(scope == GetComponentIn.Self)
-            hitObject = hitAnObject ? hit.collider.GetComponent<T>() : default(T);
-        
-        else if(scope == GetComponentIn.Parent)
-            hitObject = hitAnObject ? hit.collider.GetComponentInParent<T>(includeInactive) : default(T);
-        
-        else if(scope == GetComponentIn.Children)
-            hitObject = hitAnObject ? hit.collider.GetComponentInChildren<T>(includeInactive) : default(T);
-        
-        if (hitObject != null) return hitObject;
         
         //if the center ray didn't hit anything, shoot the outer rays
         for (int i = 0; i < rings; i++)
@@ -78,9 +62,9 @@ public static class RaycastUtility
             
             foreach (Vector2 rayScreenPoint in PositionArrangements.ArrangeInCircle(screenPoint, currentAmount, currentRadius))
             {
-                ray = cam.ScreenPointToRay(rayScreenPoint);
+                Ray ray = cam.ScreenPointToRay(rayScreenPoint);
                 OnDrawDebugRayPosition?.Invoke(rayScreenPoint);
-                hitAnObject = Physics.Raycast(ray, out hit);
+                bool hitAnObject = Physics.Raycast(ray, out RaycastHit hit);
 
                 if(scope == GetComponentIn.Self)
                     hitObject = hitAnObject ? hit.collider.GetComponent<T>() : default(T);
