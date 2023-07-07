@@ -66,6 +66,9 @@ public class BubbleManager : MonoBehaviour
         bubbleRound++;
         foreach (Transform child in transform) Destroy(child.gameObject);
 
+        //Setting spawn positions to not occupied
+        foreach (Transform spawnPos in spawnPositions) spawnPos.gameObject.GetComponent<SpawnPoint>().occupied = false;
+
         //Check if it was the forelast round
         if (bubbleRound == spriteContainer.Length - 1)
             FindObjectOfType<SceneFlow_Scenario_1_3>().SetLastRoundReached();
@@ -91,7 +94,9 @@ public class BubbleManager : MonoBehaviour
     {
         Transform spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Length)];
         if (spawnPosition.gameObject.GetComponent<SpawnPoint>().occupied == true)
+        {
             FindSpawnPoint();
+        }
         else
         {
             spawnPos = spawnPosition.position;
