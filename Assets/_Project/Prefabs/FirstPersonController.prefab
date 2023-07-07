@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
-  <InteractionDurationSeconds>k__BackingField: 3
+  <InteractionDurationSeconds>k__BackingField: 2
 --- !u!114 &1392316286769174416
 MonoBehaviour:
   m_ObjectHideFlags: 0

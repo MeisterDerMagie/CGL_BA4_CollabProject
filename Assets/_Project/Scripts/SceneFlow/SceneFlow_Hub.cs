@@ -59,6 +59,7 @@ public class SceneFlow_Hub : SceneFlow
         
         //disable all other stars
         _stars.DisableInteractionOnAllStars();
+        _stars.HideAllStarsExceptOne(_activatedSymbol);
         
         //remember the activated symbol in the global game data
         GameData.Singleton.activatedSymbols.Add(_activatedSymbol);

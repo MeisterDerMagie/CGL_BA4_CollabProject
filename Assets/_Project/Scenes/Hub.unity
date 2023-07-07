@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16929917, g: 0.24669476, b: 0.36311877, a: 1}
+  m_IndirectSpecularColor: {r: 0.16929908, g: 0.24669461, b: 0.3631185, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6755,12 +6755,33 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5150059074544422768, guid: 7bec79787c31ec64997cb58ee347b6a1,
+        type: 3}
+      propertyPath: onEndFocus.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150059074544422768, guid: 7bec79787c31ec64997cb58ee347b6a1,
+        type: 3}
+      propertyPath: onBeginFocus.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150059074544422768, guid: 7bec79787c31ec64997cb58ee347b6a1,
+        type: 3}
+      propertyPath: onEndFocus.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150059074544422768, guid: 7bec79787c31ec64997cb58ee347b6a1,
+        type: 3}
+      propertyPath: onBeginFocus.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6823571082918838764, guid: 7bec79787c31ec64997cb58ee347b6a1,
         type: 3}
       propertyPath: m_Name
       value: Star_colored_2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2145585734447353970, guid: 7bec79787c31ec64997cb58ee347b6a1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

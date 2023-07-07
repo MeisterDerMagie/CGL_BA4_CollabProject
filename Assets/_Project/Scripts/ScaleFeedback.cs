@@ -10,10 +10,10 @@ public class ScaleFeedback : MonoBehaviour
     private Transform _target;
 
     [SerializeField]
-    private float _scaleFactor = 1f;
+    private float _scaleFactor = 0.2f;
 
-    public void Scale() => _target.localScale *= _scaleFactor;
+    public void Scale() => _target.localScale += Vector3.one * _scaleFactor;
 
-    public void RestoreInitalScale() => _target.localScale /= _scaleFactor;
+    public void RestoreInitalScale() => _target.localScale -= Vector3.one * _scaleFactor;
 }
 }

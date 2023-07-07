@@ -48,4 +48,15 @@ public class HubStars : MonoBehaviour
             star.GetComponent<Interactable>().SetEnabled(false);
         }
     }
+
+    //hide all stars except the one with the passed symbol
+    public void HideAllStarsExceptOne(HubSymbol symbol)
+    {
+        foreach (StarActivatable star in _activatableStars)
+        {
+            if(star.Symbol == symbol) continue;
+            
+            star.gameObject.SetActive(false);
+        }
+    }
 }
