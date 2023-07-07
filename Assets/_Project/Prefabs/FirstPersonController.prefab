@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 3148199522184918765}
   startValue: 10
-  rotateToPop: 20
+  rotateToPop: 15
   backValue: 0
   moveToPop: 0
 --- !u!114 &3148199522184918765
@@ -150,7 +150,7 @@ MonoBehaviour:
   rotationType: 1
   cam: {fileID: 8674288109051456372}
   rotationXBoundary: 10
-  rotationYBoundary: 10
+  rotationYBoundary: 15
   minVerticalRotation: -90
   maxVerticalRotation: 90
   rotationSpeed: 1

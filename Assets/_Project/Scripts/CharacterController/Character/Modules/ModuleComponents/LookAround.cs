@@ -97,7 +97,6 @@ public class LookAround : FirstPersonModule
                     float rotationSign = Mathf.Sign(headRotation.y);
                     float rotationXSpeed = Mathf.Pow(Mathf.Abs(headRotation.y) * 10, rotationSpeedIncreaseFactor) * rotationSign * headRotationSpeed * Time.deltaTime;
                     horizontalRotation += rotationXSpeed;
-                    horizontalRotation = Mathf.Clamp(horizontalRotation, -360, 360);
                     transform.localRotation = Quaternion.Euler(0, horizontalRotation, 0);
                 }
 
