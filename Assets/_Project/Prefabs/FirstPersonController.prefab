@@ -264,9 +264,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isEnabled: 0
   _characterController: {fileID: 6832969972838724910}
-  maxAttractSpeedDesignerFriendly: 15
-  maxRepelSpeedDesignerFriendly: 15
-  accelerationDesignerFriendly: 2
+  maxAttractSpeedDesignerFriendly: 200
+  maxRepelSpeedDesignerFriendly: 25
+  accelerationAttractDesignerFriendly: 80
+  accelerationRepelDesignerFriendly: 8
   decelerationDuration: 0.5
   glueToSplines: 1
 --- !u!114 &3911115458185209180
@@ -284,7 +285,7 @@ MonoBehaviour:
   _isEnabled: 0
   leftPainting: {fileID: 0}
   rightPainting: {fileID: 0}
-  movementSpeed: 8
+  movementSpeed: 16
 --- !u!114 &2225644424989846701
 MonoBehaviour:
   m_ObjectHideFlags: 0

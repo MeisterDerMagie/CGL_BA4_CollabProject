@@ -41,11 +41,15 @@ public class AttractAndRepel : FirstPersonModule
     private float maxRepelSpeedDesignerFriendly = 15f;
 
     private float MaxSpeed;
+
+    [SerializeField][LabelText("Acceleration Attract")]
+    private float accelerationAttractDesignerFriendly = 8f;
     
-    [SerializeField][LabelText("Acceleration")]
-    private float accelerationDesignerFriendly = 2f;
-    private float acceleration => accelerationDesignerFriendly / 100f;
-    
+    [SerializeField][LabelText("Acceleration Repel")]
+    private float accelerationRepelDesignerFriendly = 8f;
+
+    private float Acceleration;
+
     [SerializeField]
     private float decelerationDuration = 0.5f;
     
@@ -99,7 +103,11 @@ public class AttractAndRepel : FirstPersonModule
 
         //set MaxSpeed
         MaxSpeed = mode == Mode.Repel ? maxRepelSpeedDesignerFriendly : maxAttractSpeedDesignerFriendly;
-        MaxSpeed = MaxSpeed / 100f;
+        MaxSpeed /= 100f;
+        
+        //set acceleration
+        Acceleration = mode == Mode.Repel ? accelerationRepelDesignerFriendly : accelerationAttractDesignerFriendly;
+        Acceleration /= 100f;
     }
     
     private void Update()
@@ -112,7 +120,7 @@ public class AttractAndRepel : FirstPersonModule
         if (_isAttractingOrRepelling)
         {
             //move
-            _currentVelocity += _direction * (acceleration * Time.deltaTime);
+            _currentVelocity += _direction * (Acceleration * Time.deltaTime);
             _currentVelocity = Vector3.ClampMagnitude(_currentVelocity, MaxSpeed);
             velocity = _currentVelocity;
             
