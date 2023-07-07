@@ -89,7 +89,7 @@ public class TobiiInput : InputType
             FirstPersonController.GetModule<PopBubbles>()?.ExecutePopBubbles(bubble);
         }
 
-        //Push and pull
+        //Attract and Repel
         FirstPersonController.GetModule<AttractAndRepel>()?.ExecuteAttractOrRepel(gazePoint);
 
         //Move Painting
