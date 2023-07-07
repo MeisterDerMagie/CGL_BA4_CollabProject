@@ -14,7 +14,7 @@ public class PlaySoundsOnAwake : MonoBehaviour
     {
         foreach (string sound in soundNames)
         {
-            AudioManager.instance.Play(sound);
+            AudioManager.Singleton.Play(sound);
         }
     }
 }

@@ -9,6 +9,6 @@ public class PlaySound : MonoBehaviour
 
     public void Play()
     {
-        AudioManager.instance.Play(soundName);
+        AudioManager.Singleton.Play(soundName);
     }
 }

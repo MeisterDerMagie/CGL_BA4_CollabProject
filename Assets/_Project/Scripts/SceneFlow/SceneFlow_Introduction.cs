@@ -19,7 +19,7 @@ public class SceneFlow_Introduction : SceneFlow
     protected override IEnumerator<float> _SceneFlow()
     {
         //play the introduction sound
-        AudioManager.instance.Play("Introduction");
+        AudioManager.Singleton.Play("Introduction");
         
         //wait until the heart rate goes flat
         yield return Timing.WaitForSeconds(25);
@@ -37,7 +37,7 @@ public class SceneFlow_Introduction : SceneFlow
     private void Skip()
     {
         Timing.KillCoroutines(Coroutine);
-        AudioManager.instance.FadeOut("Introduction");
+        AudioManager.Singleton.FadeOut("Introduction");
         _hub.Load();
         Destroy(gameObject);
     }

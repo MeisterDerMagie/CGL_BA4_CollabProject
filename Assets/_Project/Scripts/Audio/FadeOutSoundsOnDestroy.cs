@@ -14,7 +14,7 @@ public class FadeOutSoundsOnDestroy : MonoBehaviour
     {
         foreach (string sound in soundNames)
         {
-            AudioManager.instance.FadeOut(sound);
+            AudioManager.Singleton.FadeOut(sound);
         }
     }
 }

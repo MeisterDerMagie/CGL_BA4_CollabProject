@@ -2,24 +2,14 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using DG.Tweening;
+using Wichtel;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
 {
     public Sound[] sounds;
 
-    public static AudioManager instance;
-
-    void Awake()
+    private void Start()
     {
-        if (instance == null) instance = this;
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(gameObject);
-
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();

@@ -14,7 +14,7 @@ public class FadeInSoundsOnAwake : MonoBehaviour
     {
         foreach (string sound in soundNames)
         {
-            AudioManager.instance.PlayAndFadeIn(sound);
+            AudioManager.Singleton.PlayAndFadeIn(sound);
         }
     }
 }
