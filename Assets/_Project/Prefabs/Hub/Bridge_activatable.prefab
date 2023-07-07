@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 8797842982025640382}
   - component: {fileID: 6913391423069328013}
   - component: {fileID: 2401060433609287951}
+  - component: {fileID: 2331773467082761173}
   m_Layer: 0
   m_Name: Bridge_activatable
   m_TagString: Untagged
@@ -418,7 +419,19 @@ MonoBehaviour:
   totalFocusTime: 0
   onBeginFocus:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2331773467082761173}
+        m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onEndFocus:
     m_PersistentCalls:
       m_Calls: []
@@ -435,6 +448,19 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2331773467082761173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289508521186612182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcb899cfdaa40b19898d5097f7e5570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Select_Sound2
 --- !u!1001 &7594692245579859823
 PrefabInstance:
   m_ObjectHideFlags: 0
