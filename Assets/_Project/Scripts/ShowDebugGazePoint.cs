@@ -16,6 +16,7 @@ public class ShowDebugGazePoint : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
+        _gazePlot.gameObject.SetActive(false);
     }
 
     private void Update()
