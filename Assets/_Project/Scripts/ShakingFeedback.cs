@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Wichtel.Extensions;
 
 public class ShakingFeedback : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ShakingFeedback : MonoBehaviour
     {
         timeToShake = FindObjectOfType<SceneFlow_Scenario_1_2>().shakingTime;
         image = GetComponent<Image>();
+        image.color = image.color.With(a: 0f);
     }
 
     public void FadeIn(float shakingTime)
@@ -24,7 +26,7 @@ public class ShakingFeedback : MonoBehaviour
         Color newColor = image.color;
         float percentage = shakingTime / timeToShake;
         float newAlpha = maxAlpha * percentage;
-        newColor.a = maxAlpha;
+        newColor.a = newAlpha;
         image.color = newColor;
     }
 
