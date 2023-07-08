@@ -860,37 +860,37 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2a0844b0a57f7e04ea3753a5eaecd208, type: 3}
     source: {fileID: 0}
     loop: 1
-    volume: 0.4
+    volume: 0.3
     initialVolume: 0
-    pitch: 1
+    pitch: 0.8
   - name: Select_Sound1
     clip: {fileID: 8300000, guid: 22718192cf615404b87f1b248565f76f, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.5
+    volume: 0.2
     initialVolume: 0
-    pitch: 1
+    pitch: 0.6
   - name: Select_Sound2
     clip: {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.5
+    volume: 0.3
     initialVolume: 0
-    pitch: 1
+    pitch: 0.9
   - name: Confirm_1
-    clip: {fileID: 8300000, guid: 91c111c628a5b954ab69dbc51301343f, type: 3}
+    clip: {fileID: 8300000, guid: fb34c379c9c5cf14ab67edcb8b00c084, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.2
     initialVolume: 0
-    pitch: 1
+    pitch: 0.6
   - name: Transition_1
-    clip: {fileID: 8300000, guid: 8b7c84013f46a524f9e8c3f5f3580bbe, type: 3}
+    clip: {fileID: 8300000, guid: 255dfff906680df48a94bebc30c0f392, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.7
+    volume: 0.4
     initialVolume: 0
-    pitch: 1
+    pitch: 0.3
   - name: Scenario1.1_Environment
     clip: {fileID: 8300000, guid: c225e294310462b4e9b511545b7354ff, type: 3}
     source: {fileID: 0}
@@ -909,9 +909,9 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ea6f751fe83cb414ba445fb4bc285451, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.2
     initialVolume: 0
-    pitch: 1
+    pitch: 0.7
   - name: Scenario2_Environment
     clip: {fileID: 8300000, guid: 06866d2ecbbd4eb4fbbddec66c63fb05, type: 3}
     source: {fileID: 0}
