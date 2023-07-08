@@ -15,7 +15,6 @@ public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
         foreach (Sound sound in sounds)
         {
             sound.source = gameObject.AddComponent<AudioSource>();
-            sound.source.clip = sound.clip;
             sound.initialVolume = sound.volume;
 
             sound.source.loop = sound.loop;
@@ -26,6 +25,7 @@ public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
 
     public void Play(string name)
     {
+        //Find sound via name
         Sound s = Array.Find(sounds, sound => sound.name == name);
         
         if (s == null)
@@ -33,8 +33,9 @@ public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
             Debug.LogWarning($"Sound \"{name}\" not found!");
             return;
         }
-        
-        s.source.Play();
+
+        s.source.clip = s.clips[UnityEngine.Random.Range(0, s.clips.Length)]; //Choose a random clip from the clip array
+        s.source.Play(); //Play sound
         s.source.volume = s.initialVolume;
     }
 
@@ -47,7 +48,8 @@ public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
             Debug.LogWarning($"Sound \"{name}\" not found!");
             return;
         }
-        
+
+        s.source.clip = s.clips[UnityEngine.Random.Range(0, s.clips.Length)]; //Choose a random clip from the clip array
         s.source.Play();
         s.source.DOFade(s.initialVolume, 2f).From(0f);
     }
@@ -61,7 +63,8 @@ public class AudioManager : SingletonBehaviourDontDestroyOnLoad<AudioManager>
             Debug.LogWarning($"Sound \"{name}\" not found!");
             return;
         }
-        
+
+        s.source.clip = s.clips[UnityEngine.Random.Range(0, s.clips.Length)]; //Choose a random clip from the clip array
         s.source.DOFade(0f, 2f);
     }
 

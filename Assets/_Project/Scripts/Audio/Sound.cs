@@ -7,7 +7,7 @@ public class Sound
 {
     public string name;
 
-    public AudioClip clip;
+    public AudioClip[] clips;
 
     [HideInInspector]
     public AudioSource source;
