@@ -18,10 +18,9 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
 
     //Variables
     bool allBubblesPopped;
-    bool shaked;
 
     [SerializeField][BoxGroup("How long the player needs to shake their head to get to next scene")]
-    float shakingTime;
+    public float shakingTime;
 
     [SerializeField][BoxGroup("Name of the next Scene")]
     SceneLoader nextScene;

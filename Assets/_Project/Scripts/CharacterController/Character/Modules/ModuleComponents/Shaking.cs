@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [DisallowMultipleComponent]
 public class Shaking : FirstPersonModule
@@ -8,10 +9,13 @@ public class Shaking : FirstPersonModule
     private float latestAddedValue, addedValue;
     private float shakingTime;
     public float ShakingTime => shakingTime;
+    private float timeToShake;
 
     private int stopped;
 
     private Camera cam;
+
+    public ShakingFeedback feedback;
 
     private void Awake() => cam = Camera.main;
 
@@ -30,6 +34,9 @@ public class Shaking : FirstPersonModule
             //Add time to timer
             shakingTime += Time.deltaTime;
 
+            //Making the image gradually darker (less transparent)
+            feedback.FadeIn(shakingTime);
+
             //Reset stopped couter
             stopped = 0;
         }
@@ -39,6 +46,10 @@ public class Shaking : FirstPersonModule
             if (stopped == 4)
             {
                 shakingTime = 0;
+                stopped = 0;
+
+                //Setting transparency of image back to 0
+                feedback.FadeOut();
             }
             //Add to counter
             else stopped++;
