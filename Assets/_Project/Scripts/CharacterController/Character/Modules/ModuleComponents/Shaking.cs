@@ -19,42 +19,31 @@ public class Shaking : FirstPersonModule
     {
         if (!IsEnabled) return;
 
+        //Apply head rotation to player and camera
         transform.rotation = Quaternion.Euler(0, rotation.eulerAngles.y, 0);
         cam.transform.localRotation = Quaternion.Euler(rotation.eulerAngles.x, 0, 0);
 
+        //Check if the rotation changed compared to the last frame
         addedValue = rotation.x + rotation.y + rotation.z;
         if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
         {
-            //Debug.Log(Mathf.Abs(latestAddedValue - addedValue) * 10);
+            //Add time to timer
             shakingTime += Time.deltaTime;
-            Debug.Log(shakingTime);
 
+            //Reset stopped couter
             stopped = 0;
         }
         else
         {
-            //Debug.Log(Mathf.Abs(latestAddedValue - addedValue) * 10);
-            //Debug.Log("Shaking Time Reset");
-            //StartCoroutine(CheckShaking());
-            //shakingTime = 0;
+            //Reset timer if player stopped shaking for 4 frames
             if (stopped == 4)
             {
                 shakingTime = 0;
-                Debug.Log("Reset");
             }
+            //Add to counter
             else stopped++;
         }
+        //Update lates rotation value
         latestAddedValue = addedValue;
-    }
-
-    IEnumerator CheckShaking()
-    {
-        yield return new WaitForSeconds(0.3f);
-        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.03f) shakingTime += Time.deltaTime;
-        else
-        {
-            shakingTime = 0;
-            Debug.Log("Reset");
-        }
     }
 }
