@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17902996, g: 0.2241707, b: 0.305983, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -847,7 +847,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8139beb71f423e94bb17907b75899234, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Hub_WhiteNoise
@@ -871,7 +871,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 22718192cf615404b87f1b248565f76f, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.2
+    volume: 0.4
     initialVolume: 0
     pitch: 0.6
   - name: Select_Sound2
@@ -879,7 +879,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.3
+    volume: 0.4
     initialVolume: 0
     pitch: 0.9
   - name: Confirm_1
@@ -887,12 +887,12 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fb34c379c9c5cf14ab67edcb8b00c084, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.2
+    volume: 0.3
     initialVolume: 0
     pitch: 0.6
   - name: Transition_1
     clips:
-    - {fileID: 8300000, guid: 255dfff906680df48a94bebc30c0f392, type: 3}
+    - {fileID: 8300000, guid: 6230403cb20e49442afe484ef0a0ae65, type: 3}
     source: {fileID: 0}
     loop: 0
     volume: 0.4
@@ -916,12 +916,17 @@ MonoBehaviour:
     pitch: 1
   - name: Bubble_Popping
     clips:
-    - {fileID: 8300000, guid: ea6f751fe83cb414ba445fb4bc285451, type: 3}
+    - {fileID: 8300000, guid: 7a9cc4fc8a3fbab409f74c291cba0d56, type: 3}
+    - {fileID: 8300000, guid: 2850179c934bd5b4b8e5a0481087ec73, type: 3}
+    - {fileID: 8300000, guid: ceea8231ed3bb484fa4ba21c94d6abe6, type: 3}
+    - {fileID: 8300000, guid: 8380cdf8f6c015b47a37ef459c49aaa1, type: 3}
+    - {fileID: 8300000, guid: 098438703516d834892ac7f232fb9b17, type: 3}
+    - {fileID: 8300000, guid: 2051e77ddaad2a64cb3b6a97908cd5de, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.2
+    volume: 0.1
     initialVolume: 0
-    pitch: 0.7
+    pitch: 1
   - name: Scenario2_Environment
     clips:
     - {fileID: 8300000, guid: 06866d2ecbbd4eb4fbbddec66c63fb05, type: 3}
@@ -935,7 +940,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b709b1b59104bf049a4d68a0c8202dec, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.8
+    volume: 0.5
     initialVolume: 0
     pitch: 1
   - name: Outside_Labyrinth
@@ -943,20 +948,27 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 33481ee1d1fa6a44ba5aca0813ae3422, type: 3}
     source: {fileID: 0}
     loop: 1
-    volume: 0.5
+    volume: 0.3
     initialVolume: 0
-    pitch: 1
+    pitch: 0.7
   - name: White_Ghost
     clips:
     - {fileID: 8300000, guid: 70db6bc100e9a6547aa75da8251a44b2, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.7
+    volume: 0.4
     initialVolume: 0
     pitch: 1
   - name: Portal
     clips:
     - {fileID: 8300000, guid: 7f6a3baf9c483b244a238fc9c3c93db4, type: 3}
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.4
+    initialVolume: 0
+    pitch: 1
+  - name: Bubble Dropping
+    clips: []
     source: {fileID: 0}
     loop: 0
     volume: 0.5
