@@ -847,7 +847,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8139beb71f423e94bb17907b75899234, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 1
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Hub_WhiteNoise
@@ -879,7 +879,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.3
+    volume: 0.4
     initialVolume: 0
     pitch: 0.9
   - name: Confirm_1
