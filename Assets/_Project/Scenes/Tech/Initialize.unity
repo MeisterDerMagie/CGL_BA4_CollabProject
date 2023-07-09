@@ -917,11 +917,13 @@ MonoBehaviour:
   - name: Bubble_Popping
     clips:
     - {fileID: 8300000, guid: ea6f751fe83cb414ba445fb4bc285451, type: 3}
+    - {fileID: 8300000, guid: 2635f15160a75204a80de6c128479c18, type: 3}
+    - {fileID: 8300000, guid: 7cdbc8ee95baa7244a6713992713e330, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.2
+    volume: 0.15
     initialVolume: 0
-    pitch: 0.7
+    pitch: 0.9
   - name: Scenario2_Environment
     clips:
     - {fileID: 8300000, guid: 06866d2ecbbd4eb4fbbddec66c63fb05, type: 3}
@@ -945,7 +947,7 @@ MonoBehaviour:
     loop: 1
     volume: 0.3
     initialVolume: 0
-    pitch: 0.8
+    pitch: 0.7
   - name: White_Ghost
     clips:
     - {fileID: 8300000, guid: 70db6bc100e9a6547aa75da8251a44b2, type: 3}
@@ -960,6 +962,13 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
     volume: 0.4
+    initialVolume: 0
+    pitch: 1
+  - name: Bubble Dropping
+    clips: []
+    source: {fileID: 0}
+    loop: 0
+    volume: 0.5
     initialVolume: 0
     pitch: 1
 --- !u!4 &2098099068
