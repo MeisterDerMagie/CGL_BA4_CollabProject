@@ -18,7 +18,7 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
     float spawnY;
     float minAngle, maxAngle, angle;
 
-    Vector3 axis;
+    Vector3 axis, camToScreen, respawnPos;
 
     BubbleValues.RotationAxis rotationAxis;
 
@@ -26,14 +26,22 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
 
     GazeAware gazeAware;
 
+    Camera cam;
+
     // Start is called before the first frame update
     void Start()
     {
+        //Reference to the camera
+        cam = Camera.main;
+
         //Getting all important values
         values = gameObject.GetComponentInParent<BubbleValues>();
         movementSpeed = Random.Range(values.minSpeed, values.maxSpeed);
         minAngle = values.minAngle;
         maxAngle = values.maxAngle;
+
+        //respawnPos = cam.ViewportToWorldPoint(new Vector3(transform.localPosition.x, 0, transform.localPosition.z));
+        Debug.Log("R: " + respawnPos.y);
 
         //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
@@ -78,7 +86,10 @@ public class BubbleBehavior_1_2 : MonoBehaviour, IBubble
         Debug.Log("Trigger");
         //Respawning
         if (other.tag == "Respawner")
-            transform.localPosition = new Vector3(transform.localPosition.x, spawnY, transform.localPosition.z);
+        {
+            camToScreen = cam.ViewportToWorldPoint(new Vector3(transform.localPosition.x, 1, transform.localPosition.z));
+            transform.localPosition = new Vector3(transform.localPosition.x, camToScreen.y - 2f, transform.localPosition.z);
+        }
     }
 
     public void Pop()
