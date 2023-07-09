@@ -967,11 +967,12 @@ MonoBehaviour:
     volume: 0.4
     initialVolume: 0
     pitch: 1
-  - name: Bubble Dropping
-    clips: []
+  - name: Bubble_Dropping
+    clips:
+    - {fileID: 8300000, guid: 0e2dbfa98790abe4090367e381fbc000, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.5
+    volume: 0.3
     initialVolume: 0
     pitch: 1
 --- !u!4 &2098099068
