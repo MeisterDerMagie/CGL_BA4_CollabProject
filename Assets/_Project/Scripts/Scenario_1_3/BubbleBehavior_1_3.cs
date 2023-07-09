@@ -20,6 +20,8 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
 
     GazeAware gazeAware;
 
+    private FirstPersonController firstPersonController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,9 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
 
         //Gaze Aware Component
         gazeAware = GetComponent<GazeAware>();
+
+        //First Person Controller
+        firstPersonController = FindObjectOfType<FirstPersonController>();
 
         //Get random angle amount for rotation (angle = speed)
         angle = Random.Range(minAngle, maxAngle);
@@ -72,6 +77,7 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
     public void Pop()
     {
         falling = true;
+        AudioManager.Singleton.Play("Bubble Dropping");
         Destroy(gameObject, 1.5f);
 
         //Last Round of Bubbles -> Player can pop all of them
@@ -80,6 +86,8 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
             if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
             return;
         }
+
+        firstPersonController.GetModule<PopBubbles>().SetEnabled(false);
 
         StartCoroutine(SetAllBubblesPopped(1.4f));
     }

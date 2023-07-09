@@ -40,20 +40,27 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
 
     private bool _allBubblesPopped, _allBubbleRoundsDone, _lastRoundReached;
 
+    //Modules
+    PopBubbles popBubbles;
+
     protected override IEnumerator<float> _SceneFlow()
     {
+        popBubbles = _firstPersonController.GetModule<PopBubbles>();
         InitializeScene();
 
         //Wait till all bubbles are done
         while (!_lastRoundReached)
         {
             yield return Timing.WaitUntilTrue(() => _allBubblesPopped);
-            Debug.Log("Yessir");
             _textManager.NextQuestion();
             _bubbleManager.NextRound();
             _allBubblesPopped = false;
+            popBubbles.SetEnabled(true);
         }
         Debug.Log("Forelast Round Done");
+
+        //Enable Pop Bubbles Module
+        popBubbles.SetEnabled(true);
 
         //Function to make player pop all bubbles
         _bubbleManager.AbleToPopAll();
