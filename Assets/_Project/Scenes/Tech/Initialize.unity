@@ -924,7 +924,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 2051e77ddaad2a64cb3b6a97908cd5de, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.1
+    volume: 0.09
     initialVolume: 0
     pitch: 1
   - name: Scenario2_Environment
@@ -972,7 +972,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0e2dbfa98790abe4090367e381fbc000, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.3
+    volume: 0.7
     initialVolume: 0
     pitch: 1
 --- !u!4 &2098099068
