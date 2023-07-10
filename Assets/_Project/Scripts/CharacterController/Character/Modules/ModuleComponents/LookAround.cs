@@ -97,8 +97,9 @@ public class LookAround : FirstPersonModule
                     Debug.Log("Rotating Player");
                     float rotationSign = Mathf.Sign(headRotation.y);
                     float rotationXSpeed = Mathf.Pow(Mathf.Abs(headRotation.y) * 10, rotationSpeedIncreaseFactor) * rotationSign * headRotationSpeed * Time.deltaTime;
-                    horizontalRotation += rotationXSpeed;
-                    transform.localRotation = Quaternion.Euler(0, horizontalRotation, 0);
+                    //horizontalRotation += rotationXSpeed;
+                    transform.eulerAngles += new Vector3(0, rotationXSpeed, 0); 
+                    //transform.localRotation = Quaternion.Euler(0, transform.eulerAngles.y + rotationXSpeed, 0);
                 }
 
                 if (Mathf.Abs(headRotation.x) > rotationXBoundary / 100 * 0.30f)
@@ -106,11 +107,47 @@ public class LookAround : FirstPersonModule
                     Debug.Log("Rotating Cam");
                     float rotationSign = Mathf.Sign(headRotation.x);
                     float rotationYSpeed = Mathf.Pow(Mathf.Abs(headRotation.x) * 10, rotationSpeedIncreaseFactor) * rotationSign * headRotationSpeed * Time.deltaTime;
-                    verticalRotation += rotationYSpeed;
-                    verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
-                    cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+                    //verticalRotation += rotationYSpeed;
+                    //verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
+                    //float verticalRotation = cam.transform.eulerAngles.x + rotationYSpeed;
+                    //Debug.Log(verticalRotation);
+                    //verticalRotation = Mathf.Clamp(verticalRotation, minVerticalRotation, maxVerticalRotation);
+                    //cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+                    cam.transform.eulerAngles += new Vector3(rotationYSpeed, 0, 0);
+
+                    ClampRotation(cam.transform.rotation, new Vector3(90, 0, 0));
+
+                    Debug.Log(cam.transform.eulerAngles.x);
+
+                    //if (cam.transform.eulerAngles.x < minVerticalRotation)
+                      //  cam.transform.eulerAngles = new Vector3(minVerticalRotation, 0, 0);
+
+                    //if (cam.transform.eulerAngles.x > maxVerticalRotation)
+                       // cam.transform.eulerAngles = new Vector3(maxVerticalRotation, 0, 0);
                 }
                 break;
         }
+    }
+
+    public static Quaternion ClampRotation(Quaternion q, Vector3 bounds)
+    {
+        q.x /= q.w;
+        q.y /= q.w;
+        q.z /= q.w;
+        q.w = 1.0f;
+
+        float angleX = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.x);
+        angleX = Mathf.Clamp(angleX, -bounds.x, bounds.x);
+        q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
+
+        float angleY = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.y);
+        angleY = Mathf.Clamp(angleY, -bounds.y, bounds.y);
+        q.y = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleY);
+
+        float angleZ = 2.0f * Mathf.Rad2Deg * Mathf.Atan(q.z);
+        angleZ = Mathf.Clamp(angleZ, -bounds.z, bounds.z);
+        q.z = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleZ);
+
+        return q.normalized;
     }
 }
