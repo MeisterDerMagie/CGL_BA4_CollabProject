@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadAdditively: 0
   unloadScenesBefore: 0
-  loadingScreen: {fileID: 51147263003131449, guid: 606350ed288280e4a8f96e318541c028,
+  loadingScreen: {fileID: 51147263003131449, guid: 2297950a16a9b984899c34fe7fb6f9fa,
     type: 3}
   additionalFakeLoadingTime: 0
   scenesToUnloadBefore: []

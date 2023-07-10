@@ -16,6 +16,9 @@ public class FirstPersonInputManager : MonoBehaviour
         Tobii //use only if you want to use Tobii even tough no Tobii is connected
     }
 
+    [SerializeField]
+    private InputTypes _initialInput = InputTypes.Player;
+    
     [SerializeField][HideInInspector]
     private FirstPersonController firstPersonController;
     
@@ -33,7 +36,7 @@ public class FirstPersonInputManager : MonoBehaviour
 
     private void Start()
     {
-        SetInputType(InputTypes.Player);
+        SetInputType(_initialInput);
         //if (TobiiAPI.GetHeadPose().IsValid)
             //backValue = TobiiAPI.GetHeadPose().Position.z + 0.025f;
     }

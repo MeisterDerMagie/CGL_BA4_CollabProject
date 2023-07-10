@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using MEC;
 using UnityEngine;
+using UnityEngine.Events;
 using Wichtel.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -15,6 +16,9 @@ public class LoadingScreen : LoadingScreenBase
 
     [SerializeField]
     private AudioListener audioListener;
+
+    [SerializeField]
+    private UnityEvent _onLoadingScreenHidden;
     
     public override IEnumerator<float> _ShowLoadingScreen()
     {
@@ -45,6 +49,8 @@ public class LoadingScreen : LoadingScreenBase
         
         var tween = loadingScreenCanvasGroup.DOFade(0f, 2.5f);
         yield return Timing.WaitUntilDone(tween.WaitForCompletion(true));
+        
+        _onLoadingScreenHidden.Invoke();
         
         Destroy(gameObject);
     }

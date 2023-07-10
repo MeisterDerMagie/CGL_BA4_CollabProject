@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9876cd3dad4ef63409f527a650b81e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _initialInput: 1
   firstPersonController: {fileID: 3148199522184918765}
   startValue: 10
   rotateToPop: 15
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnabled: 0
+  feedback: {fileID: 0}
 --- !u!143 &6832969972838724910
 CharacterController:
   m_ObjectHideFlags: 0
