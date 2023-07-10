@@ -19,7 +19,7 @@ public class SceneFlow_Scenario_2 : SceneFlow
         AudioManager.Singleton.Play("Trapped_1");
 
         yield return Timing.WaitUntilTrue(() => _playerReachedOutside);
-        AudioManager.Singleton.Play("Or stuck in your view again");
+        AudioManager.Singleton.Play("Stuck in View");
     }
 
     public void SetPlayerReachedOutside() => _playerReachedOutside = true;

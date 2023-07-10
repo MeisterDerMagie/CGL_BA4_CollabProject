@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3092269098747022451}
   - component: {fileID: 5001273889485792669}
   - component: {fileID: 7167115963992242851}
+  - component: {fileID: 214293288355447391}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -55,14 +56,14 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8597649862500356}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b709b1b59104bf049a4d68a0c8202dec, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -144,6 +145,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &214293288355447391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8597649862500356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04681bbad308cff4b876c66cb20e0416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &253132032205563450
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,10 +528,10 @@ MonoBehaviour:
   onBeginFocus:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7167115963992242851}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 214293288355447391}
+        m_TargetAssemblyTypeName: Fade, Assembly-CSharp
+        m_MethodName: FadeIn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -530,10 +543,10 @@ MonoBehaviour:
   onEndFocus:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7167115963992242851}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 214293288355447391}
+        m_TargetAssemblyTypeName: Fade, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
