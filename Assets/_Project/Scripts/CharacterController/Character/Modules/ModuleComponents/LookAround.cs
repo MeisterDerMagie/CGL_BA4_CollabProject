@@ -117,8 +117,6 @@ public class LookAround : FirstPersonModule
 
                     cam.transform.localRotation = ClampRotation(cam.transform.localRotation, new Vector3(90, 0, 0));
 
-                    Debug.Log(cam.transform.eulerAngles.x);
-
                     //if (cam.transform.eulerAngles.x < minVerticalRotation)
                       //  cam.transform.eulerAngles = new Vector3(minVerticalRotation, 0, 0);
 
