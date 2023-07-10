@@ -1100,7 +1100,7 @@ MonoBehaviour:
     volume: 0.9
     initialVolume: 0
     pitch: 1
-  - name: Trapped
+  - name: Trapped_1
     clips:
     - {fileID: 8300000, guid: da0df81d418f3a24e87003385d572344, type: 3}
     source: {fileID: 0}
