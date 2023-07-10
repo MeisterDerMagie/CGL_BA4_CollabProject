@@ -1465,7 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 1413021515}
   table: {fileID: 366943256}
-  shakingTime: 2.5
+  shakingTime: 0.6
   nextScene: {fileID: 11400000, guid: 9dc2e1b1b1ea131499a98f72c156e00f, type: 2}
 --- !u!1 &507510742
 GameObject:
