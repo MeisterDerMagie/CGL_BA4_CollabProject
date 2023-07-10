@@ -1,6 +1,7 @@
 ﻿//(c) copyright by Martin M. Klöckener
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -40,6 +41,8 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
 
     private bool _allBubblesPopped, _allBubbleRoundsDone, _lastRoundReached;
 
+    private Quaternion _initialRotationCharacter, _initialRotationCamera;
+
     //Modules
     PopBubbles popBubbles;
 
@@ -56,6 +59,7 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
             _bubbleManager.NextRound();
             _allBubblesPopped = false;
             popBubbles.SetEnabled(true);
+            yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LookAtQuestion()));
         }
         Debug.Log("Forelast Round Done");
 
@@ -100,6 +104,22 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     {
         //do stuff here that needs to be set up at the beginning of the scene
         //Everything happens in other scrips (Text and bubble set up)
+        _initialRotationCharacter = _firstPersonController.transform.rotation;
+        _initialRotationCamera = Camera.main.transform.rotation;
+    }
+
+    private IEnumerator<float> _LookAtQuestion()
+    {
+        float animationDuration = 2f;
+        //disable player input
+        _firstPersonController.GetComponent<FirstPersonInputManager>().SetInputType_NoInput();
+        
+        //rotate the player towards the question
+        Camera.main.transform.DOLocalRotateQuaternion(_initialRotationCamera, animationDuration).SetEase(Ease.InOutQuart);
+        yield return Timing.WaitUntilDone(_firstPersonController.transform.DOLocalRotateQuaternion(_initialRotationCharacter, animationDuration).SetEase(Ease.InOutQuart).WaitForCompletion(true));
+        
+        //enable player input
+        _firstPersonController.GetComponent<FirstPersonInputManager>().SetInputType_Player();
     }
 
     [Button][DisableInEditorMode]
