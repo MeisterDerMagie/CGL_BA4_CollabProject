@@ -53599,6 +53599,7 @@ MonoBehaviour:
   _scenarios:
   - {fileID: 11400000, guid: fb8b82d6339379547b9dd6237c613a4a, type: 2}
   - {fileID: 11400000, guid: 3acb23939c0d98d489031e9c23ed6695, type: 2}
+  - {fileID: 11400000, guid: 81f42ee3c4396e54d83b1f687be0a037, type: 2}
 --- !u!4 &2116275053
 Transform:
   m_ObjectHideFlags: 0

@@ -28,6 +28,9 @@ public class SceneFlow_Hub : SceneFlow
     [ReadOnly][BoxGroup("Runtime variables")]
     private bool _loadNextScenario = false;
 
+    [SerializeField]
+    private float _secondsBeforeEndScene = 12f;
+
     //Modules
     private LookAround _lookAroundModule;
     private LockViewOnTarget _lockViewOnTargetModule;
@@ -53,6 +56,13 @@ public class SceneFlow_Hub : SceneFlow
         
         //show stars
         _stars.Show();
+
+        //End the game if the next scene to load would be the last scene
+        if (GameData.Singleton.nextScenarioIndex == _scenarios.Length - 1)
+        {
+            yield return Timing.WaitForSeconds(_secondsBeforeEndScene);
+            _scenarios[GameData.Singleton.nextScenarioIndex].Load();
+        }
 
         //wait until the player interacted with one of the stars, meaning they activated a symbol
         yield return Timing.WaitUntilFalse(() => _activatedSymbol == null);
