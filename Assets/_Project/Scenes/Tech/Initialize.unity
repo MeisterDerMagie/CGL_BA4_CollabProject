@@ -999,7 +999,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.1 Humans often
+  - name: Humans often
     clips:
     - {fileID: 8300000, guid: 8c24e57f92c25104297ff8d37df92da3, type: 3}
     source: {fileID: 0}
@@ -1007,7 +1007,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3Hello
+  - name: Hello
     clips:
     - {fileID: 8300000, guid: 4ff6c87bdc2fa5244a77d1d6645a8270, type: 3}
     source: {fileID: 0}
@@ -1015,7 +1015,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3Is there a soul
+  - name: Is there a soul
     clips:
     - {fileID: 8300000, guid: ae031dce0f6839042a28fde69e7108a1, type: 3}
     source: {fileID: 0}
@@ -1023,7 +1023,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3Where were you
+  - name: Where were you
     clips:
     - {fileID: 8300000, guid: 70fa2786faded2c4b9a64503b81741fd, type: 3}
     source: {fileID: 0}
@@ -1031,7 +1031,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3How...
+  - name: How...
     clips:
     - {fileID: 8300000, guid: 6cbd1b44267cac14eb1a37273066f13d, type: 3}
     source: {fileID: 0}
@@ -1039,7 +1039,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3What do you think
+  - name: What do you think
     clips:
     - {fileID: 8300000, guid: cd4fb7fef488d7c4f9b28a6882bea6b9, type: 3}
     source: {fileID: 0}
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     volume: 1
     initialVolume: 0
     pitch: 1
-  - name: 1.3Last Question
+  - name: Last Question
     clips:
     - {fileID: 8300000, guid: 5954661809fff84409327ea189b9d438, type: 3}
     source: {fileID: 0}

@@ -2012,6 +2012,13 @@ MonoBehaviour:
   _lastBubble: {fileID: 6238414846433097432}
   _riseDuration: 3
   _waitForLastBubble: 3
+  _sounds:
+  - Is there a soul
+  - Hello
+  - What do you think
+  - Where were you
+  - How...
+  - Last Question
 --- !u!1 &717846890
 GameObject:
   m_ObjectHideFlags: 0

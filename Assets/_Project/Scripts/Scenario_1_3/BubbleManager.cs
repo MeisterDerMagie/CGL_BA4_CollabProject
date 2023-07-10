@@ -33,6 +33,7 @@ public class BubbleManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").transform;
         SpawnBubbles(bubbleRound);
+        AudioManager.Singleton.Play("Is there a soul");
     }
 
     // Update is called once per frame

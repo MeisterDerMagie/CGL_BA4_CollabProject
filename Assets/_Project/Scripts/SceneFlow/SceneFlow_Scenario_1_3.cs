@@ -32,6 +32,9 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     [SerializeField][BoxGroup("Settings")]
     private float _waitForLastBubble = 3f;
 
+    [SerializeField][BoxGroup("Settings")]
+    private string[] _sounds;
+
     //Game flow variables
     [ReadOnly][BoxGroup("Runtime variables")][ShowInInspector]
     private int _totalPoppedBubbles = 0;
@@ -40,6 +43,8 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
     private bool _poppedFinalBubble = false;
 
     private bool _allBubblesPopped, _allBubbleRoundsDone, _lastRoundReached;
+
+    private int question = 1;
 
     private Quaternion _initialRotationCharacter, _initialRotationCamera;
 
@@ -60,6 +65,8 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
             _allBubblesPopped = false;
             popBubbles.SetEnabled(true);
             yield return Timing.WaitUntilDone(Timing.RunCoroutine(_LookAtQuestion()));
+            AudioManager.Singleton.Play(_sounds[question]);
+            question++;
         }
         Debug.Log("Forelast Round Done");
 

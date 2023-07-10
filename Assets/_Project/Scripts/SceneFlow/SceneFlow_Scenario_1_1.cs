@@ -15,9 +15,15 @@ public class SceneFlow_Scenario_1_1 : SceneFlow
     [ReadOnly][BoxGroup("Runtime variables")]
     private bool _paintingHasBeenActivated = false;
 
+    [SerializeField]
+    private float _waitBeforeVoice = 3f;
+
     protected override IEnumerator<float> _SceneFlow()
     {
         InitializeScene();
+
+        yield return Timing.WaitForSeconds(_waitBeforeVoice);
+        AudioManager.Singleton.Play("Humans often");
 
         yield return Timing.WaitUntilTrue(() => _paintingHasBeenActivated);
         

@@ -28,8 +28,11 @@ public class SceneFlow_Hub : SceneFlow
     [ReadOnly][BoxGroup("Runtime variables")]
     private bool _loadNextScenario = false;
 
-    [SerializeField]
+    [SerializeField][BoxGroup("Settings")]
     private float _secondsBeforeEndScene = 12f;
+
+    [SerializeField][BoxGroup("Settings")]
+    private float _waitBeforeVoice = 3f;
 
     //Modules
     private LookAround _lookAroundModule;
@@ -43,6 +46,18 @@ public class SceneFlow_Hub : SceneFlow
         
         //initialize the scene to restore all previously activated stars and bridges
         InitializeScene();
+
+        //Play sound when the player is in the hub for the first or third time
+        if (GameData.Singleton.nextScenarioIndex == 0)
+        {
+            yield return Timing.WaitForSeconds(_waitBeforeVoice);
+            AudioManager.Singleton.Play("Qual lingua humana");
+        }
+        else if (GameData.Singleton.nextScenarioIndex == 2)
+        {
+            yield return Timing.WaitForSeconds(_waitBeforeVoice);
+            AudioManager.Singleton.Play("The mind wants to rest and leave 2_1");
+        }
 
         //wait until the player looked at the iris
         yield return Timing.WaitUntilTrue(() => _playerInteractedWithIris);
@@ -61,12 +76,17 @@ public class SceneFlow_Hub : SceneFlow
         if (GameData.Singleton.nextScenarioIndex == _scenarios.Length - 1)
         {
             yield return Timing.WaitForSeconds(_secondsBeforeEndScene);
+            AudioManager.Singleton.Play("Look around 2_1");
             _scenarios[GameData.Singleton.nextScenarioIndex].Load();
         }
 
         //wait until the player interacted with one of the stars, meaning they activated a symbol
         yield return Timing.WaitUntilFalse(() => _activatedSymbol == null);
-        
+
+        //Play sound when activating a star for the first time
+        if (GameData.Singleton.nextScenarioIndex == 0)
+            AudioManager.Singleton.Play("The little soul");
+
         //disable all other stars
         _stars.DisableInteractionOnAllStars();
         _stars.HideAllStarsExceptOne(_activatedSymbol);
