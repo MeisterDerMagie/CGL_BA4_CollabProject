@@ -61,6 +61,7 @@ public class SceneFlow_Scenario_1_3 : SceneFlow
 
         //Enable Pop Bubbles Module
         popBubbles.SetEnabled(true);
+        _allBubblesPopped = false;
 
         //Function to make player pop all bubbles
         _bubbleManager.AbleToPopAll();
