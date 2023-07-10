@@ -916,7 +916,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 22718192cf615404b87f1b248565f76f, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.4
+    volume: 0.5
     initialVolume: 0
     pitch: 0.6
   - name: Select_Sound2
@@ -924,7 +924,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: f61b62b8a7b57b34cbc1715a886a6c28, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.4
+    volume: 0.5
     initialVolume: 0
     pitch: 0.9
   - name: Confirm_1
@@ -932,7 +932,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: fb34c379c9c5cf14ab67edcb8b00c084, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.3
+    volume: 0.5
     initialVolume: 0
     pitch: 0.6
   - name: Transition_1
