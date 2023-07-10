@@ -115,7 +115,7 @@ public class LookAround : FirstPersonModule
                     //cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
                     cam.transform.eulerAngles += new Vector3(rotationYSpeed, 0, 0);
 
-                    cam.transform.rotation = ClampRotation(cam.transform.rotation, new Vector3(90, 0, 0));
+                    cam.transform.localRotation = ClampRotation(cam.transform.localRotation, new Vector3(90, 0, 0));
 
                     Debug.Log(cam.transform.eulerAngles.x);
 
