@@ -1017,7 +1017,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 0e2dbfa98790abe4090367e381fbc000, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.6
+    volume: 0.7
     initialVolume: 0
     pitch: 1
   - name: Audio 1_1
