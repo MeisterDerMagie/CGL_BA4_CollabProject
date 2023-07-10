@@ -1025,7 +1025,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 42a97d8b2533ab34a9d5f24335f4f17f, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Qual lingua humana
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 51d0f03508e08344abb2a7123f30c9ab, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: The little soul
@@ -1041,7 +1041,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: e83b14f5b7549754faf1da17fc381616, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Humans often
@@ -1049,7 +1049,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 8c24e57f92c25104297ff8d37df92da3, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Hello
@@ -1105,7 +1105,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: da0df81d418f3a24e87003385d572344, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Stuck in View
@@ -1113,7 +1113,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: cdfd77cf830673446b060fa46a74fa54, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: The mind wants
@@ -1121,7 +1121,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 6eb20fa71325a9a42811837eb789ad83, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
   - name: Look around
@@ -1129,7 +1129,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ec666fc27b8dec64d8e556ca84b1f7ec, type: 3}
     source: {fileID: 0}
     loop: 0
-    volume: 0.9
+    volume: 0.8
     initialVolume: 0
     pitch: 1
 --- !u!4 &2098099068
