@@ -29,7 +29,7 @@ public class SceneFlow_Hub : SceneFlow
     private bool _loadNextScenario = false;
 
     [SerializeField][BoxGroup("Settings")]
-    private float _secondsBeforeEndScene = 12f;
+    private float _secondsBeforeEndScene = 20f;
 
     [SerializeField][BoxGroup("Settings")]
     private float _waitBeforeVoice = 3f;
@@ -56,7 +56,7 @@ public class SceneFlow_Hub : SceneFlow
         else if (GameData.Singleton.nextScenarioIndex == 2)
         {
             yield return Timing.WaitForSeconds(_waitBeforeVoice);
-            AudioManager.Singleton.Play("The mind wants to rest and leave 2_1");
+            AudioManager.Singleton.Play("The mind wants");
         }
 
         //wait until the player looked at the iris
@@ -76,7 +76,7 @@ public class SceneFlow_Hub : SceneFlow
         if (GameData.Singleton.nextScenarioIndex == _scenarios.Length - 1)
         {
             yield return Timing.WaitForSeconds(_secondsBeforeEndScene);
-            AudioManager.Singleton.Play("Look around 2_1");
+            AudioManager.Singleton.Play("Look around");
             _scenarios[GameData.Singleton.nextScenarioIndex].Load();
         }
 
