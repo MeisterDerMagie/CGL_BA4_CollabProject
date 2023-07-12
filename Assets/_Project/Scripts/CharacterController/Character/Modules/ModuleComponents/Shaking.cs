@@ -37,24 +37,34 @@ public class Shaking : FirstPersonModule
             //Making the image gradually darker (less transparent)
             feedback.FadeIn(shakingTime);
 
-            //Reset stopped couter
+            //Reset Counter
             stopped = 0;
         }
         else
         {
-            //Reset timer if player stopped shaking for 4 frames
-            if (stopped == 4)
-            {
-                shakingTime = 0;
-                stopped = 0;
-
-                //Setting transparency of image back to 0
-                feedback.FadeOut();
-            }
-            //Add to counter
-            else stopped++;
+            StartCoroutine(CheckShaking());
         }
         //Update lates rotation value
         latestAddedValue = addedValue;
+    }
+
+    IEnumerator CheckShaking()
+    {
+        yield return new WaitForSeconds(0.01f);
+        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
+        {
+            shakingTime += Time.deltaTime;
+            feedback.FadeIn(shakingTime);
+            yield break;
+        }
+        else
+        {
+            stopped++;
+            if (stopped == 4)
+            {
+                shakingTime = 0;
+                feedback.FadeOut();
+            }
+        }
     }
 }
