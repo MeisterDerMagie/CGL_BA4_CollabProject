@@ -29,7 +29,7 @@ public class Shaking : FirstPersonModule
 
         //Check if the rotation changed compared to the last frame
         addedValue = rotation.x + rotation.y + rotation.z;
-        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
+        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.2f)
         {
             //Add time to timer
             shakingTime += Time.deltaTime;
@@ -51,7 +51,7 @@ public class Shaking : FirstPersonModule
     IEnumerator CheckShaking()
     {
         yield return new WaitForSeconds(0.01f);
-        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.9f)
+        if (Mathf.Abs(latestAddedValue - addedValue) * 10 >= 0.2f)
         {
             shakingTime += Time.deltaTime;
             feedback.FadeIn(shakingTime);

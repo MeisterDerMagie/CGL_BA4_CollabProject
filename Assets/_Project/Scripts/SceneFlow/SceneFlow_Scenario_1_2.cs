@@ -36,7 +36,7 @@ public class SceneFlow_Scenario_1_2 : SceneFlow
         shaking = firstPersonController.GetModule<Shaking>();
 
         //wait until the player popped all bubbles
-        yield return Timing.WaitUntilTrue(() => allBubblesPopped);
+        yield return Timing.WaitUntilTrue(() => allBubblesPopped || Input.GetKeyDown(KeyCode.Escape));
         Debug.Log("All Bubbles Popped");
 
         //activate table
