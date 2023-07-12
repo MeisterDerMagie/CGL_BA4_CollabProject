@@ -15,7 +15,7 @@ public class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        Debug.Log("ENter");
+        Debug.Log("Enter Portal");
         _onEnterPortal.Invoke();
     }
 
