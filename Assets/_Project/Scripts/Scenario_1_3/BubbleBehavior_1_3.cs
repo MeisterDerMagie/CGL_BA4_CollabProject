@@ -84,6 +84,7 @@ public class BubbleBehavior_1_3 : MonoBehaviour, IBubble
         if (popAll == true)
         {
             if (values.CheckForBubbles()) FindObjectOfType<SceneFlow_Scenario_1_3>().SetAllBubblesPopped();
+            transform.parent = null;
             return;
         }
 
